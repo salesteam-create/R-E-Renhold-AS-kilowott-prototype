@@ -136,10 +136,8 @@ header.solid .burger{color:var(--ink)}
 .qgrid{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:clamp(32px,6vw,88px);align-items:start}
 .quote .eyebrow{color:var(--mint)}
 .quote .lead{color:rgba(255,255,255,.75);margin-top:18px;font-size:18px;max-width:420px}
-.clist{display:grid;gap:16px;margin-top:40px}
-.clist a,.clist div{display:flex;gap:14px;align-items:center;text-decoration:none;color:rgba(255,255,255,.88)}
-.clist .ic{width:44px;height:44px;border-radius:14px;background:rgba(255,255,255,.08);display:grid;place-items:center;color:var(--mint);flex:none}
-.promise{display:inline-flex;gap:10px;align-items:center;margin-top:36px;background:rgba(139,232,193,.12);color:var(--mint);border-radius:999px;padding:10px 18px;font-weight:600;font-size:15px}
+.alt{margin-top:36px;color:rgba(255,255,255,.75)}
+.alt a{color:var(--mint);font-weight:600;text-decoration:none;white-space:nowrap}
 .form{background:#fff;color:var(--ink);border-radius:28px;padding:clamp(24px,3.4vw,44px)}
 .prog{display:flex;gap:8px;margin-bottom:26px}
 .prog i{flex:1;height:5px;border-radius:3px;background:var(--line);transition:background .3s}
@@ -245,6 +243,8 @@ footer a:hover{color:var(--mint)}
 .opts,.fg{grid-template-columns:minmax(0,1fr)}
 .mbar{display:grid;grid-template-columns:1fr 1.5fr;gap:10px;position:fixed;left:0;right:0;bottom:0;z-index:60;background:#fff;border-top:1px solid var(--line);padding:10px max(16px,env(safe-area-inset-right,0px)) calc(10px + env(safe-area-inset-bottom,0px)) max(16px,env(safe-area-inset-left,0px))}
 .mbar .btn{padding:14px 10px}
+.mbar{transform:translateY(110%);transition:transform .3s}
+.mbar.show{transform:none}
 body{padding-bottom:78px}
 .chat-btn{bottom:calc(90px + env(safe-area-inset-bottom,0px));width:56px;height:56px}
 .chat{bottom:calc(156px + env(safe-area-inset-bottom,0px));height:min(520px,calc(100svh - 200px))}
@@ -304,9 +304,9 @@ body{padding-bottom:78px}
   </div>
   <div class="trust pad">
     <div class="wrap">
-      <div><b>2016</b><span data-t="t1"></span></div>
-      <div><b>25</b><span data-t="t2"></span></div>
-      <div><b><svg class="i" style="width:26px;height:26px"><use href="#i-shield"/></svg></b><span data-t="t3"></span></div>
+      <div><b><svg class="i" style="width:26px;height:26px"><use href="#i-check"/></svg></b><span data-t="t1"></span></div>
+      <div><b><svg class="i" style="width:26px;height:26px"><use href="#i-cal"/></svg></b><span data-t="t2"></span></div>
+      <div><b><svg class="i" style="width:26px;height:26px"><use href="#i-clock"/></svg></b><span data-t="t3"></span></div>
     </div>
   </div>
 </section>
@@ -315,7 +315,6 @@ body{padding-bottom:78px}
   <div class="wrap">
     <div class="shead">
       <div><p class="eyebrow" data-t="svcEy"></p><h2 data-t="svcH"></h2></div>
-      <a class="btn btn-line" href="#kontakt" data-t="quote"></a>
     </div>
     <div class="cards">
       <button class="svc" data-service="Bedriftsrenhold"><img src="img/bedriftsrenhold.webp" alt="" loading="lazy"><div class="txt"><div><h3 data-t="s1"></h3><p data-t="s1d"></p></div><span class="go"><svg class="i"><use href="#i-arrow"/></svg></span></div></button>
@@ -366,12 +365,7 @@ body{padding-bottom:78px}
       <p class="eyebrow" data-t="qEy"></p>
       <h2 data-t="qH"></h2>
       <p class="lead" data-t="qLead"></p>
-      <p class="promise"><svg class="i"><use href="#i-clock"/></svg><span data-t="promise"></span></p>
-      <div class="clist">
-        <a href="tel:45402012"><span class="ic"><svg class="i"><use href="#i-phone"/></svg></span>454 02 012</a>
-        <a href="mailto:post@rentogeffektivt.no"><span class="ic"><svg class="i"><use href="#i-mail"/></svg></span>post@rentogeffektivt.no</a>
-        <div><span class="ic"><svg class="i"><use href="#i-pin"/></svg></span>Stølsmyr 16, 5542 Karmsund</div>
-      </div>
+      <p class="alt"><span data-t="callLine"></span> <a href="tel:45402012">454 02 012</a></p>
     </div>
     <form class="form" id="qform" novalidate>
       <div class="prog" aria-hidden="true"><i class="on"></i><i></i><i></i></div>
@@ -456,19 +450,19 @@ body{padding-bottom:78px}
 {
 const T={
 no:{nav1:"Tjenester",nav2:"Om oss",nav3:"Omtaler",nav4:"Kontakt",quote:"Få pristilbud",quoteFree:"Få gratis pristilbud",heroAlt:"Renholder vasker gulvet ved inngangen til et moderne kontorbygg",
-h1a:"Renhold for bedrifter.",h1b:"Gjort skikkelig.",sub:"Kontor, spesialrenhold og gulv på Haugalandet.",t1:"etablert i Karmsund",t2:"faste medarbeidere",t3:"Godkjent av Arbeidstilsynet",
+h1a:"Renhold for bedrifter.",h1b:"Gjort skikkelig.",sub:"Kontor, spesialrenhold og gulv på Haugalandet.",t1:"Gratis befaring",t2:"Fast pris per måned",t3:"Svar innen én arbeidsdag",
 svcEy:"Tjenester",svcH:"Det vi gjør best",s1:"Bedriftsrenhold",s1d:"Kontorer og fellesarealer",s2:"Spesialrenhold",s2d:"Dypvask og engangsoppdrag",s3:"Boning av gulv",s3d:"Oppskuring og ny bone",
 years:"År med renhold",years2:"På Haugalandet siden 2016",staff:"25 faste medarbeidere",abEy:"Om oss",abH:"Lokalt, grundig og enkelt å samarbeide med",p1:"Fast team",p1d:"Folk som kjenner bygget deres.",p2:"Fleksible avtaler",p2d:"Dere velger hvor ofte.",p3:"Godkjent og trygg",p3d:"Ordnede forhold for alle ansatte.",
 sample:"Eksempel",jobs:"Vi ansetter renholdere på Haugalandet",jobsL:"Jobb hos oss",
-qEy:"Pristilbud",qH:"Få pris på under ett minutt",qLead:"Tre korte steg. Gratis og uforpliktende.",promise:"Svar innen én arbeidsdag",
+qEy:"Pristilbud",qH:"Få pris på under ett minutt",qLead:"Tre korte steg, så sender vi et forslag.",callLine:"Vil du heller ringe?",promise:"Svar innen én arbeidsdag",
 st1:"Steg 1 av 3",st2:"Steg 2 av 3",st3:"Steg 3 av 3",f1:"Hva trenger dere?",f2:"Om lokalene",f3:"Hvem kan vi kontakte?",
 lb1:"Type bygg",lb2:"Sted",lb3:"Størrelse",lb4:"Hvor ofte?",lb5:"Bedrift",lb6:"Navn",lb7:"Telefon",lb8:"E-post",lb9:"Kommentar (valgfritt)",
 b1:"Kontor",b2:"Butikk",b3:"Lager eller industri",b4:"Helse og omsorg",b5:"Annet",q1:"Daglig",q2:"Ukentlig",q3:"Annenhver uke",q4:"Engangsoppdrag",
 next:"Neste",send:"Send forespørsel",back:"Tilbake",err:"Fyll inn bedrift, navn, telefon og en gyldig e-post.",doneH:"Takk, vi har fått forespørselen",doneP:"Vi tar kontakt innen én arbeidsdag. Prototype: ingenting sendes.",again:"Ny forespørsel",
 sumS:"Tjeneste",sumB:"Bygg",sumZ:"Størrelse",sumF:"Hvor ofte",sumC:"Kontakt",
-foot:"Renhold for bedrifter siden 2016.",hours:"Man til fre 08:00 til 16:00",proto:"Prototype laget av Kilowott",call:"Ring",
+foot:"Rent og effektivt.",hours:"Man til fre 08:00 til 16:00",proto:"Prototype laget av Kilowott",call:"Ring",
 chatOpen:"Åpne chat",close:"Lukk",botName:"Renholdsassistenten",botSub:"Svarer med en gang",chatPh:"Skriv et spørsmål …",
-r:[["Kontoret er alltid klart når vi kommer om morgenen. Fast team som kjenner bygget.","Daglig leder, kontorbedrift i Haugesund"],["Gulvene i butikken ser ut som nye etter boningen.","Butikksjef, Karmøy"],["Rask respons, tydelig pris og enkelt å endre avtalen.","Styreleder, borettslag i Tysvær"]],
+r:[["Grundig hver gang. Kontoret er klart når vi kommer om morgenen.","Daglig leder, kontorbedrift i Haugesund"],["Gulvene i butikken ser ut som nye etter boningen.","Butikksjef, Karmøy"],["Rask respons, tydelig pris og enkelt å endre avtalen.","Styreleder, borettslag i Tysvær"]],
 bot:{hi:"Hei! Jeg kan svare på spørsmål om renhold, priser og områder. Hva lurer du på?",
 chips:{price:"Hva koster det?",svc:"Tjenester",area:"Områder",call:"Bli ringt opp",human:"Snakk med oss"},
 price:"Prisen avhenger av størrelse og hvor ofte dere vil ha renhold. De fleste får en fast månedspris etter en gratis befaring.",
@@ -479,19 +473,19 @@ thanks:"Supert! Vi ringer deg på {p} innen én arbeidsdag.\n(Prototype: ingenti
 human:"Ring oss på 454 02 012 (man til fre 08 til 16) eller send e-post til post@rentogeffektivt.no.",
 unknown:"Det er jeg ikke sikker på. Velg et tema under, eller be om å bli ringt opp.",more:"Noe annet jeg kan hjelpe med?"}},
 en:{nav1:"Services",nav2:"About",nav3:"Reviews",nav4:"Contact",quote:"Get a quote",quoteFree:"Get a free quote",heroAlt:"Cleaner mopping the entrance of a modern office building",
-h1a:"Commercial cleaning.",h1b:"Done properly.",sub:"Offices, specialist cleaning and floor care in Haugalandet.",t1:"founded in Karmsund",t2:"permanent staff",t3:"Approved by the Labour Inspectorate",
+h1a:"Commercial cleaning.",h1b:"Done properly.",sub:"Offices, specialist cleaning and floor care in Haugalandet.",t1:"Free site visit",t2:"Fixed monthly price",t3:"Reply within one working day",
 svcEy:"Services",svcH:"What we do best",s1:"Office cleaning",s1d:"Offices and shared areas",s2:"Specialist cleaning",s2d:"Deep cleans and one-off jobs",s3:"Floor care",s3d:"Stripping and polishing",
 years:"Years of cleaning",years2:"In Haugalandet since 2016",staff:"25 permanent staff",abEy:"About us",abH:"Local, thorough and easy to work with",p1:"A fixed team",p1d:"People who know your building.",p2:"Flexible agreements",p2d:"You choose how often.",p3:"Approved and reliable",p3d:"Fair terms for every employee.",
 sample:"Sample",jobs:"We are hiring cleaners in Haugalandet",jobsL:"Work with us",
-qEy:"Get a quote",qH:"Get a price in under a minute",qLead:"Three short steps. Free, with no obligation.",promise:"Reply within one working day",
+qEy:"Get a quote",qH:"Get a price in under a minute",qLead:"Three short steps and we send you a proposal.",callLine:"Prefer to call?",promise:"Reply within one working day",
 st1:"Step 1 of 3",st2:"Step 2 of 3",st3:"Step 3 of 3",f1:"What do you need?",f2:"About your premises",f3:"Who should we contact?",
 lb1:"Type of building",lb2:"Location",lb3:"Size",lb4:"How often?",lb5:"Company",lb6:"Name",lb7:"Phone",lb8:"Email",lb9:"Comment (optional)",
 b1:"Office",b2:"Shop",b3:"Warehouse or industrial",b4:"Health and care",b5:"Other",q1:"Daily",q2:"Weekly",q3:"Every other week",q4:"One-off",
 next:"Next",send:"Send request",back:"Back",err:"Please fill in company, name, phone and a valid email.",doneH:"Thank you, we have your request",doneP:"We will be in touch within one working day. Prototype: nothing is sent.",again:"New request",
 sumS:"Service",sumB:"Building",sumZ:"Size",sumF:"How often",sumC:"Contact",
-foot:"Commercial cleaning since 2016.",hours:"Mon to Fri 08:00 to 16:00",proto:"Prototype by Kilowott",call:"Call",
+foot:"Clean and efficient.",hours:"Mon to Fri 08:00 to 16:00",proto:"Prototype by Kilowott",call:"Call",
 chatOpen:"Open chat",close:"Close",botName:"Cleaning assistant",botSub:"Replies instantly",chatPh:"Type a question …",
-r:[["The office is always ready when we arrive in the morning. A fixed team that knows the building.","Managing director, office company in Haugesund"],["The shop floors look brand new after polishing.","Store manager, Karmøy"],["Quick response, a clear price and easy to adjust the agreement.","Board chair, housing association in Tysvær"]],
+r:[["Thorough every time. The office is ready when we arrive in the morning.","Managing director, office company in Haugesund"],["The shop floors look brand new after polishing.","Store manager, Karmøy"],["Quick response, a clear price and easy to adjust the agreement.","Board chair, housing association in Tysvær"]],
 bot:{hi:"Hi! I can answer questions about cleaning, prices and areas. What would you like to know?",
 chips:{price:"What does it cost?",svc:"Services",area:"Areas",call:"Request a call",human:"Talk to us"},
 price:"The price depends on size and how often you want cleaning. Most customers get a fixed monthly price after a free site visit.",
@@ -525,7 +519,7 @@ function apply(){
 $$('.lang button').forEach(b=>b.onclick=()=>{lang=b.dataset.lang;try{localStorage.setItem('re-lang',lang)}catch(e){}apply()});
 
 /* Header */
-const hdr=$('#hdr');const onScroll=()=>hdr.classList.toggle('solid',scrollY>40||$('#menu').classList.contains('open'));
+const hdr=$('#hdr'),mbar=$('.mbar'),hero=$('.hero');const onScroll=()=>{hdr.classList.toggle('solid',scrollY>40||$('#menu').classList.contains('open'));mbar.classList.toggle('show',scrollY>hero.offsetHeight-200)};
 addEventListener('scroll',onScroll,{passive:true});
 $('#burger').onclick=()=>{const o=$('#menu').classList.toggle('open');$('#burger').setAttribute('aria-expanded',o);onScroll()};
 $$('#menu a').forEach(a=>a.onclick=()=>{$('#menu').classList.remove('open');$('#burger').setAttribute('aria-expanded','false');onScroll()});

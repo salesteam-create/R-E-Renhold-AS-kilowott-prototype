@@ -91,7 +91,7 @@ header.solid .burger{color:var(--ink)}
 .about{background:var(--lilac)}
 .split{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(36px,6vw,96px);align-items:center}
 .ph{position:relative}
-.ph img{width:100%;aspect-ratio:4/5;object-fit:cover;object-position:36% 40%;border-radius:28px}
+.ph img{width:100%;aspect-ratio:4/5;object-fit:cover;object-position:36% 40%;-webkit-mask-image:linear-gradient(to right,transparent 0%,#000 18%,#000 72%,transparent 100%),linear-gradient(to bottom,transparent 0%,#000 16%,#000 76%,transparent 100%);-webkit-mask-composite:source-in;mask-image:linear-gradient(to right,transparent 0%,#000 18%,#000 72%,transparent 100%),linear-gradient(to bottom,transparent 0%,#000 16%,#000 76%,transparent 100%);mask-composite:intersect}
 .since{position:absolute;left:-32px;bottom:44px;background:#fff;border-radius:24px;padding:16px 26px 16px 16px;display:flex;gap:18px;align-items:center;box-shadow:0 24px 50px rgba(36,19,47,.18);animation:float 6s ease-in-out infinite}
 .since .ring{width:84px;height:84px;border-radius:50%;background:conic-gradient(var(--mint) 0 100%);display:grid;place-items:center;position:relative;flex:none}
 .since .ring::before{content:"";position:absolute;inset:6px;border-radius:50%;background:var(--plum)}

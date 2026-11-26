@@ -91,7 +91,7 @@ header.solid .burger{color:var(--ink)}
 .about{background:var(--lilac)}
 .split{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(36px,6vw,96px);align-items:center}
 .ph{position:relative}
-.ph img{width:100%;aspect-ratio:4/5;object-fit:cover;object-position:22% 50%;border-radius:28px}
+.ph img{width:100%;aspect-ratio:4/5;object-fit:cover;object-position:36% 40%;border-radius:28px}
 .since{position:absolute;left:-32px;bottom:44px;background:#fff;border-radius:24px;padding:16px 26px 16px 16px;display:flex;gap:18px;align-items:center;box-shadow:0 24px 50px rgba(36,19,47,.18);animation:float 6s ease-in-out infinite}
 .since .ring{width:84px;height:84px;border-radius:50%;background:conic-gradient(var(--mint) 0 100%);display:grid;place-items:center;position:relative;flex:none}
 .since .ring::before{content:"";position:absolute;inset:6px;border-radius:50%;background:var(--plum)}
@@ -104,6 +104,10 @@ header.solid .burger{color:var(--ink)}
 .staff{position:absolute;right:22px;top:22px;background:rgba(255,255,255,.92);backdrop-filter:blur(8px);border-radius:999px;padding:10px 16px 10px 12px;display:flex;gap:10px;align-items:center;font-weight:600;font-size:14px;color:var(--plum);box-shadow:0 10px 24px rgba(36,19,47,.12)}
 .staff i{width:10px;height:10px;border-radius:50%;background:var(--mint-d);box-shadow:0 0 0 4px rgba(99,214,166,.25)}
 @keyframes float{50%{transform:translateY(-8px)}}
+.nums{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:24px;margin-top:36px;padding-top:28px;border-top:1px solid #ddd3e8}
+.nums b{display:block;font-family:"Plus Jakarta Sans",sans-serif;font-size:clamp(44px,5vw,60px);font-weight:800;line-height:1;letter-spacing:-.03em;color:var(--plum)}
+.nums b span{color:var(--violet)}
+.nums small{display:block;margin-top:8px;font-size:15px;color:var(--soft)}
 .pts{display:grid;gap:26px;margin-top:36px}
 .pt{display:flex;gap:18px;align-items:flex-start}
 .pt .ic{width:52px;height:52px;border-radius:16px;background:#fff;color:var(--violet);display:grid;place-items:center;flex:none}
@@ -223,8 +227,6 @@ footer a:hover{color:var(--mint)}
 .menu.open{display:grid;background:#fff;padding:8px 0 20px}
 .menu a{padding:14px 0;text-decoration:none;font-weight:600;border-bottom:1px solid var(--line);color:var(--ink)}
 .split,.qgrid{grid-template-columns:minmax(0,1fr)}
-.since{left:16px;bottom:-28px}
-.ph{margin-bottom:28px}
 }
 @media(max-width:720px){
 .nav .btn-quote{display:none}
@@ -330,8 +332,6 @@ body{padding-bottom:78px}
   <div class="wrap split">
     <div class="ph">
       <img src="img/om-oss.webp" alt="" loading="lazy">
-      <div class="staff"><i></i><span data-t="staff"></span></div>
-      <div class="since"><div class="ring"><b>10<sup>+</sup></b></div><div><strong data-t="years"></strong><span data-t="years2"></span><div class="st" aria-hidden="true"><svg class="i"><use href="#i-star"/></svg><svg class="i"><use href="#i-star"/></svg><svg class="i"><use href="#i-star"/></svg><svg class="i"><use href="#i-star"/></svg><svg class="i"><use href="#i-star"/></svg></div></div></div>
     </div>
     <div>
       <p class="eyebrow" data-t="abEy"></p>
@@ -341,6 +341,7 @@ body{padding-bottom:78px}
         <div class="pt"><span class="ic"><svg class="i"><use href="#i-cal"/></svg></span><div><b data-t="p2"></b><span data-t="p2d"></span></div></div>
         <div class="pt"><span class="ic"><svg class="i"><use href="#i-shield"/></svg></span><div><b data-t="p3"></b><span data-t="p3d"></span></div></div>
       </div>
+      <div class="nums"><div><b>10<span>+</span></b><small data-t="years"></small></div><div><b>25</b><small data-t="staff"></small></div></div>
       <div class="areas"><span>Haugesund</span><span>Karmøy</span><span>Tysvær</span><span>Bokn</span><span>Sveio</span></div>
     </div>
   </div>
@@ -454,7 +455,7 @@ const T={
 no:{nav1:"Tjenester",nav2:"Om oss",nav3:"Omtaler",nav4:"Kontakt",quote:"Få pristilbud",quoteFree:"Få gratis pristilbud",heroAlt:"Renholder vasker gulvet ved inngangen til et moderne kontorbygg",
 h1a:"Renhold for bedrifter.",h1b:"Gjort skikkelig.",sub:"Kontor, spesialrenhold og gulv på Haugalandet.",t1:"Gratis befaring",t2:"Fast pris per måned",t3:"Svar innen én arbeidsdag",
 svcEy:"Tjenester",svcH:"Det vi gjør best",s1:"Bedriftsrenhold",s1d:"Kontorer og fellesarealer",s2:"Spesialrenhold",s2d:"Dypvask og engangsoppdrag",s3:"Boning av gulv",s3d:"Oppskuring og ny bone",
-years:"År med renhold",years2:"På Haugalandet siden 2016",staff:"25 faste medarbeidere",abEy:"Om oss",abH:"Lokalt, grundig og enkelt å samarbeide med",p1:"Fast team",p1d:"Folk som kjenner bygget deres.",p2:"Fleksible avtaler",p2d:"Dere velger hvor ofte.",p3:"Godkjent og trygg",p3d:"Ordnede forhold for alle ansatte.",
+years:"År med renhold",years2:"På Haugalandet siden 2016",staff:"Faste medarbeidere",abEy:"Om oss",abH:"Lokalt, grundig og enkelt å samarbeide med",p1:"Fast team",p1d:"Folk som kjenner bygget deres.",p2:"Fleksible avtaler",p2d:"Dere velger hvor ofte.",p3:"Godkjent og trygg",p3d:"Ordnede forhold for alle ansatte.",
 sample:"Eksempel",jobs:"Vi ansetter renholdere på Haugalandet",jobsL:"Jobb hos oss",
 qEy:"Pristilbud",qH:"Få pris på under ett minutt",qLead:"Tre korte steg, så sender vi et forslag.",callLine:"Vil du heller ringe?",promise:"Svar innen én arbeidsdag",
 st1:"Steg 1 av 3",st2:"Steg 2 av 3",st3:"Steg 3 av 3",f1:"Hva trenger dere?",f2:"Om lokalene",f3:"Hvem kan vi kontakte?",
@@ -477,7 +478,7 @@ unknown:"Det er jeg ikke sikker på. Velg et tema under, eller be om å bli ring
 en:{nav1:"Services",nav2:"About",nav3:"Reviews",nav4:"Contact",quote:"Get a quote",quoteFree:"Get a free quote",heroAlt:"Cleaner mopping the entrance of a modern office building",
 h1a:"Commercial cleaning.",h1b:"Done properly.",sub:"Offices, specialist cleaning and floor care in Haugalandet.",t1:"Free site visit",t2:"Fixed monthly price",t3:"Reply within one working day",
 svcEy:"Services",svcH:"What we do best",s1:"Office cleaning",s1d:"Offices and shared areas",s2:"Specialist cleaning",s2d:"Deep cleans and one-off jobs",s3:"Floor care",s3d:"Stripping and polishing",
-years:"Years of cleaning",years2:"In Haugalandet since 2016",staff:"25 permanent staff",abEy:"About us",abH:"Local, thorough and easy to work with",p1:"A fixed team",p1d:"People who know your building.",p2:"Flexible agreements",p2d:"You choose how often.",p3:"Approved and reliable",p3d:"Fair terms for every employee.",
+years:"Years of cleaning",years2:"In Haugalandet since 2016",staff:"Permanent staff",abEy:"About us",abH:"Local, thorough and easy to work with",p1:"A fixed team",p1d:"People who know your building.",p2:"Flexible agreements",p2d:"You choose how often.",p3:"Approved and reliable",p3d:"Fair terms for every employee.",
 sample:"Sample",jobs:"We are hiring cleaners in Haugalandet",jobsL:"Work with us",
 qEy:"Get a quote",qH:"Get a price in under a minute",qLead:"Three short steps and we send you a proposal.",callLine:"Prefer to call?",promise:"Reply within one working day",
 st1:"Step 1 of 3",st2:"Step 2 of 3",st3:"Step 3 of 3",f1:"What do you need?",f2:"About your premises",f3:"Who should we contact?",

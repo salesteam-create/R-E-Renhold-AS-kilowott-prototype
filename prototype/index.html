@@ -42,7 +42,9 @@ header.solid{background:rgba(255,255,255,.96);backdrop-filter:blur(12px);box-sha
 .logo{display:flex;align-items:center;gap:10px;text-decoration:none;color:#fff}
 header.solid .logo,header.solid .links a,header.solid .lang{color:var(--ink)}
 .logo .mk{width:40px;height:40px;border-radius:12px;background:var(--mint);color:var(--plum);display:grid;place-items:center}
-.logo b{font-size:20px;font-weight:800}
+.logo img{height:52px;width:auto;display:block}
+.flogo{background:#fff;border-radius:14px;padding:10px 14px;align-self:flex-start}
+.flogo img{height:40px}
 .logo b span{color:var(--mint)}
 header.solid .logo b span{color:var(--violet)}
 .links{display:flex;gap:28px;margin-left:auto}
@@ -54,7 +56,7 @@ header.solid .lang{border-color:var(--line)}
 .lang button{border:0;background:none;color:inherit;font:600 13px Inter,sans-serif;padding:6px 10px;border-radius:999px;cursor:pointer}
 .lang button[aria-pressed=true]{background:var(--mint);color:var(--plum)}
 .nav .btn{padding:12px 20px}
-header:not(.solid) .nav .btn-quote{display:none}
+header:not(.past) .nav .btn-quote{display:none}
 .burger{display:none;background:none;border:0;color:inherit;width:44px;height:44px;cursor:pointer;color:#fff}
 header.solid .burger{color:var(--ink)}
 .menu{display:none}
@@ -252,6 +254,7 @@ footer a:hover{color:var(--mint)}
 }
 @media(max-width:720px){
 .nav .btn-quote{display:none}
+.logo img{height:36px}
 .hero{align-items:flex-end;min-height:100svh}
 .hero>img{width:100%;object-position:66% 50%}
 .hero::after{background:linear-gradient(180deg,rgba(36,19,47,.7) 0%,rgba(36,19,47,.15) 22%,rgba(36,19,47,.75) 58%,rgba(36,19,47,.96) 85%)}
@@ -302,11 +305,10 @@ body{padding-bottom:78px}
 <symbol id="i-send" viewBox="0 0 24 24"><path d="m22 2-7 20-4-9-9-4z"/><path d="M22 2 11 13"/></symbol>
 </svg>
 
-<header id="hdr" class="pad">
+<header id="hdr" class="pad solid">
   <div class="wrap nav">
-    <a class="logo" href="#top" aria-label="R&amp;E Renhold">
-      <span class="mk"><svg class="i"><use href="#i-drop"/></svg></span>
-      <b>R<span>&amp;</span>E Renhold</b>
+    <a class="logo" href="#top">
+      <img src="img/logo-dark.png" alt="R&amp;E Renhold, Rent &amp; Effektivt" width="624" height="176">
     </a>
     <nav class="links" aria-label="Meny">
       <a href="#tjenester" data-t="nav1"></a><a href="#om-oss" data-t="nav2"></a><a href="#omtaler" data-t="nav3"></a><a href="#kontakt" data-t="nav4"></a>
@@ -465,7 +467,7 @@ body{padding-bottom:78px}
 <footer class="pad">
   <div class="wrap">
     <div class="fgrid">
-      <div class="fcol"><a class="logo" href="#top"><span class="mk"><svg class="i"><use href="#i-drop"/></svg></span><b>R<span>&amp;</span>E Renhold</b></a><span style="margin-top:10px" data-t="foot"></span></div>
+      <div class="fcol"><a class="logo flogo" href="#top"><img src="img/logo-dark.png" alt="R&amp;E Renhold, Rent &amp; Effektivt" width="624" height="176"></a></div>
       <div class="fcol"><a href="mailto:post@rentogeffektivt.no">post@rentogeffektivt.no</a><span>Stølsmyr 16, 5542 Karmsund</span></div>
       <div class="fcol"><span data-t="hours"></span><span>Org.nr. 916 712 731</span></div>
     </div>
@@ -586,7 +588,7 @@ function apply(){
 $$('.lang button').forEach(b=>b.onclick=()=>{lang=b.dataset.lang;try{localStorage.setItem('re-lang',lang)}catch(e){}apply()});
 
 /* Header */
-const hdr=$('#hdr'),mbar=$('.mbar'),hero=$('.hero');const onScroll=()=>{hdr.classList.toggle('solid',scrollY>40||$('#menu').classList.contains('open'));mbar.classList.toggle('show',scrollY>hero.offsetHeight-200)};
+const hdr=$('#hdr'),mbar=$('.mbar'),hero=$('.hero');const onScroll=()=>{hdr.classList.toggle('past',scrollY>hero.offsetHeight-120);mbar.classList.toggle('show',scrollY>hero.offsetHeight-200)};
 addEventListener('scroll',onScroll,{passive:true});
 $('#burger').onclick=()=>{const o=$('#menu').classList.toggle('open');$('#burger').setAttribute('aria-expanded',o);onScroll()};
 $$('#menu a').forEach(a=>a.onclick=()=>{$('#menu').classList.remove('open');$('#burger').setAttribute('aria-expanded','false');onScroll()});

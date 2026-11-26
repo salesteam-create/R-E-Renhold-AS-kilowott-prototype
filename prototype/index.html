@@ -117,26 +117,20 @@ header.solid .burger{color:var(--ink)}
 .areas span{background:#fff;border-radius:999px;padding:8px 16px;font-size:14px;font-weight:600;color:var(--plum2)}
 
 /* Trust */
-.tgrid{display:grid;grid-template-columns:minmax(0,7fr) minmax(0,5fr);gap:24px;margin-top:40px;align-items:stretch}
-.sectors{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
-.sec{background:var(--lilac);border-radius:20px;padding:22px;display:flex;flex-direction:column;gap:22px;justify-content:space-between;min-height:150px;text-decoration:none;color:var(--ink)}
-.sec .ic{width:48px;height:48px;border-radius:14px;background:#fff;color:var(--violet);display:grid;place-items:center}
-.sec b{font-family:"Plus Jakarta Sans",sans-serif;font-size:18px;line-height:1.25}
-.sec.cta{background:var(--plum);color:#fff;transition:transform .2s}
-.sec.cta:hover{transform:translateY(-3px)}
-.sec.cta>span{display:flex;gap:8px;align-items:center;color:var(--mint);font-weight:600}
-.tside{display:grid;gap:14px;grid-template-rows:auto 1fr}
-.gcard{border:1.5px solid var(--line);border-radius:20px;padding:22px}
-.gtop{display:flex;gap:14px;align-items:center}
-.g{width:48px;height:48px;border-radius:50%;background:#fff;border:1.5px solid var(--line);display:grid;place-items:center;font:800 22px "Plus Jakarta Sans",sans-serif;color:#4285f4;flex:none}
-.gtop b{display:block;font-family:"Plus Jakarta Sans",sans-serif}
-.gtop em,.qcard2 em{margin-left:auto;font-style:normal;font-size:12px;font-weight:600;background:var(--lilac);color:var(--plum2);padding:3px 9px;border-radius:6px;align-self:flex-start}
-.gcard p{color:var(--soft);font-size:14px;margin-top:12px}
-.stars{display:flex;gap:2px;color:var(--gold);margin-top:4px}
+.trust2{padding-block:clamp(48px,6vw,80px)}
+.t2grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(28px,5vw,72px);align-items:center}
+.trust2 h2{font-size:clamp(28px,3vw,40px)}
+.chips2{display:flex;flex-wrap:wrap;gap:10px;margin-top:24px}
+.chip2{display:inline-flex;align-items:center;gap:8px;padding:10px 16px 10px 12px;border-radius:999px;background:var(--lilac);color:var(--plum);font-weight:600;font-size:15px;white-space:nowrap}
+.chip2 svg{width:18px;height:18px;color:var(--violet)}
+.rcard{margin:0;position:relative;overflow:hidden;background:linear-gradient(135deg,var(--plum) 0%,var(--plum2) 100%);color:#fff;border-radius:24px;padding:28px 30px;box-shadow:0 24px 50px rgba(36,19,47,.22)}
+.rcard::after{content:"\201D";position:absolute;right:20px;bottom:-78px;font:800 150px/1 "Plus Jakarta Sans",sans-serif;color:var(--mint);opacity:.16;pointer-events:none}
+.rtop{display:flex;align-items:center;gap:10px;font-size:14px;color:rgba(255,255,255,.75)}
+.g{width:30px;height:30px;border-radius:50%;background:#fff;display:grid;place-items:center;font:800 15px "Plus Jakarta Sans",sans-serif;color:#4285f4;flex:none}
+.stars{display:flex;gap:2px;color:var(--gold)}
 .stars svg{width:16px;height:16px;fill:currentColor;stroke:none}
-.qcard2{margin:0;background:var(--plum);color:#fff;border-radius:20px;padding:26px;display:flex;flex-direction:column;justify-content:space-between;gap:18px}
-.qcard2 blockquote{font-family:"Plus Jakarta Sans",sans-serif;font-size:20px;font-weight:600;line-height:1.4;min-height:3.6em}
-.qcard2 figcaption{display:flex;justify-content:space-between;align-items:center;gap:12px;font-size:14px;color:rgba(255,255,255,.7)}
+.rcard blockquote{position:relative;font-family:"Plus Jakarta Sans",sans-serif;font-size:clamp(19px,1.7vw,22px);font-weight:600;line-height:1.4;margin:16px 0 18px;min-height:2.8em}
+.rcard figcaption{display:flex;justify-content:space-between;align-items:center;gap:12px;font-size:14px;color:rgba(255,255,255,.7)}
 .dots{display:flex;gap:6px;flex:none}
 .dots button{width:10px;height:10px;border-radius:50%;border:0;background:rgba(255,255,255,.25);cursor:pointer;padding:0}
 .dots button[aria-current=true]{background:var(--mint);width:26px;border-radius:5px}
@@ -250,7 +244,7 @@ footer a:hover{color:var(--mint)}
 .nav .lang{margin-left:auto}
 .menu.open{display:grid;background:#fff;padding:8px 0 20px}
 .menu a{padding:14px 0;text-decoration:none;font-weight:600;border-bottom:1px solid var(--line);color:var(--ink)}
-.split,.qgrid,.tgrid{grid-template-columns:minmax(0,1fr)}
+.split,.qgrid,.t2grid{grid-template-columns:minmax(0,1fr)}
 }
 @media(max-width:720px){
 .nav .btn-quote{display:none}
@@ -267,9 +261,7 @@ footer a:hover{color:var(--mint)}
 .trust span{font-size:13px}
 .cards{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;gap:14px;margin-inline:calc(-1*max(5vw,16px));padding-inline:max(5vw,16px);scrollbar-width:none}
 .svc{flex:0 0 78%;scroll-snap-align:start}
-.tgrid{grid-template-columns:minmax(0,1fr)}
-.sectors{grid-template-columns:repeat(2,minmax(0,1fr))}
-.sec{min-height:120px}
+.chip2{font-size:14px;padding:8px 13px 8px 10px}
 .opts,.fg{grid-template-columns:minmax(0,1fr)}
 .mbar{display:grid;grid-template-columns:1fr 1.5fr;gap:10px;position:fixed;left:0;right:0;bottom:0;z-index:60;background:#fff;border-top:1px solid var(--line);padding:10px max(16px,env(safe-area-inset-right,0px)) calc(10px + env(safe-area-inset-bottom,0px)) max(16px,env(safe-area-inset-left,0px))}
 .mbar .btn{padding:14px 10px}
@@ -375,30 +367,24 @@ body{padding-bottom:78px}
   </div>
 </section>
 
-<section class="band pad" id="omtaler">
-  <div class="wrap">
-    <p class="eyebrow" data-t="trEy"></p>
-    <h2 data-t="trH"></h2>
-    <div class="tgrid">
-      <div class="sectors">
-        <div class="sec"><span class="ic"><svg class="i"><use href="#i-office"/></svg></span><b data-t="sc1"></b></div>
-        <div class="sec"><span class="ic"><svg class="i"><use href="#i-bag"/></svg></span><b data-t="sc2"></b></div>
-        <div class="sec"><span class="ic"><svg class="i"><use href="#i-heart"/></svg></span><b data-t="sc3"></b></div>
-        <div class="sec"><span class="ic"><svg class="i"><use href="#i-floor"/></svg></span><b data-t="sc4"></b></div>
-        <div class="sec"><span class="ic"><svg class="i"><use href="#i-box"/></svg></span><b data-t="sc5"></b></div>
-        <a class="sec cta" href="#kontakt"><b data-t="scCta"></b><span><span data-t="scCtaS"></span><svg class="i"><use href="#i-arrow"/></svg></span></a>
-      </div>
-      <div class="tside">
-        <div class="gcard">
-          <div class="gtop"><span class="g">G</span><div><b data-t="gT"></b><div class="stars" aria-label="5/5"><svg class="i"><use href="#i-star"/></svg><svg class="i"><use href="#i-star"/></svg><svg class="i"><use href="#i-star"/></svg><svg class="i"><use href="#i-star"/></svg><svg class="i"><use href="#i-star"/></svg></div></div><em data-t="sample"></em></div>
-          <p data-t="gS"></p>
-        </div>
-        <figure class="qcard2">
-          <blockquote id="rq"></blockquote>
-          <figcaption><span id="rw"></span><div class="dots" id="dots"></div></figcaption>
-        </figure>
+<section class="pad trust2" id="omtaler">
+  <div class="wrap t2grid">
+    <div>
+      <p class="eyebrow" data-t="trEy"></p>
+      <h2 data-t="trH"></h2>
+      <div class="chips2">
+        <span class="chip2"><svg class="i"><use href="#i-office"/></svg><span data-t="sc1"></span></span>
+        <span class="chip2"><svg class="i"><use href="#i-bag"/></svg><span data-t="sc2"></span></span>
+        <span class="chip2"><svg class="i"><use href="#i-heart"/></svg><span data-t="sc3"></span></span>
+        <span class="chip2"><svg class="i"><use href="#i-floor"/></svg><span data-t="sc4"></span></span>
+        <span class="chip2"><svg class="i"><use href="#i-box"/></svg><span data-t="sc5"></span></span>
       </div>
     </div>
+    <figure class="rcard">
+      <div class="rtop"><span class="g">G</span><div class="stars" aria-label="5/5"><svg class="i"><use href="#i-star"/></svg><svg class="i"><use href="#i-star"/></svg><svg class="i"><use href="#i-star"/></svg><svg class="i"><use href="#i-star"/></svg><svg class="i"><use href="#i-star"/></svg></div><span data-t="gT"></span></div>
+      <blockquote id="rq"></blockquote>
+      <figcaption><span id="rw"></span><div class="dots" id="dots"></div></figcaption>
+    </figure>
   </div>
 </section>
 

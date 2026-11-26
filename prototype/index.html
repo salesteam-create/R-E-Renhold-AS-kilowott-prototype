@@ -60,7 +60,7 @@ header.solid .burger{color:var(--ink)}
 
 /* Hero */
 .hero{position:relative;min-height:min(100svh,940px);display:flex;align-items:center;color:#fff;overflow:hidden;background:var(--plum)}
-.hero>img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:60% 45%}
+.hero>img{position:absolute;top:0;right:0;width:118%;max-width:none;height:100%;object-fit:cover;object-position:70% 50%}
 .hero::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(36,19,47,.6) 0%,rgba(36,19,47,0) 22%),linear-gradient(95deg,rgba(36,19,47,.96) 0%,rgba(36,19,47,.82) 34%,rgba(36,19,47,.2) 62%,rgba(36,19,47,.05) 100%)}
 .hero .wrap{position:relative;z-index:2;width:100%;padding-block:140px 150px}
 .hero h1{font-size:clamp(44px,6.4vw,88px);font-weight:800;max-width:720px}
@@ -92,9 +92,18 @@ header.solid .burger{color:var(--ink)}
 .split{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(36px,6vw,96px);align-items:center}
 .ph{position:relative}
 .ph img{width:100%;aspect-ratio:4/5;object-fit:cover;object-position:22% 50%;border-radius:28px}
-.since{position:absolute;right:-18px;bottom:40px;background:var(--plum);color:#fff;border-radius:20px;padding:22px 26px}
-.since b{display:block;font-family:"Plus Jakarta Sans",sans-serif;font-size:40px;line-height:1;color:var(--mint)}
-.since span{font-size:14px;color:rgba(255,255,255,.8)}
+.since{position:absolute;left:-32px;bottom:44px;background:#fff;border-radius:24px;padding:16px 26px 16px 16px;display:flex;gap:18px;align-items:center;box-shadow:0 24px 50px rgba(36,19,47,.18);animation:float 6s ease-in-out infinite}
+.since .ring{width:84px;height:84px;border-radius:50%;background:conic-gradient(var(--mint) 0 100%);display:grid;place-items:center;position:relative;flex:none}
+.since .ring::before{content:"";position:absolute;inset:6px;border-radius:50%;background:var(--plum)}
+.since .ring b{position:relative;font-family:"Plus Jakarta Sans",sans-serif;font-size:34px;font-weight:800;line-height:1;color:#fff;letter-spacing:-.03em}
+.since .ring b sup{font-size:18px;color:var(--mint);vertical-align:top;margin-left:1px}
+.since strong{display:block;font-family:"Plus Jakarta Sans",sans-serif;font-size:19px;line-height:1.2;color:var(--ink)}
+.since span{display:block;font-size:14px;color:var(--soft);margin-top:4px}
+.since .st{display:flex;gap:2px;color:var(--gold);margin-top:8px}
+.since .st svg{width:14px;height:14px;fill:currentColor;stroke:none}
+.staff{position:absolute;right:22px;top:22px;background:rgba(255,255,255,.92);backdrop-filter:blur(8px);border-radius:999px;padding:10px 16px 10px 12px;display:flex;gap:10px;align-items:center;font-weight:600;font-size:14px;color:var(--plum);box-shadow:0 10px 24px rgba(36,19,47,.12)}
+.staff i{width:10px;height:10px;border-radius:50%;background:var(--mint-d);box-shadow:0 0 0 4px rgba(99,214,166,.25)}
+@keyframes float{50%{transform:translateY(-8px)}}
 .pts{display:grid;gap:26px;margin-top:36px}
 .pt{display:flex;gap:18px;align-items:flex-start}
 .pt .ic{width:52px;height:52px;border-radius:16px;background:#fff;color:var(--violet);display:grid;place-items:center;flex:none}
@@ -213,13 +222,14 @@ footer a:hover{color:var(--mint)}
 .menu.open{display:grid;background:#fff;padding:8px 0 20px}
 .menu a{padding:14px 0;text-decoration:none;font-weight:600;border-bottom:1px solid var(--line);color:var(--ink)}
 .split,.qgrid{grid-template-columns:minmax(0,1fr)}
-.since{right:16px}
+.since{left:16px;bottom:-28px}
+.ph{margin-bottom:28px}
 }
 @media(max-width:720px){
 .nav .btn-quote{display:none}
 .hero{align-items:flex-end;min-height:100svh}
-.hero>img{object-position:50% 40%}
-.hero::after{background:linear-gradient(180deg,rgba(36,19,47,.15) 0%,rgba(36,19,47,.55) 40%,rgba(36,19,47,.96) 78%)}
+.hero>img{width:100%;object-position:66% 50%}
+.hero::after{background:linear-gradient(180deg,rgba(36,19,47,.25) 0%,rgba(36,19,47,.2) 30%,rgba(36,19,47,.75) 60%,rgba(36,19,47,.96) 85%)}
 .hero .wrap{padding-block:120px 150px}
 .hero p.sub{font-size:17px}
 .hero .btn-ghost,.shead .btn-line{display:none}
@@ -319,7 +329,8 @@ body{padding-bottom:78px}
   <div class="wrap split">
     <div class="ph">
       <img src="img/om-oss.webp" alt="" loading="lazy">
-      <div class="since"><b>10</b><span data-t="years"></span></div>
+      <div class="staff"><i></i><span data-t="staff"></span></div>
+      <div class="since"><div class="ring"><b>10<sup>+</sup></b></div><div><strong data-t="years"></strong><span data-t="years2"></span><div class="st" aria-hidden="true"><svg class="i"><use href="#i-star"/></svg><svg class="i"><use href="#i-star"/></svg><svg class="i"><use href="#i-star"/></svg><svg class="i"><use href="#i-star"/></svg><svg class="i"><use href="#i-star"/></svg></div></div></div>
     </div>
     <div>
       <p class="eyebrow" data-t="abEy"></p>
@@ -444,10 +455,10 @@ body{padding-bottom:78px}
 <script>
 {
 const T={
-no:{nav1:"Tjenester",nav2:"Om oss",nav3:"Omtaler",nav4:"Kontakt",quote:"Få pristilbud",quoteFree:"Få gratis pristilbud",heroAlt:"Renholder støvsuger i et moderne kontor",
+no:{nav1:"Tjenester",nav2:"Om oss",nav3:"Omtaler",nav4:"Kontakt",quote:"Få pristilbud",quoteFree:"Få gratis pristilbud",heroAlt:"Renholder vasker gulvet ved inngangen til et moderne kontorbygg",
 h1a:"Renhold for bedrifter.",h1b:"Gjort skikkelig.",sub:"Kontor, spesialrenhold og gulv på Haugalandet.",t1:"etablert i Karmsund",t2:"faste medarbeidere",t3:"Godkjent av Arbeidstilsynet",
 svcEy:"Tjenester",svcH:"Det vi gjør best",s1:"Bedriftsrenhold",s1d:"Kontorer og fellesarealer",s2:"Spesialrenhold",s2d:"Dypvask og engangsoppdrag",s3:"Boning av gulv",s3d:"Oppskuring og ny bone",
-years:"år med renhold",abEy:"Om oss",abH:"Lokalt, grundig og enkelt å samarbeide med",p1:"Fast team",p1d:"Folk som kjenner bygget deres.",p2:"Fleksible avtaler",p2d:"Dere velger hvor ofte.",p3:"Godkjent og trygg",p3d:"Ordnede forhold for alle ansatte.",
+years:"År med renhold",years2:"På Haugalandet siden 2016",staff:"25 faste medarbeidere",abEy:"Om oss",abH:"Lokalt, grundig og enkelt å samarbeide med",p1:"Fast team",p1d:"Folk som kjenner bygget deres.",p2:"Fleksible avtaler",p2d:"Dere velger hvor ofte.",p3:"Godkjent og trygg",p3d:"Ordnede forhold for alle ansatte.",
 sample:"Eksempel",jobs:"Vi ansetter renholdere på Haugalandet",jobsL:"Jobb hos oss",
 qEy:"Pristilbud",qH:"Få pris på under ett minutt",qLead:"Tre korte steg. Gratis og uforpliktende.",promise:"Svar innen én arbeidsdag",
 st1:"Steg 1 av 3",st2:"Steg 2 av 3",st3:"Steg 3 av 3",f1:"Hva trenger dere?",f2:"Om lokalene",f3:"Hvem kan vi kontakte?",
@@ -467,10 +478,10 @@ askName:"Gjerne! Hva heter du?",askPhone:"Takk, {n}. Hvilket telefonnummer kan v
 thanks:"Supert! Vi ringer deg på {p} innen én arbeidsdag.\n(Prototype: ingenting sendes.)",
 human:"Ring oss på 454 02 012 (man til fre 08 til 16) eller send e-post til post@rentogeffektivt.no.",
 unknown:"Det er jeg ikke sikker på. Velg et tema under, eller be om å bli ringt opp.",more:"Noe annet jeg kan hjelpe med?"}},
-en:{nav1:"Services",nav2:"About",nav3:"Reviews",nav4:"Contact",quote:"Get a quote",quoteFree:"Get a free quote",heroAlt:"Cleaner vacuuming a modern office",
+en:{nav1:"Services",nav2:"About",nav3:"Reviews",nav4:"Contact",quote:"Get a quote",quoteFree:"Get a free quote",heroAlt:"Cleaner mopping the entrance of a modern office building",
 h1a:"Commercial cleaning.",h1b:"Done properly.",sub:"Offices, specialist cleaning and floor care in Haugalandet.",t1:"founded in Karmsund",t2:"permanent staff",t3:"Approved by the Labour Inspectorate",
 svcEy:"Services",svcH:"What we do best",s1:"Office cleaning",s1d:"Offices and shared areas",s2:"Specialist cleaning",s2d:"Deep cleans and one-off jobs",s3:"Floor care",s3d:"Stripping and polishing",
-years:"years of cleaning",abEy:"About us",abH:"Local, thorough and easy to work with",p1:"A fixed team",p1d:"People who know your building.",p2:"Flexible agreements",p2d:"You choose how often.",p3:"Approved and reliable",p3d:"Fair terms for every employee.",
+years:"Years of cleaning",years2:"In Haugalandet since 2016",staff:"25 permanent staff",abEy:"About us",abH:"Local, thorough and easy to work with",p1:"A fixed team",p1d:"People who know your building.",p2:"Flexible agreements",p2d:"You choose how often.",p3:"Approved and reliable",p3d:"Fair terms for every employee.",
 sample:"Sample",jobs:"We are hiring cleaners in Haugalandet",jobsL:"Work with us",
 qEy:"Get a quote",qH:"Get a price in under a minute",qLead:"Three short steps. Free, with no obligation.",promise:"Reply within one working day",
 st1:"Step 1 of 3",st2:"Step 2 of 3",st3:"Step 3 of 3",f1:"What do you need?",f2:"About your premises",f3:"Who should we contact?",

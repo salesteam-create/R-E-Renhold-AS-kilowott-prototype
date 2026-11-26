@@ -60,8 +60,8 @@ header.solid .burger{color:var(--ink)}
 
 /* Hero */
 .hero{position:relative;min-height:min(100svh,940px);display:flex;align-items:center;color:#fff;overflow:hidden;background:var(--plum)}
-.hero>img{position:absolute;top:0;right:0;width:118%;max-width:none;height:100%;object-fit:cover;object-position:70% 50%}
-.hero::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(36,19,47,.6) 0%,rgba(36,19,47,0) 22%),linear-gradient(95deg,rgba(36,19,47,.96) 0%,rgba(36,19,47,.82) 34%,rgba(36,19,47,.2) 62%,rgba(36,19,47,.05) 100%)}
+.hero>img{position:absolute;top:0;right:0;width:118%;max-width:none;height:100%;object-fit:cover;object-position:55% 50%}
+.hero::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(36,19,47,.45) 0%,rgba(36,19,47,0) 18%),linear-gradient(95deg,rgba(36,19,47,.95) 0%,rgba(36,19,47,.88) 30%,rgba(36,19,47,.35) 48%,rgba(36,19,47,0) 62%)}
 .hero .wrap{position:relative;z-index:2;width:100%;padding-block:140px 150px}
 .hero h1{font-size:clamp(44px,6.4vw,88px);font-weight:800;max-width:720px}
 .hero h1 em{font-style:normal;color:var(--mint)}
@@ -116,18 +116,30 @@ header.solid .burger{color:var(--ink)}
 .areas{display:flex;flex-wrap:wrap;gap:8px;margin-top:34px}
 .areas span{background:#fff;border-radius:999px;padding:8px 16px;font-size:14px;font-weight:600;color:var(--plum2)}
 
-/* Review */
-.rev{display:grid;grid-template-columns:auto minmax(0,1fr);gap:clamp(24px,5vw,72px);align-items:start;max-width:1040px;margin-inline:auto}
-.qm{font-family:"Plus Jakarta Sans",sans-serif;font-size:160px;line-height:.8;color:var(--mint-d)}
-.stars{display:flex;gap:3px;color:var(--gold);margin-bottom:18px}
-.stars svg{width:20px;height:20px;fill:currentColor;stroke:none}
-.rev blockquote{font-family:"Plus Jakarta Sans",sans-serif;font-size:clamp(24px,2.8vw,34px);font-weight:600;line-height:1.3;letter-spacing:-.015em;min-height:3.9em}
-.who{display:flex;justify-content:space-between;align-items:center;gap:16px;margin-top:26px;flex-wrap:wrap}
-.who span{color:var(--soft)}
-.who em{font-style:normal;font-size:12px;font-weight:600;background:var(--lilac);color:var(--plum2);padding:3px 9px;border-radius:6px;margin-left:10px}
-.dots{display:flex;gap:8px}
-.dots button{width:12px;height:12px;border-radius:50%;border:0;background:var(--line);cursor:pointer;padding:0}
-.dots button[aria-current=true]{background:var(--violet);width:32px;border-radius:6px}
+/* Trust */
+.tgrid{display:grid;grid-template-columns:minmax(0,7fr) minmax(0,5fr);gap:24px;margin-top:40px;align-items:stretch}
+.sectors{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
+.sec{background:var(--lilac);border-radius:20px;padding:22px;display:flex;flex-direction:column;gap:22px;justify-content:space-between;min-height:150px;text-decoration:none;color:var(--ink)}
+.sec .ic{width:48px;height:48px;border-radius:14px;background:#fff;color:var(--violet);display:grid;place-items:center}
+.sec b{font-family:"Plus Jakarta Sans",sans-serif;font-size:18px;line-height:1.25}
+.sec.cta{background:var(--plum);color:#fff;transition:transform .2s}
+.sec.cta:hover{transform:translateY(-3px)}
+.sec.cta>span{display:flex;gap:8px;align-items:center;color:var(--mint);font-weight:600}
+.tside{display:grid;gap:14px;grid-template-rows:auto 1fr}
+.gcard{border:1.5px solid var(--line);border-radius:20px;padding:22px}
+.gtop{display:flex;gap:14px;align-items:center}
+.g{width:48px;height:48px;border-radius:50%;background:#fff;border:1.5px solid var(--line);display:grid;place-items:center;font:800 22px "Plus Jakarta Sans",sans-serif;color:#4285f4;flex:none}
+.gtop b{display:block;font-family:"Plus Jakarta Sans",sans-serif}
+.gtop em,.qcard2 em{margin-left:auto;font-style:normal;font-size:12px;font-weight:600;background:var(--lilac);color:var(--plum2);padding:3px 9px;border-radius:6px;align-self:flex-start}
+.gcard p{color:var(--soft);font-size:14px;margin-top:12px}
+.stars{display:flex;gap:2px;color:var(--gold);margin-top:4px}
+.stars svg{width:16px;height:16px;fill:currentColor;stroke:none}
+.qcard2{margin:0;background:var(--plum);color:#fff;border-radius:20px;padding:26px;display:flex;flex-direction:column;justify-content:space-between;gap:18px}
+.qcard2 blockquote{font-family:"Plus Jakarta Sans",sans-serif;font-size:20px;font-weight:600;line-height:1.4;min-height:3.6em}
+.qcard2 figcaption{display:flex;justify-content:space-between;align-items:center;gap:12px;font-size:14px;color:rgba(255,255,255,.7)}
+.dots{display:flex;gap:6px;flex:none}
+.dots button{width:10px;height:10px;border-radius:50%;border:0;background:rgba(255,255,255,.25);cursor:pointer;padding:0}
+.dots button[aria-current=true]{background:var(--mint);width:26px;border-radius:5px}
 
 /* Jobs */
 .jobs{background:var(--violet);color:#fff}
@@ -226,13 +238,13 @@ footer a:hover{color:var(--mint)}
 .nav .lang{margin-left:auto}
 .menu.open{display:grid;background:#fff;padding:8px 0 20px}
 .menu a{padding:14px 0;text-decoration:none;font-weight:600;border-bottom:1px solid var(--line);color:var(--ink)}
-.split,.qgrid{grid-template-columns:minmax(0,1fr)}
+.split,.qgrid,.tgrid{grid-template-columns:minmax(0,1fr)}
 }
 @media(max-width:720px){
 .nav .btn-quote{display:none}
 .hero{align-items:flex-end;min-height:100svh}
 .hero>img{width:100%;object-position:66% 50%}
-.hero::after{background:linear-gradient(180deg,rgba(36,19,47,.25) 0%,rgba(36,19,47,.2) 30%,rgba(36,19,47,.75) 60%,rgba(36,19,47,.96) 85%)}
+.hero::after{background:linear-gradient(180deg,rgba(36,19,47,.7) 0%,rgba(36,19,47,.15) 22%,rgba(36,19,47,.75) 58%,rgba(36,19,47,.96) 85%)}
 .hero .wrap{padding-block:120px 150px}
 .hero p.sub{font-size:17px}
 .hero .btn-ghost,.shead .btn-line{display:none}
@@ -243,8 +255,9 @@ footer a:hover{color:var(--mint)}
 .trust span{font-size:13px}
 .cards{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;gap:14px;margin-inline:calc(-1*max(5vw,16px));padding-inline:max(5vw,16px);scrollbar-width:none}
 .svc{flex:0 0 78%;scroll-snap-align:start}
-.rev{grid-template-columns:minmax(0,1fr)}
-.qm{font-size:110px;height:60px}
+.tgrid{grid-template-columns:minmax(0,1fr)}
+.sectors{grid-template-columns:repeat(2,minmax(0,1fr))}
+.sec{min-height:120px}
 .opts,.fg{grid-template-columns:minmax(0,1fr)}
 .mbar{display:grid;grid-template-columns:1fr 1.5fr;gap:10px;position:fixed;left:0;right:0;bottom:0;z-index:60;background:#fff;border-top:1px solid var(--line);padding:10px max(16px,env(safe-area-inset-right,0px)) calc(10px + env(safe-area-inset-bottom,0px)) max(16px,env(safe-area-inset-left,0px))}
 .mbar .btn{padding:14px 10px}
@@ -275,6 +288,9 @@ body{padding-bottom:78px}
 <symbol id="i-x" viewBox="0 0 24 24"><path d="M18 6 6 18M6 6l12 12"/></symbol>
 <symbol id="i-drop" viewBox="0 0 24 24"><path d="M12 2.7s6 6.4 6 11.3a6 6 0 0 1-12 0c0-4.9 6-11.3 6-11.3z"/></symbol>
 <symbol id="i-chat" viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></symbol>
+<symbol id="i-bag" viewBox="0 0 24 24"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><path d="M3 6h18M16 10a4 4 0 0 1-8 0"/></symbol>
+<symbol id="i-heart" viewBox="0 0 24 24"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.7l-1-1.1a5.5 5.5 0 0 0-7.8 7.8l1 1.1L12 21l7.8-7.5 1-1.1a5.5 5.5 0 0 0 0-7.8z"/></symbol>
+<symbol id="i-box" viewBox="0 0 24 24"><path d="M21 16V8a2 2 0 0 0-1-1.7l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.7l7 4a2 2 0 0 0 2 0l7-4a2 2 0 0 0 1-1.7z"/><path d="M3.3 7 12 12l8.7-5M12 22V12"/></symbol>
 <symbol id="i-send" viewBox="0 0 24 24"><path d="m22 2-7 20-4-9-9-4z"/><path d="M22 2 11 13"/></symbol>
 </svg>
 
@@ -348,12 +364,28 @@ body{padding-bottom:78px}
 </section>
 
 <section class="band pad" id="omtaler">
-  <div class="rev">
-    <div class="qm" aria-hidden="true">“</div>
-    <div>
-      <div class="stars" aria-label="5/5"><svg class="i"><use href="#i-star"/></svg><svg class="i"><use href="#i-star"/></svg><svg class="i"><use href="#i-star"/></svg><svg class="i"><use href="#i-star"/></svg><svg class="i"><use href="#i-star"/></svg></div>
-      <blockquote id="rq"></blockquote>
-      <div class="who"><p><span id="rw"></span><em data-t="sample"></em></p><div class="dots" id="dots"></div></div>
+  <div class="wrap">
+    <p class="eyebrow" data-t="trEy"></p>
+    <h2 data-t="trH"></h2>
+    <div class="tgrid">
+      <div class="sectors">
+        <div class="sec"><span class="ic"><svg class="i"><use href="#i-office"/></svg></span><b data-t="sc1"></b></div>
+        <div class="sec"><span class="ic"><svg class="i"><use href="#i-bag"/></svg></span><b data-t="sc2"></b></div>
+        <div class="sec"><span class="ic"><svg class="i"><use href="#i-heart"/></svg></span><b data-t="sc3"></b></div>
+        <div class="sec"><span class="ic"><svg class="i"><use href="#i-floor"/></svg></span><b data-t="sc4"></b></div>
+        <div class="sec"><span class="ic"><svg class="i"><use href="#i-box"/></svg></span><b data-t="sc5"></b></div>
+        <a class="sec cta" href="#kontakt"><b data-t="scCta"></b><span><span data-t="scCtaS"></span><svg class="i"><use href="#i-arrow"/></svg></span></a>
+      </div>
+      <div class="tside">
+        <div class="gcard">
+          <div class="gtop"><span class="g">G</span><div><b data-t="gT"></b><div class="stars" aria-label="5/5"><svg class="i"><use href="#i-star"/></svg><svg class="i"><use href="#i-star"/></svg><svg class="i"><use href="#i-star"/></svg><svg class="i"><use href="#i-star"/></svg><svg class="i"><use href="#i-star"/></svg></div></div><em data-t="sample"></em></div>
+          <p data-t="gS"></p>
+        </div>
+        <figure class="qcard2">
+          <blockquote id="rq"></blockquote>
+          <figcaption><span id="rw"></span><div class="dots" id="dots"></div></figcaption>
+        </figure>
+      </div>
     </div>
   </div>
 </section>
@@ -456,7 +488,7 @@ no:{nav1:"Tjenester",nav2:"Om oss",nav3:"Omtaler",nav4:"Kontakt",quote:"Få pris
 h1a:"Renhold for bedrifter.",h1b:"Gjort skikkelig.",sub:"Kontor, spesialrenhold og gulv på Haugalandet.",t1:"Gratis befaring",t2:"Fast pris per måned",t3:"Svar innen én arbeidsdag",
 svcEy:"Tjenester",svcH:"Det vi gjør best",s1:"Bedriftsrenhold",s1d:"Kontorer og fellesarealer",s2:"Spesialrenhold",s2d:"Dypvask og engangsoppdrag",s3:"Boning av gulv",s3d:"Oppskuring og ny bone",
 years:"År med renhold",years2:"På Haugalandet siden 2016",staff:"Faste medarbeidere",abEy:"Om oss",abH:"Lokalt, grundig og enkelt å samarbeide med",p1:"Fast team",p1d:"Folk som kjenner bygget deres.",p2:"Fleksible avtaler",p2d:"Dere velger hvor ofte.",p3:"Godkjent og trygg",p3d:"Ordnede forhold for alle ansatte.",
-sample:"Eksempel",jobs:"Vi ansetter renholdere på Haugalandet",jobsL:"Jobb hos oss",
+sample:"Eksempel",trEy:"Hvem vi jobber for",trH:"Valgt av bedrifter på Haugalandet",sc1:"Kontorer",sc2:"Butikker",sc3:"Helse og omsorg",sc4:"Borettslag og sameier",sc5:"Industri og lager",scCta:"Deres bygg?",scCtaS:"Få pris",gT:"Google-omtaler",gS:"Vurderingen hentes direkte fra Google-profilen.",jobs:"Vi ansetter renholdere på Haugalandet",jobsL:"Jobb hos oss",
 qEy:"Pristilbud",qH:"Få pris på under ett minutt",qLead:"Tre korte steg, så sender vi et forslag.",callLine:"Vil du heller ringe?",promise:"Svar innen én arbeidsdag",
 st1:"Steg 1 av 3",st2:"Steg 2 av 3",st3:"Steg 3 av 3",f1:"Hva trenger dere?",f2:"Om lokalene",f3:"Hvem kan vi kontakte?",
 lb1:"Type bygg",lb2:"Sted",lb3:"Størrelse",lb4:"Hvor ofte?",lb5:"Bedrift",lb6:"Navn",lb7:"Telefon",lb8:"E-post",lb9:"Kommentar (valgfritt)",
@@ -479,7 +511,7 @@ en:{nav1:"Services",nav2:"About",nav3:"Reviews",nav4:"Contact",quote:"Get a quot
 h1a:"Commercial cleaning.",h1b:"Done properly.",sub:"Offices, specialist cleaning and floor care in Haugalandet.",t1:"Free site visit",t2:"Fixed monthly price",t3:"Reply within one working day",
 svcEy:"Services",svcH:"What we do best",s1:"Office cleaning",s1d:"Offices and shared areas",s2:"Specialist cleaning",s2d:"Deep cleans and one-off jobs",s3:"Floor care",s3d:"Stripping and polishing",
 years:"Years of cleaning",years2:"In Haugalandet since 2016",staff:"Permanent staff",abEy:"About us",abH:"Local, thorough and easy to work with",p1:"A fixed team",p1d:"People who know your building.",p2:"Flexible agreements",p2d:"You choose how often.",p3:"Approved and reliable",p3d:"Fair terms for every employee.",
-sample:"Sample",jobs:"We are hiring cleaners in Haugalandet",jobsL:"Work with us",
+sample:"Sample",trEy:"Who we work for",trH:"Trusted by businesses in Haugalandet",sc1:"Offices",sc2:"Shops",sc3:"Health and care",sc4:"Housing associations",sc5:"Industry and warehouses",scCta:"Your building?",scCtaS:"Get a price",gT:"Google reviews",gS:"The rating is pulled straight from the Google profile.",jobs:"We are hiring cleaners in Haugalandet",jobsL:"Work with us",
 qEy:"Get a quote",qH:"Get a price in under a minute",qLead:"Three short steps and we send you a proposal.",callLine:"Prefer to call?",promise:"Reply within one working day",
 st1:"Step 1 of 3",st2:"Step 2 of 3",st3:"Step 3 of 3",f1:"What do you need?",f2:"About your premises",f3:"Who should we contact?",
 lb1:"Type of building",lb2:"Location",lb3:"Size",lb4:"How often?",lb5:"Company",lb6:"Name",lb7:"Phone",lb8:"Email",lb9:"Comment (optional)",
@@ -505,7 +537,7 @@ const $=s=>document.querySelector(s),$$=s=>[...document.querySelectorAll(s)];
 
 /* Reviews */
 let ri=0;
-function review(i){ri=i;const r=t('r')[i];$('#rq').textContent='«'+r[0]+'»';$('#rw').textContent=r[1];
+function review(i){ri=i;const r=t('r')[i];$('#rq').textContent='«'+r[0]+'»';$('#rw').textContent=r[1]+' · '+t('sample');
   $('#dots').innerHTML=t('r').map((_,j)=>`<button aria-label="${j+1}" aria-current="${j===i}"></button>`).join('');
   $$('#dots button').forEach((b,j)=>b.onclick=()=>review(j));}
 

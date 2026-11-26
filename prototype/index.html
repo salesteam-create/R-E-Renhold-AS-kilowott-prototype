@@ -1,0 +1,552 @@
+<title>Rent og effektivt</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<meta name="description" content="Renhold for bedrifter på Haugalandet. Bedriftsrenhold, spesialrenhold og boning av gulv. Be om pristilbud.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@600;700;800&family=Inter:wght@400;500;600&display=swap">
+<style>
+/* VOICE occasion: a real local business website, calm and trustworthy
+   IDEA a freshly cleaned workplace: lots of white, clear blue, one touch of fresh green
+   PICTURE full-bleed photo of a cleaner in a bright white corridor, headline in its open left side
+   COLOUR white ground, deep navy ink, clean blue #1660c4 leads, fresh green #1f9d6a supports
+   TYPE Manrope 800 for headings + Inter for text
+   LAYOUT laptop: photo hero with headline and quick-quote card; phone: headline, photo, quote tiles, sticky call/quote bar */
+:root{color-scheme:light;--bg:#ffffff;--ink:#0d2238;--soft:#4a5d72;--line:#dfe7ef;--blue:#1660c4;--blue-d:#0f4c9c;--sky:#eef5fd;--green:#1f9d6a;--mint:#e5f5ee;--gold:#f2b632}
+*{box-sizing:border-box;min-width:0;margin:0}
+[hidden]{display:none!important}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--ink);font:16px/1.6 Inter,system-ui,Arial,sans-serif;overflow-x:clip}
+h1,h2,h3,.brand b{font-family:Manrope,Inter,Arial,sans-serif;letter-spacing:-.02em;line-height:1.08}
+h2{font-size:clamp(30px,3.6vw,44px);font-weight:800}
+h3{font-size:21px;font-weight:700}
+a{color:inherit}
+img{display:block;max-width:100%}
+.wrap{max-width:1240px;margin-inline:auto}
+.band{padding-block:clamp(56px,7vw,104px);padding-left:max(5vw,16px,env(safe-area-inset-left,0px));padding-right:max(5vw,16px,env(safe-area-inset-right,0px))}
+.lead{font-size:18px;color:var(--soft);max-width:600px}
+.kicker{color:var(--green);font-weight:600;font-size:15px;margin-bottom:10px}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;font:600 16px Inter,sans-serif;padding:15px 24px;border-radius:10px;border:2px solid transparent;cursor:pointer;text-decoration:none;transition:background .2s,transform .2s;white-space:nowrap}
+.btn:active{transform:scale(.98)}
+.btn-p{background:var(--blue);color:#fff}
+.btn-p:hover{background:var(--blue-d)}
+.btn-o{background:#fff;color:var(--ink);border-color:var(--line)}
+.btn-o:hover{border-color:var(--blue);color:var(--blue)}
+.btn:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible,a:focus-visible{outline:3px solid #8fbaf0;outline-offset:2px}
+svg.i{width:22px;height:22px;flex:none;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+
+/* Header */
+header{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.94);backdrop-filter:blur(10px);border-bottom:1px solid var(--line);padding-left:max(5vw,16px,env(safe-area-inset-left,0px));padding-right:max(5vw,16px,env(safe-area-inset-right,0px))}
+.nav{display:flex;align-items:center;gap:28px;height:76px}
+.brand{display:flex;align-items:center;gap:12px;text-decoration:none}
+.brand .mark{width:42px;height:42px;border-radius:12px;background:var(--blue);display:grid;place-items:center;color:#fff}
+.brand b{display:block;font-size:20px;font-weight:800}
+.brand small{display:block;font-size:13px;color:var(--green);font-weight:600;margin-top:2px}
+.links{display:flex;gap:26px;margin-left:auto;font-weight:500}
+.links a{text-decoration:none;color:var(--soft)}
+.links a:hover{color:var(--blue)}
+.tel{font-weight:600;text-decoration:none;display:flex;gap:8px;align-items:center;white-space:nowrap}
+.burger{display:none;margin-left:auto;background:none;border:1px solid var(--line);border-radius:10px;width:46px;height:46px;cursor:pointer;color:var(--ink)}
+.menu{display:none}
+
+/* Hero */
+.hero{position:relative;overflow:hidden;background:#f3f6f8}
+.hero>img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:70% 50%}
+.hero::before{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(255,255,255,.97) 0%,rgba(255,255,255,.9) 38%,rgba(255,255,255,0) 66%);z-index:1}
+.hero .wrap{position:relative;z-index:2;display:grid;grid-template-columns:minmax(0,1fr);min-height:min(78svh,720px);align-content:center;gap:28px}
+.hero h1{font-size:clamp(38px,5vw,64px);font-weight:800;max-width:600px}
+.hero .lead{max-width:520px}
+.cta{display:flex;flex-wrap:wrap;gap:12px}
+.proof{display:flex;flex-wrap:wrap;gap:10px 22px;font-size:15px;font-weight:500;color:var(--ink)}
+.proof span{display:flex;gap:8px;align-items:center}
+.proof svg{color:var(--green)}
+
+/* Quick start */
+.quick{position:relative;z-index:3;margin-top:-56px;padding-left:max(5vw,16px,env(safe-area-inset-left,0px));padding-right:max(5vw,16px,env(safe-area-inset-right,0px))}
+.qcard{background:#fff;border:1px solid var(--line);border-radius:18px;box-shadow:0 18px 40px rgba(13,34,56,.08);padding:24px;display:grid;grid-template-columns:220px repeat(3,minmax(0,1fr));gap:16px;align-items:center}
+.qcard p b{display:block;font-family:Manrope,sans-serif;font-size:20px}
+.qcard p{color:var(--soft);font-size:15px}
+.tile{display:flex;align-items:center;gap:14px;padding:16px 18px;border:1px solid var(--line);border-radius:12px;background:var(--sky);cursor:pointer;text-align:left;font:600 16px Inter,sans-serif;color:var(--ink);transition:border-color .2s,background .2s}
+.tile:hover{border-color:var(--blue);background:#fff}
+.tile .ic{width:44px;height:44px;border-radius:10px;background:#fff;display:grid;place-items:center;color:var(--blue);flex:none}
+.tile small{display:block;font-weight:400;color:var(--soft);font-size:14px}
+
+/* Stats */
+.stats{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:24px;border-bottom:1px solid var(--line);padding-bottom:clamp(40px,5vw,64px)}
+.stat b{display:block;font-family:Manrope,sans-serif;font-size:clamp(34px,4vw,48px);font-weight:800;color:var(--blue);line-height:1}
+.stat span{color:var(--soft);font-size:15px}
+
+/* Services */
+.head{display:flex;justify-content:space-between;align-items:end;gap:24px;flex-wrap:wrap;margin-bottom:40px}
+.svc{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:24px}
+.card{border:1px solid var(--line);border-radius:16px;overflow:hidden;background:#fff;display:flex;flex-direction:column;transition:transform .25s,box-shadow .25s}
+.card:hover{transform:translateY(-4px);box-shadow:0 16px 36px rgba(13,34,56,.09)}
+.card img{width:100%;aspect-ratio:4/3;object-fit:cover}
+.card .body{padding:24px;display:flex;flex-direction:column;gap:12px;flex:1}
+.card p{color:var(--soft)}
+.card ul{list-style:none;padding:0;display:grid;gap:6px;font-size:15px;margin-bottom:8px}
+.card li{display:flex;gap:8px;align-items:center}
+.card li svg{width:18px;height:18px;color:var(--green)}
+.card .btn{margin-top:auto;align-self:flex-start;padding:12px 18px}
+
+/* Why */
+.why{background:var(--sky)}
+.whygrid{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:clamp(32px,6vw,80px);align-items:center}
+.reasons{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px}
+.reason{background:#fff;border-radius:14px;padding:24px;display:flex;flex-direction:column;gap:10px}
+.reason .ic{width:48px;height:48px;border-radius:12px;background:var(--mint);color:var(--green);display:grid;place-items:center}
+.reason p{color:var(--soft);font-size:15px}
+.steps{display:grid;gap:18px;margin-top:32px;counter-reset:s}
+.step{display:flex;gap:16px;align-items:flex-start}
+.step::before{counter-increment:s;content:counter(s);flex:none;width:36px;height:36px;border-radius:50%;background:var(--blue);color:#fff;display:grid;place-items:center;font-weight:700;font-size:15px}
+.step b{display:block}
+.step span{color:var(--soft);font-size:15px}
+
+/* About */
+.about{display:grid;grid-template-columns:minmax(0,6fr) minmax(0,6fr);gap:clamp(32px,6vw,80px);align-items:center}
+.about .ph{position:relative}
+.about .ph img{border-radius:18px;width:100%;aspect-ratio:5/4;object-fit:cover}
+.badge{position:absolute;left:-12px;bottom:28px;background:var(--green);color:#fff;border-radius:14px;padding:18px 22px;box-shadow:0 12px 30px rgba(13,34,56,.18)}
+.badge b{font-family:Manrope,sans-serif;font-size:30px;display:block;line-height:1}
+.badge span{font-size:14px}
+.about p{color:var(--soft);margin-top:16px}
+.chips{display:flex;flex-wrap:wrap;gap:10px;margin-top:24px}
+.chip{background:var(--sky);color:var(--blue-d);border-radius:999px;padding:8px 16px;font-weight:600;font-size:15px;display:flex;gap:6px;align-items:center}
+.chip svg{width:16px;height:16px}
+.cert{display:flex;gap:14px;align-items:center;margin-top:28px;padding:16px 18px;border:1px solid var(--line);border-radius:12px}
+.cert .ic{color:var(--green)}
+.cert p{margin:0;font-size:15px}
+.cert p b{display:block;color:var(--ink)}
+
+/* Reviews */
+.reviews{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:24px}
+.rev{border:1px solid var(--line);border-radius:16px;padding:28px;display:flex;flex-direction:column;gap:16px;background:#fff}
+.stars{display:flex;gap:2px;color:var(--gold)}
+.stars svg{width:18px;height:18px;fill:currentColor;stroke:none}
+.rev blockquote{font-size:17px;line-height:1.55}
+.rev footer{margin-top:auto;font-size:14px;color:var(--soft);display:flex;justify-content:space-between;gap:12px;align-items:center}
+.ex{font-size:12px;font-weight:600;color:var(--soft);background:#f1f4f7;border-radius:6px;padding:3px 8px;white-space:nowrap}
+
+/* Jobs band */
+.jobs{background:var(--ink);color:#fff}
+.jobs .wrap{display:flex;justify-content:space-between;align-items:center;gap:24px;flex-wrap:wrap}
+.jobs p{color:#b9c7d6;max-width:560px;margin-top:8px}
+.jobs .btn-o{background:transparent;color:#fff;border-color:#3b5470}
+
+/* Quote */
+.quote{background:linear-gradient(180deg,var(--sky),#fff)}
+.qgrid{display:grid;grid-template-columns:minmax(0,7fr) minmax(0,4fr);gap:32px;align-items:start}
+.form{background:#fff;border:1px solid var(--line);border-radius:18px;padding:clamp(22px,3vw,36px);box-shadow:0 18px 40px rgba(13,34,56,.06)}
+.prog{display:flex;gap:8px;margin-bottom:24px}
+.prog i{flex:1;height:6px;border-radius:3px;background:var(--line);transition:background .3s}
+.prog i.on{background:var(--blue)}
+.stepname{font-size:14px;color:var(--soft);margin-bottom:6px}
+.form h3{font-size:24px;margin-bottom:20px}
+.opts{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+.opt{position:relative}
+.opt input{position:absolute;opacity:0;pointer-events:none}
+.opt label{display:flex;flex-direction:column;gap:6px;padding:18px;border:2px solid var(--line);border-radius:12px;cursor:pointer;height:100%;font-weight:600}
+.opt label small{font-weight:400;color:var(--soft);font-size:14px}
+.opt label .ic{color:var(--blue)}
+.opt input:checked+label{border-color:var(--blue);background:var(--sky)}
+.opt input:focus-visible+label{outline:3px solid #8fbaf0}
+.fgrid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
+.f{display:flex;flex-direction:column;gap:6px}
+.f.full{grid-column:1/-1}
+.f label{font-weight:600;font-size:15px}
+.f input,.f select,.f textarea{font:16px Inter,sans-serif;padding:13px 14px;border:1.5px solid #c9d5e1;border-radius:10px;background:#fff;color:var(--ink);width:100%}
+.f textarea{min-height:90px;resize:vertical}
+.f input:invalid.touched{border-color:#c2412d}
+.range{display:flex;align-items:center;gap:16px}
+.range input{flex:1;accent-color:var(--blue);padding:0;border:0}
+.range output{font-weight:700;white-space:nowrap;min-width:92px;text-align:right}
+.pills{display:flex;flex-wrap:wrap;gap:8px}
+.pill input{position:absolute;opacity:0}
+.pill{position:relative}
+.pill label{display:block;padding:10px 16px;border:1.5px solid #c9d5e1;border-radius:999px;cursor:pointer;font-weight:500;font-size:15px}
+.pill input:checked+label{background:var(--blue);border-color:var(--blue);color:#fff}
+.nav-f{display:flex;justify-content:space-between;gap:12px;margin-top:28px;flex-wrap:wrap}
+.err{color:#c2412d;font-size:14px;min-height:20px;margin-top:10px}
+.done{text-align:center;padding:24px 8px}
+.done .ok{width:72px;height:72px;border-radius:50%;background:var(--mint);color:var(--green);display:grid;place-items:center;margin:0 auto 18px}
+.done .ok svg{width:36px;height:36px}
+.done p{color:var(--soft);max-width:460px;margin:10px auto 0}
+.sum{text-align:left;background:var(--sky);border-radius:12px;padding:18px;margin:22px auto 0;max-width:460px;font-size:15px;display:grid;gap:6px}
+.sum div{display:flex;justify-content:space-between;gap:12px}
+.sum span{color:var(--soft)}
+.contact{display:grid;gap:14px}
+.cbox{background:#fff;border:1px solid var(--line);border-radius:14px;padding:20px;display:flex;gap:14px;align-items:flex-start}
+.cbox .ic{width:42px;height:42px;border-radius:10px;background:var(--sky);color:var(--blue);display:grid;place-items:center;flex:none}
+.cbox b{display:block}
+.cbox span,.cbox a{color:var(--soft);font-size:15px;text-decoration:none}
+.promise{background:var(--mint);color:#13603f;border-radius:14px;padding:18px 20px;font-weight:600;display:flex;gap:12px;align-items:center}
+
+/* FAQ */
+.faq{max-width:820px;margin-inline:auto}
+.faq details{border-bottom:1px solid var(--line);padding:20px 0}
+.faq summary{cursor:pointer;font-weight:600;font-size:18px;list-style:none;display:flex;justify-content:space-between;gap:16px}
+.faq summary::after{content:"+";color:var(--blue);font-size:24px;line-height:1}
+.faq details[open] summary::after{content:"−"}
+.faq p{color:var(--soft);margin-top:10px}
+
+/* Footer */
+.foot{background:#08182a;color:#b9c7d6;font-size:15px}
+.fgrid2{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:32px}
+.foot b{color:#fff;display:block;margin-bottom:10px}
+.foot a{text-decoration:none}
+.foot a:hover{color:#fff}
+.foot ul{list-style:none;padding:0;display:grid;gap:6px}
+.legal{border-top:1px solid #1d3149;margin-top:40px;padding-top:20px;display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;font-size:13px}
+
+/* Mobile bar */
+.mbar{display:none}
+.proto{position:fixed;right:max(16px,env(safe-area-inset-right,0px));bottom:calc(16px + env(safe-area-inset-bottom,0px));z-index:60;background:var(--ink);color:#fff;font-size:12px;padding:6px 10px;border-radius:8px;opacity:.85}
+
+@media(max-width:980px){
+.links,.nav .tel,.nav .btn-p{display:none}
+.burger{display:grid;place-items:center}
+.menu.open{display:grid;gap:4px;padding:8px 0 18px}
+.menu a{padding:12px 4px;text-decoration:none;font-weight:600;border-bottom:1px solid var(--line)}
+.menu .btn{margin-top:12px}
+.qcard{grid-template-columns:repeat(3,minmax(0,1fr))}
+.qcard>p{grid-column:1/-1}
+.svc,.reviews{grid-template-columns:repeat(2,minmax(0,1fr))}
+.whygrid,.about,.qgrid{grid-template-columns:minmax(0,1fr)}
+.fgrid2{grid-template-columns:1fr 1fr}
+}
+@media(max-width:640px){
+.hero{display:flex;flex-direction:column;background:#fff;padding-top:32px}
+.hero::before{display:none}
+.hero>img{position:relative;order:2;height:250px;border-radius:16px;margin-top:28px;object-position:65% 40%}
+.hero .wrap{min-height:auto}
+.quick{margin-top:0}
+.qcard,.svc,.reviews,.reasons,.opts{grid-template-columns:minmax(0,1fr)}
+.stats{grid-template-columns:repeat(2,minmax(0,1fr))}
+.fgrid{grid-template-columns:minmax(0,1fr)}
+.badge{left:12px}
+.fgrid2{grid-template-columns:1fr}
+.mbar{display:grid;grid-template-columns:1fr 1.4fr;gap:10px;position:fixed;left:0;right:0;bottom:0;z-index:55;background:#fff;border-top:1px solid var(--line);padding:10px max(16px,env(safe-area-inset-right,0px)) calc(10px + env(safe-area-inset-bottom,0px)) max(16px,env(safe-area-inset-left,0px))}
+.mbar .btn{padding:13px 10px}
+body{padding-bottom:76px}
+.proto{bottom:calc(84px + env(safe-area-inset-bottom,0px));right:auto;left:max(16px,env(safe-area-inset-left,0px))}
+}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.card,.btn{transition:none}}
+</style>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+<symbol id="i-check" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></symbol>
+<symbol id="i-phone" viewBox="0 0 24 24"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"/></symbol>
+<symbol id="i-mail" viewBox="0 0 24 24"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 6-10 7L2 6"/></symbol>
+<symbol id="i-pin" viewBox="0 0 24 24"><path d="M20 10c0 6-8 12-8 12S4 16 4 10a8 8 0 0 1 16 0z"/><circle cx="12" cy="10" r="3"/></symbol>
+<symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></symbol>
+<symbol id="i-office" viewBox="0 0 24 24"><rect x="4" y="2" width="16" height="20" rx="2"/><path d="M9 22v-4h6v4M8 6h.01M16 6h.01M12 6h.01M12 10h.01M12 14h.01M16 10h.01M16 14h.01M8 10h.01M8 14h.01"/></symbol>
+<symbol id="i-spark" viewBox="0 0 24 24"><path d="m12 3 1.9 5.8L20 11l-6.1 2.2L12 19l-1.9-5.8L4 11l6.1-2.2z"/></symbol>
+<symbol id="i-floor" viewBox="0 0 24 24"><path d="M3 21h18M5 21V10l7-6 7 6v11"/><path d="M9 21v-6h6v6"/></symbol>
+<symbol id="i-shield" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></symbol>
+<symbol id="i-user" viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></symbol>
+<symbol id="i-cal" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></symbol>
+<symbol id="i-tag" viewBox="0 0 24 24"><path d="M20.6 13.4 13.4 20.6a2 2 0 0 1-2.8 0L2 12V2h10l8.6 8.6a2 2 0 0 1 0 2.8z"/><circle cx="7" cy="7" r="1.5"/></symbol>
+<symbol id="i-star" viewBox="0 0 24 24"><path d="m12 2 3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1z"/></symbol>
+<symbol id="i-arrow" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></symbol>
+<symbol id="i-menu" viewBox="0 0 24 24"><path d="M3 6h18M3 12h18M3 18h18"/></symbol>
+<symbol id="i-drop" viewBox="0 0 24 24"><path d="M12 2.7s6 6.4 6 11.3a6 6 0 0 1-12 0c0-4.9 6-11.3 6-11.3z"/></symbol>
+</svg>
+
+<header>
+  <div class="wrap nav">
+    <a class="brand" href="#top" aria-label="R & E Renhold, til forsiden">
+      <span class="mark"><svg class="i"><use href="#i-drop"/></svg></span>
+      <span><b>R&amp;E Renhold</b><small>Rent &amp; Effektivt</small></span>
+    </a>
+    <nav class="links" aria-label="Hovedmeny">
+      <a href="#tjenester">Tjenester</a><a href="#hvorfor">Hvorfor oss</a><a href="#om-oss">Om oss</a><a href="#omtaler">Omtaler</a><a href="#kontakt">Kontakt</a>
+    </nav>
+    <a class="tel" href="tel:45402012"><svg class="i"><use href="#i-phone"/></svg>454 02 012</a>
+    <a class="btn btn-p" href="#kontakt">Få pristilbud</a>
+    <button class="burger" id="burger" aria-expanded="false" aria-controls="menu" aria-label="Åpne meny"><svg class="i"><use href="#i-menu"/></svg></button>
+  </div>
+  <nav class="menu wrap" id="menu" aria-label="Mobilmeny">
+    <a href="#tjenester">Tjenester</a><a href="#hvorfor">Hvorfor oss</a><a href="#om-oss">Om oss</a><a href="#omtaler">Omtaler</a><a href="#kontakt">Kontakt</a>
+    <a class="btn btn-p" href="#kontakt">Få gratis pristilbud</a>
+  </nav>
+</header>
+
+<main id="top">
+<section class="hero band">
+  <img src="img/hero.webp" alt="Renholder vasker gulvet i en lys, ren korridor">
+  <div class="wrap">
+    <p class="kicker">Renhold for bedrifter på Haugalandet</p>
+    <h1>Et rent arbeidsmiljø, hver eneste dag</h1>
+    <p class="lead">Fast bedriftsrenhold, spesialrenhold og boning av gulv. Dere velger hvor ofte, vi sørger for resultatet.</p>
+    <div class="cta">
+      <a class="btn btn-p" href="#kontakt">Få gratis pristilbud <svg class="i"><use href="#i-arrow"/></svg></a>
+      <a class="btn btn-o" href="tel:45402012"><svg class="i"><use href="#i-phone"/></svg>Ring 454 02 012</a>
+    </div>
+    <div class="proof">
+      <span><svg class="i"><use href="#i-check"/></svg>Siden 2016</span>
+      <span><svg class="i"><use href="#i-check"/></svg>Godkjent av Arbeidstilsynet</span>
+      <span><svg class="i"><use href="#i-check"/></svg>Uforpliktende befaring</span>
+    </div>
+  </div>
+</section>
+
+<div class="quick">
+  <div class="wrap qcard">
+    <p><b>Hva trenger dere?</b>Velg tjeneste og få pris innen én arbeidsdag.</p>
+    <button class="tile" data-service="Bedriftsrenhold"><span class="ic"><svg class="i"><use href="#i-office"/></svg></span><span>Bedriftsrenhold<small>Kontor og næringsbygg</small></span></button>
+    <button class="tile" data-service="Spesialrenhold"><span class="ic"><svg class="i"><use href="#i-spark"/></svg></span><span>Spesialrenhold<small>Engangsoppdrag og dypvask</small></span></button>
+    <button class="tile" data-service="Boning og oppskuring"><span class="ic"><svg class="i"><use href="#i-floor"/></svg></span><span>Boning av gulv<small>Oppskuring og ny bone</small></span></button>
+  </div>
+</div>
+
+<section class="band" style="padding-bottom:0">
+  <div class="wrap stats">
+    <div class="stat"><b>10 år</b><span>med bedriftsrenhold</span></div>
+    <div class="stat"><b>25</b><span>faste medarbeidere</span></div>
+    <div class="stat"><b>5</b><span>kommuner på Haugalandet</span></div>
+    <div class="stat"><b>1 dag</b><span>svartid på forespørsler</span></div>
+  </div>
+</section>
+
+<section class="band" id="tjenester">
+  <div class="wrap">
+    <div class="head">
+      <div><p class="kicker">Tjenester</p><h2>Renhold tilpasset deres bedrift</h2></div>
+      <p class="lead">Fast avtale eller enkeltoppdrag. Vi lager en plan etter deres lokaler, behov og budsjett.</p>
+    </div>
+    <div class="svc">
+      <article class="card">
+        <img src="img/bedriftsrenhold.webp" alt="Renholder støvsuger teppegulv i et moderne kontorlandskap" loading="lazy">
+        <div class="body">
+          <h3>Bedriftsrenhold</h3>
+          <p>Daglig eller ukentlig renhold av kontorer, fellesarealer og kantiner.</p>
+          <ul><li><svg class="i"><use href="#i-check"/></svg>Fast team og kontaktperson</li><li><svg class="i"><use href="#i-check"/></svg>Fleksible tider, også kveld</li><li><svg class="i"><use href="#i-check"/></svg>Jevnlig kvalitetskontroll</li></ul>
+          <button class="btn btn-o" data-service="Bedriftsrenhold">Be om pris</button>
+        </div>
+      </article>
+      <article class="card">
+        <img src="img/spesialrenhold.webp" alt="Rengjøring av benkeplate og vask med spray og klut" loading="lazy">
+        <div class="body">
+          <h3>Spesialrenhold</h3>
+          <p>Grundig rengjøring der vanlig renhold ikke strekker til.</p>
+          <ul><li><svg class="i"><use href="#i-check"/></svg>Hovedrengjøring og dypvask</li><li><svg class="i"><use href="#i-check"/></svg>Etter oppussing eller flytting</li><li><svg class="i"><use href="#i-check"/></svg>Vinduer, inventar og flater</li></ul>
+          <button class="btn btn-o" data-service="Spesialrenhold">Be om pris</button>
+        </div>
+      </article>
+      <article class="card">
+        <img src="img/boning.webp" alt="Mopp på et blankt, nyvasket gulv" loading="lazy">
+        <div class="body">
+          <h3>Boning og oppskuring</h3>
+          <p>Gi gulvene nytt liv og en overflate som tåler hverdagen.</p>
+          <ul><li><svg class="i"><use href="#i-check"/></svg>Fjerning av gammel bone</li><li><svg class="i"><use href="#i-check"/></svg>Ny beskyttende bone</li><li><svg class="i"><use href="#i-check"/></svg>Lengre levetid på gulvet</li></ul>
+          <button class="btn btn-o" data-service="Boning og oppskuring">Be om pris</button>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="band why" id="hvorfor">
+  <div class="wrap whygrid">
+    <div>
+      <p class="kicker">Hvorfor velge oss</p>
+      <h2>Lokalt, grundig og enkelt å samarbeide med</h2>
+      <div class="steps">
+        <div class="step"><div><b>Send en forespørsel</b><span>Tar under ett minutt, uten forpliktelser.</span></div></div>
+        <div class="step"><div><b>Gratis befaring</b><span>Vi ser på lokalene og lager et fast pristilbud.</span></div></div>
+        <div class="step"><div><b>Renholdet er i gang</b><span>Fast team, avtalt tid og jevnlig oppfølging.</span></div></div>
+      </div>
+    </div>
+    <div class="reasons">
+      <div class="reason"><span class="ic"><svg class="i"><use href="#i-user"/></svg></span><h3>Fast kontaktperson</h3><p>Én person som kjenner bygget og svarer når dere trenger det.</p></div>
+      <div class="reason"><span class="ic"><svg class="i"><use href="#i-shield"/></svg></span><h3>Godkjent og forsikret</h3><p>Godkjent av Arbeidstilsynet, med ordnede lønns- og arbeidsforhold.</p></div>
+      <div class="reason"><span class="ic"><svg class="i"><use href="#i-cal"/></svg></span><h3>Fleksible avtaler</h3><p>Dere bestemmer hvor ofte og hvor mye. Enkelt å justere.</p></div>
+      <div class="reason"><span class="ic"><svg class="i"><use href="#i-tag"/></svg></span><h3>Konkurransedyktige priser</h3><p>Fast pris uten overraskelser, og kvalitet som holder over tid.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="band" id="om-oss">
+  <div class="wrap about">
+    <div class="ph">
+      <img src="img/om-oss.webp" alt="Rent og ryddig kontor med skrivebord og stoler" loading="lazy">
+      <div class="badge"><b>Siden 2016</b><span>Lokalt eid i Karmsund</span></div>
+    </div>
+    <div>
+      <p class="kicker">Om oss</p>
+      <h2>Et lokalt renholdsfirma med 25 faste medarbeidere</h2>
+      <p>R &amp; E Renhold AS har levert renhold til bedrifter på Haugalandet i ti år. Vi vet at et rent bygg gir bedre trivsel, bedre inneklima og et godt førsteinntrykk for kundene deres.</p>
+      <p>Vi jobber med faste team, tydelige avtaler og god kommunikasjon. Derfor blir kundene våre hos oss over tid.</p>
+      <div class="chips" aria-label="Områder vi dekker">
+        <span class="chip"><svg class="i"><use href="#i-pin"/></svg>Haugesund</span><span class="chip"><svg class="i"><use href="#i-pin"/></svg>Karmøy</span><span class="chip"><svg class="i"><use href="#i-pin"/></svg>Tysvær</span><span class="chip"><svg class="i"><use href="#i-pin"/></svg>Bokn</span><span class="chip"><svg class="i"><use href="#i-pin"/></svg>Sveio</span>
+      </div>
+      <div class="cert"><span class="ic"><svg class="i"><use href="#i-shield"/></svg></span><p><b>Godkjent renholdsvirksomhet</b>Registrert i Arbeidstilsynets register over godkjente renholdsvirksomheter.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="band" id="omtaler" style="padding-top:0">
+  <div class="wrap">
+    <div class="head">
+      <div><p class="kicker">Kundeomtaler</p><h2>Hva kundene sier</h2></div>
+      <p class="lead">Omtalene under er eksempeltekst. De byttes ut med ekte Google-omtaler før lansering.</p>
+    </div>
+    <div class="reviews"></div>
+  </div>
+</section>
+
+<section class="band jobs">
+  <div class="wrap">
+    <div><h2>Vil du jobbe hos oss?</h2><p>Vi ser alltid etter pålitelige renholdere på Haugalandet. Faste vakter, ordnede forhold og et godt arbeidsmiljø.</p></div>
+    <a class="btn btn-o" href="#kontakt">Se ledige stillinger <svg class="i"><use href="#i-arrow"/></svg></a>
+  </div>
+</section>
+
+<section class="band quote" id="kontakt">
+  <div class="wrap">
+    <div class="head">
+      <div><p class="kicker">Pristilbud</p><h2>Få et uforpliktende pristilbud</h2></div>
+      <p class="lead">Tre korte steg. Vi svarer innen én arbeidsdag med et forslag eller en avtale om befaring.</p>
+    </div>
+    <div class="qgrid">
+      <form class="form" id="qform" novalidate>
+        <div class="prog" aria-hidden="true"><i class="on"></i><i></i><i></i></div>
+        <div data-step="1">
+          <p class="stepname">Steg 1 av 3</p>
+          <h3>Hvilken tjeneste trenger dere?</h3>
+          <div class="opts">
+            <div class="opt"><input type="radio" name="service" id="s1" value="Bedriftsrenhold" checked><label for="s1"><svg class="i ic"><use href="#i-office"/></svg>Bedriftsrenhold<small>Fast renhold</small></label></div>
+            <div class="opt"><input type="radio" name="service" id="s2" value="Spesialrenhold"><label for="s2"><svg class="i ic"><use href="#i-spark"/></svg>Spesialrenhold<small>Engangsoppdrag</small></label></div>
+            <div class="opt"><input type="radio" name="service" id="s3" value="Boning og oppskuring"><label for="s3"><svg class="i ic"><use href="#i-floor"/></svg>Boning av gulv<small>Oppskuring og bone</small></label></div>
+          </div>
+        </div>
+        <div data-step="2" hidden>
+          <p class="stepname">Steg 2 av 3</p>
+          <h3>Fortell oss litt om lokalene</h3>
+          <div class="fgrid">
+            <div class="f"><label for="building">Type bygg</label><select id="building"><option>Kontor</option><option>Butikk</option><option>Lager eller industri</option><option>Helse og omsorg</option><option>Borettslag og fellesareal</option><option>Annet</option></select></div>
+            <div class="f"><label for="place">Sted</label><select id="place"><option>Haugesund</option><option>Karmøy</option><option>Tysvær</option><option>Bokn</option><option>Sveio</option><option>Annet sted</option></select></div>
+            <div class="f full"><label for="size">Omtrentlig størrelse</label><div class="range"><input type="range" id="size" min="50" max="3000" step="50" value="400"><output id="sizeOut" for="size">400 m²</output></div></div>
+            <div class="f full"><span style="font-weight:600;font-size:15px">Hvor ofte?</span>
+              <div class="pills" role="radiogroup" aria-label="Hvor ofte">
+                <div class="pill"><input type="radio" name="freq" id="f1" value="Daglig"><label for="f1">Daglig</label></div>
+                <div class="pill"><input type="radio" name="freq" id="f2" value="2 til 3 ganger i uka"><label for="f2">2 til 3 ganger i uka</label></div>
+                <div class="pill"><input type="radio" name="freq" id="f3" value="Ukentlig" checked><label for="f3">Ukentlig</label></div>
+                <div class="pill"><input type="radio" name="freq" id="f4" value="Annenhver uke"><label for="f4">Annenhver uke</label></div>
+                <div class="pill"><input type="radio" name="freq" id="f5" value="Engangsoppdrag"><label for="f5">Engangsoppdrag</label></div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div data-step="3" hidden>
+          <p class="stepname">Steg 3 av 3</p>
+          <h3>Hvem kan vi kontakte?</h3>
+          <div class="fgrid">
+            <div class="f"><label for="company">Bedrift</label><input id="company" autocomplete="organization" required></div>
+            <div class="f"><label for="name">Navn</label><input id="name" autocomplete="name" required></div>
+            <div class="f"><label for="phone">Telefon</label><input id="phone" type="tel" autocomplete="tel" inputmode="tel" required pattern="[0-9 +]{8,}"></div>
+            <div class="f"><label for="email">E-post</label><input id="email" type="email" autocomplete="email" required></div>
+            <div class="f full"><label for="msg">Noe vi bør vite? (valgfritt)</label><textarea id="msg" placeholder="For eksempel ønsket oppstart, tidspunkt eller spesielle behov"></textarea></div>
+          </div>
+        </div>
+        <div data-step="4" hidden class="done">
+          <div class="ok"><svg class="i"><use href="#i-check"/></svg></div>
+          <h3>Takk, forespørselen er registrert</h3>
+          <p>I den ferdige nettsiden sendes en bekreftelse på e-post, og vi tar kontakt innen én arbeidsdag. I denne prototypen sendes ingenting.</p>
+          <div class="sum" id="sum"></div>
+          <button type="button" class="btn btn-o" id="again" style="margin-top:20px">Ny forespørsel</button>
+        </div>
+        <p class="err" id="err" role="alert"></p>
+        <div class="nav-f" id="navf">
+          <button type="button" class="btn btn-o" id="back" hidden>Tilbake</button>
+          <button type="submit" class="btn btn-p" id="next" style="margin-left:auto">Neste <svg class="i"><use href="#i-arrow"/></svg></button>
+        </div>
+      </form>
+      <aside class="contact">
+        <div class="promise"><svg class="i"><use href="#i-clock"/></svg>Svar innen én arbeidsdag</div>
+        <div class="cbox"><span class="ic"><svg class="i"><use href="#i-phone"/></svg></span><div><b>Ring oss</b><a href="tel:45402012">454 02 012</a></div></div>
+        <div class="cbox"><span class="ic"><svg class="i"><use href="#i-mail"/></svg></span><div><b>E-post</b><a href="mailto:post@rentogeffektivt.no">post@rentogeffektivt.no</a></div></div>
+        <div class="cbox"><span class="ic"><svg class="i"><use href="#i-pin"/></svg></span><div><b>Besøksadresse</b><span>Stølsmyr 16, 5542 Karmsund</span></div></div>
+        <div class="cbox"><span class="ic"><svg class="i"><use href="#i-clock"/></svg></span><div><b>Åpningstider</b><span>Mandag til fredag 08:00 til 16:00</span></div></div>
+      </aside>
+    </div>
+  </div>
+</section>
+
+<section class="band" style="padding-top:0">
+  <div class="faq">
+    <h2 style="margin-bottom:16px">Ofte stilte spørsmål</h2>
+    <details><summary>Hva koster bedriftsrenhold?</summary><p>Prisen avhenger av størrelse, type lokaler og hvor ofte dere ønsker renhold. Etter en gratis befaring får dere en fast pris per måned.</p></details>
+    <details><summary>Må vi binde oss til en lang avtale?</summary><p>Nei. Vi lager fleksible avtaler som kan justeres etter behov.</p></details>
+    <details><summary>Kan dere vaske utenfor arbeidstid?</summary><p>Ja, vi tilpasser tidspunktet slik at renholdet ikke forstyrrer arbeidsdagen.</p></details>
+    <details><summary>Hvilke områder dekker dere?</summary><p>Vi holder til i Karmsund og dekker Haugesund, Karmøy, Tysvær, Bokn og Sveio.</p></details>
+  </div>
+</section>
+</main>
+
+<footer class="band foot">
+  <div class="wrap">
+    <div class="fgrid2">
+      <div><b style="font-family:Manrope,sans-serif;font-size:20px">R&amp;E Renhold AS</b><p>Renhold for bedrifter på Haugalandet siden 2016. Godkjent av Arbeidstilsynet.</p></div>
+      <div><b>Tjenester</b><ul><li><a href="#tjenester">Bedriftsrenhold</a></li><li><a href="#tjenester">Spesialrenhold</a></li><li><a href="#tjenester">Boning og oppskuring</a></li></ul></div>
+      <div><b>Selskapet</b><ul><li><a href="#om-oss">Om oss</a></li><li><a href="#omtaler">Kundeomtaler</a></li><li><a href="#kontakt">Jobb hos oss</a></li></ul></div>
+      <div><b>Kontakt</b><ul><li><a href="tel:45402012">454 02 012</a></li><li><a href="mailto:post@rentogeffektivt.no">post@rentogeffektivt.no</a></li><li>Stølsmyr 16, 5542 Karmsund</li></ul></div>
+    </div>
+    <div class="legal"><span>© 2026 R &amp; E Renhold AS · Org.nr. 916 712 731</span><span>Personvern</span></div>
+  </div>
+</footer>
+
+<div class="mbar">
+  <a class="btn btn-o" href="tel:45402012"><svg class="i"><use href="#i-phone"/></svg>Ring</a>
+  <a class="btn btn-p" href="#kontakt">Få pristilbud</a>
+</div>
+<div class="proto">Prototype av Kilowott</div>
+
+<script>
+{
+const reviews=[
+  {t:"Fast team som kjenner bygget vårt. Kontoret er alltid klart når vi kommer om morgenen.",w:"Daglig leder, kontorbedrift i Haugesund"},
+  {t:"Gulvene i butikken ser ut som nye etter boningen. Ryddig jobb og avtalt tid ble holdt.",w:"Butikksjef, Karmøy"},
+  {t:"Rask respons og en tydelig pris. Enkelt å endre avtalen da vi trengte mer renhold.",w:"Styreleder, borettslag i Tysvær"}
+];
+const star='<svg class="i"><use href="#i-star"/></svg>';
+document.querySelector('.reviews').innerHTML=reviews.map(r=>`<figure class="rev"><div class="stars" aria-label="5 av 5 stjerner">${star.repeat(5)}</div><blockquote>«${r.t}»</blockquote><footer><span>${r.w}</span><span class="ex">Eksempel</span></footer></figure>`).join('');
+
+const burger=document.getElementById('burger'),menu=document.getElementById('menu');
+burger.addEventListener('click',()=>{const o=menu.classList.toggle('open');burger.setAttribute('aria-expanded',o)});
+menu.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{menu.classList.remove('open');burger.setAttribute('aria-expanded','false')}));
+
+const form=document.getElementById('qform'),steps=[...form.querySelectorAll('[data-step]')],bars=[...form.querySelectorAll('.prog i')];
+const back=document.getElementById('back'),next=document.getElementById('next'),err=document.getElementById('err'),navf=document.getElementById('navf');
+let cur=1;
+function show(n){
+  cur=n;steps.forEach(s=>s.hidden=+s.dataset.step!==n);
+  bars.forEach((b,i)=>b.classList.toggle('on',i<Math.min(n,3)));
+  back.hidden=n===1||n===4;navf.hidden=n===4;
+  next.innerHTML=n===3?'Send forespørsel':'Neste <svg class="i"><use href="#i-arrow"/></svg>';
+  err.textContent='';
+}
+const size=document.getElementById('size'),out=document.getElementById('sizeOut');
+size.addEventListener('input',()=>{out.textContent=(+size.value).toLocaleString('nb-NO')+' m²'});
+form.addEventListener('submit',e=>{
+  e.preventDefault();
+  if(cur===3){
+    const req=[...steps[2].querySelectorAll('[required]')];
+    req.forEach(i=>i.classList.add('touched'));
+    const bad=req.find(i=>!i.checkValidity());
+    if(bad){err.textContent='Fyll inn bedrift, navn, telefon og en gyldig e-post.';bad.focus();return}
+    const v=id=>document.getElementById(id).value;
+    const rows=[["Tjeneste",form.service.value],["Bygg",v('building')+', '+v('place')],["Størrelse",out.textContent],["Hvor ofte",form.freq.value],["Kontakt",v('name')+', '+v('company')]];
+    const sum=document.getElementById('sum');sum.textContent='';
+    rows.forEach(([k,val])=>{const d=document.createElement('div'),a=document.createElement('span'),b=document.createElement('b');a.textContent=k;b.textContent=val;d.append(a,b);sum.append(d)});
+    show(4);return;
+  }
+  show(cur+1);
+});
+back.addEventListener('click',()=>show(cur-1));
+document.getElementById('again').addEventListener('click',()=>{form.reset();out.textContent='400 m²';form.querySelectorAll('.touched').forEach(i=>i.classList.remove('touched'));show(1)});
+
+document.querySelectorAll('[data-service]').forEach(b=>b.addEventListener('click',()=>{
+  const r=form.querySelector(`input[name=service][value="${b.dataset.service}"]`);if(r)r.checked=true;
+  show(cur===4?1:cur);document.getElementById('kontakt').scrollIntoView({behavior:matchMedia('(prefers-reduced-motion: reduce)').matches?'auto':'smooth'});
+}));
+}
+</script>

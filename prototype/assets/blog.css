@@ -162,3 +162,4 @@ body{font-size:16px}
 .ddi svg{width:18px;height:18px}
 .mnav nav a.msub{padding:11px 0 11px 18px;font-weight:500;font-size:15px}
 .mnav nav a.msub[aria-current=page]{color:var(--violet)}
+.ahero img[src$="bedriftsrenhold.webp"]{object-position:50% 100%}

@@ -9,6 +9,7 @@ ROOT = os.path.dirname(HERE)
 sys.path.insert(0, HERE)
 from build_blog import esc, ld, BASE, HOME, DIRECTIONS, BUSINESS, ICON_ARROW, ICON_MENU, LANGS  # noqa: E402
 from pages_content import PAGES, AREA_LINKS, ORDER_SERVICES, ORDER_AREAS  # noqa: E402
+import svcnav  # noqa: E402
 
 OTHER = {'no': 'en', 'en': 'no'}
 BLOG = {'no': '../blogg/index.html', 'en': '../blog/index.html'}
@@ -61,8 +62,10 @@ def header(lang, key):
     switch = (f'<div class="lang" role="group" aria-label="{L["lang"]}">'
               f'<a href="{no_href}" hreflang="nb" aria-current="{str(lang == "no").lower()}">NO</a>'
               f'<a href="{en_href}" hreflang="en" aria-current="{str(lang == "en").lower()}">EN</a></div>')
-    links = (f'<a href="{HOME}#tjenester">{L["services"]}</a><a href="{HOME}#om-oss">{L["about"]}</a>'
-             f'<a href="{BLOG[lang]}">{L["blog"]}</a><a href="{HOME}#kontakt">{L["contact"]}</a>')
+    rest = (f'<a href="{HOME}#om-oss">{L["about"]}</a>'
+            f'<a href="{BLOG[lang]}">{L["blog"]}</a><a href="{HOME}#kontakt">{L["contact"]}</a>')
+    links = svcnav.desktop(lang, '../', L['services'], key) + rest
+    mlinks = f'<a href="{HOME}#tjenester">{L["services"]}</a>' + svcnav.mobile(lang, '../', key) + rest
     return f'''<header class="site-h pad">
   <div class="wrap nav">
     <a class="logo" href="{HOME}"><img src="../img/logo-dark.png" alt="R&amp;E Renhold, Rent &amp; Effektivt" width="624" height="176"></a>
@@ -70,7 +73,7 @@ def header(lang, key):
     {switch}
     <a class="btn btn-quote" href="{HOME}#kontakt">{L['quote']}</a>
     <details class="mnav"><summary aria-label="{L['menu']}">{ICON_MENU}</summary>
-      <nav aria-label="{L['mobnav']}">{links}<a class="btn btn-quote" href="{HOME}#kontakt">{L['quote_free']}</a></nav>
+      <nav aria-label="{L['mobnav']}">{mlinks}<a class="btn btn-quote" href="{HOME}#kontakt">{L['quote_free']}</a></nav>
     </details>
   </div>
 </header>

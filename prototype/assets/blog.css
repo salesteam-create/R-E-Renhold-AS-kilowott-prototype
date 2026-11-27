@@ -145,3 +145,20 @@ body{font-size:16px}
 .cta .btn{width:100%}
 }
 @media(prefers-reduced-motion:reduce){*{transition:none!important}html{scroll-behavior:auto}}
+/* Services dropdown in the header */
+.dd{position:relative;display:flex;align-items:center}
+.links .dd-t{display:inline-flex;align-items:center;gap:4px}
+.links .dd-t[aria-current]{color:var(--violet);font-weight:600}
+.dd-c{width:16px;height:16px;transition:transform .2s}
+.dd:hover .dd-c,.dd:focus-within .dd-c{transform:rotate(180deg)}
+.dd-p{position:absolute;top:100%;left:50%;width:360px;margin-top:10px;padding:10px;background:#fff;border:1px solid var(--line);border-radius:18px;box-shadow:0 24px 50px -18px rgba(36,19,47,.35);display:grid;gap:4px;opacity:0;visibility:hidden;transform:translate(-50%,8px);transition:opacity .2s,transform .2s,visibility .2s;z-index:60}
+.dd-p::before{content:"";position:absolute;left:0;right:0;top:-14px;height:14px}
+.dd:hover .dd-p,.dd:focus-within .dd-p{opacity:1;visibility:visible;transform:translate(-50%,0)}
+.links .dd-p a{display:flex;gap:12px;align-items:flex-start;padding:12px;border-radius:12px;color:var(--ink);font-size:15px}
+.links .dd-p a:hover,.links .dd-p a:focus-visible,.links .dd-p a[aria-current=page]{background:rgba(139,232,193,.18);color:var(--ink)}
+.dd-p b{display:block;font-weight:700}
+.dd-p small{display:block;font-size:13px;line-height:1.4;color:var(--soft);margin-top:2px;font-weight:400}
+.ddi{flex:0 0 34px;height:34px;border-radius:10px;background:var(--mint);color:var(--plum);display:grid;place-items:center}
+.ddi svg{width:18px;height:18px}
+.mnav nav a.msub{padding:11px 0 11px 18px;font-weight:500;font-size:15px}
+.mnav nav a.msub[aria-current=page]{color:var(--violet)}

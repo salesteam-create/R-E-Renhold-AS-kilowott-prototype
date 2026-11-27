@@ -419,6 +419,29 @@ header.solid .burger{color:var(--ink)}
 .sr{opacity:0;transform:translateY(34px);transition:opacity .9s cubic-bezier(.2,.7,.2,1),transform .9s cubic-bezier(.2,.7,.2,1)}
 .sr.on{opacity:1;transform:none}
 @media(prefers-reduced-motion:reduce){.hero h1 .ln>*,.hfx,.trust,.trust .wrap>div,.sr{opacity:1!important;transform:none!important}.hero>img{scale:1.04;filter:none}.hero::before,.hglow,.hero .btn-quote::after{display:none}}
+
+/* Services dropdown in the header */
+.dd{position:relative;display:flex;align-items:center}
+.dd-t{display:inline-flex;align-items:center;gap:4px}
+.dd-c{width:16px;height:16px;transition:transform .2s}
+.dd:hover .dd-c,.dd:focus-within .dd-c{transform:rotate(180deg)}
+.dd-p{position:absolute;top:100%;left:50%;width:360px;margin-top:10px;padding:10px;background:#fff;border:1px solid var(--line);border-radius:18px;box-shadow:0 24px 50px -18px rgba(36,19,47,.35);display:grid;gap:4px;opacity:0;visibility:hidden;transform:translate(-50%,8px);transition:opacity .2s,transform .2s,visibility .2s;z-index:60}
+.dd-p::before{content:"";position:absolute;left:0;right:0;top:-14px;height:14px}
+.dd:hover .dd-p,.dd:focus-within .dd-p{opacity:1;visibility:visible;transform:translate(-50%,0)}
+.links .dd-p a{color:var(--ink)}
+.dd-p a{display:flex;gap:12px;align-items:flex-start;padding:12px;border-radius:12px;text-decoration:none;color:var(--ink)}
+.dd-p a:hover,.dd-p a:focus-visible{background:rgba(139,232,193,.18)}
+.dd-p b{display:block;font-size:15px;font-weight:700}
+.dd-p small{display:block;font-size:13px;line-height:1.4;color:var(--muted,#6b6475);margin-top:2px;font-weight:400}
+.ddi{flex:0 0 34px;height:34px;border-radius:10px;background:var(--mint);color:var(--plum);display:grid;place-items:center}
+.ddi .i{width:18px;height:18px}
+.menu a.msub{padding:11px 0 11px 18px;font-weight:500;font-size:15px}
+/* Whole service card opens its page */
+.svc{position:relative;cursor:pointer}
+.svc h3 a::after{content:"";position:absolute;inset:0;z-index:1;border-radius:24px}
+.svc-act,.svc-img{position:relative;z-index:2}
+.svc h3 a:focus-visible{outline:none}
+.svc:has(h3 a:focus-visible){outline:3px solid var(--violet);outline-offset:3px}
 /* Footer */
 footer{background:#170b1f;color:rgba(255,255,255,.66);font-size:15px}
 .fgrid{display:flex;justify-content:space-between;gap:28px;flex-wrap:wrap;padding-block:48px}
@@ -548,14 +571,14 @@ body{padding-bottom:78px}
       <img src="img/logo-dark.png" alt="R&amp;E Renhold, Rent &amp; Effektivt" width="624" height="176">
     </a>
     <nav class="links" aria-label="Meny">
-      <a href="#tjenester" data-t="nav1">Tjenester</a><a href="#om-oss" data-t="nav2">Om oss</a><a href="blogg/index.html" data-blog data-t="nav3">Blogg</a><a href="jobb-hos-oss.html" data-t="navJobs">Jobb hos oss</a>
+      <div class="dd"><a href="#tjenester" class="dd-t" aria-haspopup="true"><span data-t="nav1">Tjenester</span><svg class="i dd-c" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a><div class="dd-p" role="menu"><a role="menuitem" href="tjenester/bedriftsrenhold.html" data-href-no="tjenester/bedriftsrenhold.html" data-href-en="services/office-cleaning.html"><span class="ddi"><svg class="i"><use href="#i-check"/></svg></span><span><b data-t="s1">Bedriftsrenhold</b><small data-t="s1d">Daglig eller regelmessig renhold av kontorer, butikker og fellesarealer.</small></span></a><a role="menuitem" href="tjenester/spesialrenhold.html" data-href-no="tjenester/spesialrenhold.html" data-href-en="services/specialist-cleaning.html"><span class="ddi"><svg class="i"><use href="#i-spark"/></svg></span><span><b data-t="s2">Spesialrenhold</b><small data-t="s2d">Grundig rengjøring når det faste renholdet ikke strekker til.</small></span></a><a role="menuitem" href="tjenester/boning-og-oppskuring.html" data-href-no="tjenester/boning-og-oppskuring.html" data-href-en="services/floor-stripping-and-polishing.html"><span class="ddi"><svg class="i"><use href="#i-shield"/></svg></span><span><b data-t="s3">Boning av gulv</b><small data-t="s3d">Oppskuring og ny bone som gir vinyl- og linoleumsgulv nytt liv.</small></span></a></div></div><a href="#om-oss" data-t="nav2">Om oss</a><a href="blogg/index.html" data-blog data-t="nav3">Blogg</a><a href="jobb-hos-oss.html" data-t="navJobs">Jobb hos oss</a>
     </nav>
     <div class="lang" role="group" aria-label="Språk / Language"><button data-lang="no" aria-pressed="true">NO</button><button data-lang="en" aria-pressed="false">EN</button></div>
     <a class="btn btn-quote hq" href="#kontakt" data-t="quote">Be om pristilbud</a>
     <button class="burger" id="burger" aria-expanded="false" aria-controls="menu" aria-label="Meny"><svg class="i"><use href="#i-menu"/></svg></button>
   </div>
   <nav class="menu wrap" id="menu">
-    <a href="#tjenester" data-t="nav1">Tjenester</a><a href="#om-oss" data-t="nav2">Om oss</a><a href="blogg/index.html" data-blog data-t="nav3">Blogg</a><a href="jobb-hos-oss.html" data-t="navJobs">Jobb hos oss</a><a href="#kontakt" data-t="nav4">Kontakt</a>
+    <a href="#tjenester" data-t="nav1">Tjenester</a><a class="msub" href="tjenester/bedriftsrenhold.html" data-href-no="tjenester/bedriftsrenhold.html" data-href-en="services/office-cleaning.html" data-t="s1">Bedriftsrenhold</a><a class="msub" href="tjenester/spesialrenhold.html" data-href-no="tjenester/spesialrenhold.html" data-href-en="services/specialist-cleaning.html" data-t="s2">Spesialrenhold</a><a class="msub" href="tjenester/boning-og-oppskuring.html" data-href-no="tjenester/boning-og-oppskuring.html" data-href-en="services/floor-stripping-and-polishing.html" data-t="s3">Boning av gulv</a><a href="#om-oss" data-t="nav2">Om oss</a><a href="blogg/index.html" data-blog data-t="nav3">Blogg</a><a href="jobb-hos-oss.html" data-t="navJobs">Jobb hos oss</a><a href="#kontakt" data-t="nav4">Kontakt</a>
   </nav>
 </header>
 

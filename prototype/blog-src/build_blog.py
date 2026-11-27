@@ -10,6 +10,7 @@ HERE = os.path.dirname(os.path.abspath(__file__))
 ROOT = os.path.dirname(HERE)
 sys.path.insert(0, HERE)
 import articles_no, articles_en  # noqa: E402
+import svcnav  # noqa: E402
 
 BASE = 'https://www.rentogeffektivt.no'
 DATE = '2026-11-27'
@@ -118,8 +119,10 @@ def header(lang, i):
               f'<a href="{no_href}" hreflang="nb" data-lang="no" aria-current="{str(lang == "no").lower()}">NO</a>'
               f'<a href="{en_href}" hreflang="en" data-lang="en" aria-current="{str(lang == "en").lower()}">EN</a></div>')
     cur = ' aria-current="page"' if i is None else ''
-    links = (f'<a href="{HOME}#tjenester">{L["services"]}</a><a href="{HOME}#om-oss">{L["about"]}</a>'
-             f'<a href="index.html"{cur}>{L["blog"]}</a><a href="{HOME}#kontakt">{L["contact"]}</a>')
+    rest = (f'<a href="{HOME}#om-oss">{L["about"]}</a>'
+            f'<a href="index.html"{cur}>{L["blog"]}</a><a href="{HOME}#kontakt">{L["contact"]}</a>')
+    links = svcnav.desktop(lang, '../', L['services']) + rest
+    mlinks = f'<a href="{HOME}#tjenester">{L["services"]}</a>' + svcnav.mobile(lang, '../') + rest
     return f'''<header class="site-h pad">
   <div class="wrap nav">
     <a class="logo" href="{HOME}"><img src="../img/logo-dark.png" alt="R&amp;E Renhold, Rent &amp; Effektivt" width="624" height="176"></a>
@@ -127,7 +130,7 @@ def header(lang, i):
     {switch}
     <a class="btn btn-quote" href="{HOME}#kontakt">{L['quote']}</a>
     <details class="mnav"><summary aria-label="{L['menu']}">{ICON_MENU}</summary>
-      <nav aria-label="{L['mobnav']}">{links}<a class="btn btn-quote" href="{HOME}#kontakt">{L['quote_free']}</a></nav>
+      <nav aria-label="{L['mobnav']}">{mlinks}<a class="btn btn-quote" href="{HOME}#kontakt">{L['quote_free']}</a></nav>
     </details>
   </div>
 </header>

@@ -57,7 +57,7 @@ header.solid .lang{border-color:var(--line)}
 .lang button{border:0;background:none;color:inherit;font:600 13px Inter,sans-serif;padding:6px 10px;border-radius:999px;cursor:pointer}
 .lang button[aria-pressed=true]{background:var(--mint);color:var(--plum)}
 .nav .btn{padding:12px 20px}
-header:not(.past) .nav .btn-quote{display:none}
+section[id]{scroll-margin-top:96px}
 .burger{display:none;background:none;border:0;color:inherit;width:44px;height:44px;cursor:pointer;color:#fff}
 header.solid .burger{color:var(--ink)}
 .menu{display:none}
@@ -293,6 +293,11 @@ footer a:hover{color:var(--mint)}
 .menu.open{display:grid;background:#fff;padding:8px 0 20px}
 .menu a{padding:14px 0;text-decoration:none;font-weight:600;border-bottom:1px solid var(--line);color:var(--ink)}
 .split,.qgrid,.t2grid,.fgrid2{grid-template-columns:minmax(0,1fr)}
+.qgrid{display:flex;flex-direction:column;gap:0}
+.qgrid>div:first-child{display:contents}
+.qgrid .form{order:1;margin-top:28px}
+.qgrid .mguide,.qgrid .callcard{order:2}
+.qgrid .mguide{max-width:none}
 .cards{grid-template-columns:repeat(2,minmax(0,1fr))}
 .svc:last-child{grid-column:1/-1;flex-direction:row}
 .svc:last-child .svc-img{width:50%;aspect-ratio:auto;flex:none}
@@ -300,14 +305,14 @@ footer a:hover{color:var(--mint)}
 @media(max-width:720px){
 .nav .btn-quote{display:none}
 .logo img{height:36px}
-.hero{align-items:flex-end;min-height:100svh}
+.hero{align-items:flex-end;min-height:calc(100svh - 78px)}
 .hero>img{width:100%;object-position:66% 50%}
 .hero::after{background:linear-gradient(180deg,rgba(36,19,47,.7) 0%,rgba(36,19,47,.15) 22%,rgba(36,19,47,.75) 58%,rgba(36,19,47,.96) 85%)}
 .hero .wrap{padding-block:120px 150px}
 .hero p.sub{font-size:17px}
 .hero .btn-ghost,.shead .btn-line{display:none}
 .hero .btn-quote{width:100%}
-.trust .wrap{gap:10px;padding-block:16px}
+.trust .wrap{gap:10px;padding-block:16px;padding-right:62px}
 .trust div{flex-direction:column;align-items:flex-start;gap:2px}
 .trust b{font-size:20px}
 .trust span{font-size:13px}
@@ -319,7 +324,7 @@ footer a:hover{color:var(--mint)}
 .opts,.fg{grid-template-columns:minmax(0,1fr)}
 .mbar{display:grid;grid-template-columns:1fr 1.5fr;gap:10px;position:fixed;left:0;right:0;bottom:0;z-index:60;background:#fff;border-top:1px solid var(--line);padding:10px max(16px,env(safe-area-inset-right,0px)) calc(10px + env(safe-area-inset-bottom,0px)) max(16px,env(safe-area-inset-left,0px))}
 .mbar .btn{padding:14px 10px}
-.mbar{transform:translateY(110%);transition:transform .3s}
+
 .mbar.show{transform:none}
 body{padding-bottom:78px}
 .chat-btn{bottom:calc(90px + env(safe-area-inset-bottom,0px));width:56px;height:56px}
@@ -359,10 +364,10 @@ body{padding-bottom:78px}
       <img src="img/logo-dark.png" alt="R&amp;E Renhold, Rent &amp; Effektivt" width="624" height="176">
     </a>
     <nav class="links" aria-label="Meny">
-      <a href="#tjenester" data-t="nav1"></a><a href="#om-oss" data-t="nav2"></a><a href="blogg/index.html" data-blog data-t="nav3"></a><a href="#kontakt" data-t="nav4"></a>
+      <a href="#tjenester" data-t="nav1"></a><a href="#om-oss" data-t="nav2"></a><a href="blogg/index.html" data-blog data-t="nav3"></a>
     </nav>
     <div class="lang" role="group" aria-label="Språk / Language"><button data-lang="no" aria-pressed="true">NO</button><button data-lang="en" aria-pressed="false">EN</button></div>
-    <a class="btn btn-quote" href="#kontakt" data-t="quote"></a>
+    <a class="btn btn-quote hq" href="#kontakt" data-t="quote"></a>
     <button class="burger" id="burger" aria-expanded="false" aria-controls="menu" aria-label="Meny"><svg class="i"><use href="#i-menu"/></svg></button>
   </div>
   <nav class="menu wrap" id="menu">

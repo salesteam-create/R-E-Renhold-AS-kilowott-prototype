@@ -92,7 +92,7 @@ def footer(lang):
     <div class="legal"><span>© 2026 R &amp; E Renhold AS · Org.nr. 916 712 731</span><span>{L['proto']}</span></div>
   </div>
 </footer>
-<script>{{try{{localStorage.setItem('re-lang','{lang}')}}catch(e){{}}}}</script>
+<script>{{try{{localStorage.setItem('re-lang','{lang}')}}catch(e){{}}}}document.addEventListener('click',function(e){{var a=e.target.closest('a[href^="#"]');if(!a)return;var id=a.getAttribute('href').slice(1),el=id&&document.getElementById(id);if(!el)return;e.preventDefault();el.scrollIntoView({{behavior:'smooth',block:'start'}});try{{history.replaceState(null,'','#'+id)}}catch(_){{}}}});</script>
 </body>
 </html>
 '''

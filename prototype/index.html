@@ -767,6 +767,10 @@ jm.addEventListener('click',e=>{if(e.target===jm)jobClose()});
 addEventListener('keydown',e=>{if(e.key==='Escape'&&!jm.hidden)jobClose()});
 jf.onsubmit=e=>{e.preventDefault();const req=$$('#jobForm [required]');req.forEach(i=>i.classList.add('touched'));const bad=req.find(i=>!i.checkValidity());if(bad){$('#jErr').textContent=t('jErr');bad.focus();return}jf.hidden=true;$('#jobDone').hidden=false};
 
+/* In-page links: scroll in code so they also work inside embedded viewers */
+function goTo(id,smooth){const el=id?document.getElementById(id):document.body;if(!el)return false;el.scrollIntoView({behavior:smooth&&!matchMedia('(prefers-reduced-motion: reduce)').matches?'smooth':'auto',block:'start'});try{history.replaceState(null,'','#'+id)}catch(_){}return true}
+document.addEventListener('click',e=>{const a=e.target.closest('a[href^="#"]');if(!a)return;const id=a.getAttribute('href').slice(1);if(goTo(id,true))e.preventDefault()});
+addEventListener('load',()=>{const h=location.hash.slice(1);if(h&&/^[a-z0-9-]+$/i.test(h))setTimeout(()=>goTo(h,false),60)});
 apply();onScroll();
 }
 </script>

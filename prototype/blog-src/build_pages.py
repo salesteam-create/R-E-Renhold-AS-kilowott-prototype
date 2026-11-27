@@ -92,7 +92,7 @@ def footer(lang):
     <div class="legal"><span>© 2026 R &amp; E Renhold AS · Org.nr. 916 712 731</span><span>{L['proto']}</span></div>
   </div>
 </footer>
-<script>{{try{{localStorage.setItem('re-lang','{lang}')}}catch(e){{}}}}document.addEventListener('click',function(e){{var a=e.target.closest('a[href^="#"]');if(!a)return;var id=a.getAttribute('href').slice(1),el=id&&document.getElementById(id);if(!el)return;e.preventDefault();el.scrollIntoView({{behavior:'smooth',block:'start'}});try{{history.replaceState(null,'','#'+id)}}catch(_){{}}}});</script>
+<script>{{try{{localStorage.setItem('re-lang','{lang}')}}catch(e){{}}}}var sc=document.querySelector('.svc-switch [aria-current]');if(sc){{var sw=sc.parentNode;sw.scrollLeft+=sc.getBoundingClientRect().left-sw.getBoundingClientRect().left-(sc.previousElementSibling?44:16)}}document.addEventListener('click',function(e){{var a=e.target.closest('a[href^="#"]');if(!a)return;var id=a.getAttribute('href').slice(1),el=id&&document.getElementById(id);if(!el)return;e.preventDefault();el.scrollIntoView({{behavior:'smooth',block:'start'}});try{{history.replaceState(null,'','#'+id)}}catch(_){{}}}});</script>
 </body>
 </html>
 '''
@@ -140,10 +140,20 @@ def build(lang, key):
     cta_h, cta_p = t['cta']
     crumb_mid = X['services_h'] if P['kind'] == 'service' else X['areas_h']
     rel = ''.join(link_card(lang, k, current=(k == key)) for k in ORDER_SERVICES)
+    switch = ''
+    related = f'''<section class="related pad" aria-labelledby="rel-h"><div class="wrap"><h2 id="rel-h">{rel_h}</h2><div class="rgrid r3">{rel}</div></div></section>'''
+    if P['kind'] == 'service':
+        items = []
+        for k in ORDER_SERVICES:
+            o = PAGES[k][lang]; cur = k == key
+            items.append(f'''<a href="../{o['path']}"{' aria-current="page"' if cur else ''}><img src="../img/{PAGES[k]['img']}" alt="" width="56" height="56" loading="eager"><span><b>{esc(o['crumb'])}</b><small>{X['here'] if cur else LANGS[lang]['L']['more']}</small></span></a>''')
+        switch = f'<nav class="svc-switch" aria-label="{X["services_h"]}">{"".join(items)}</nav>'
+        related = ''
     html_out = head(lang, key, t['seo_title'], t['desc'], P['img'], schemas) + header(lang, key) + f'''<main>
   <div class="pad">
     <div class="ahead">
       <nav class="crumbs" aria-label="{L['crumbs']}"><a href="{HOME}">{L['home']}</a><span aria-hidden="true">/</span><a href="{HOME}#tjenester">{crumb_mid}</a><span aria-hidden="true">/</span><span>{esc(t['crumb'])}</span></nav>
+      {switch}
       <h1>{esc(t['h1'])}</h1>
       <p class="lead-in">{esc(t['intro'])}</p>
       <a class="btn btn-quote" href="{HOME}#kontakt">{L['quote_free']} {ICON_ARROW}</a>
@@ -155,7 +165,7 @@ def build(lang, key):
       <section aria-labelledby="faq-h"><h2 id="faq-h">{L['faq']}</h2><div class="faq">{faq}</div></section>
     </article>
   </div>
-  <section class="related pad" aria-labelledby="rel-h"><div class="wrap"><h2 id="rel-h">{rel_h}</h2><div class="rgrid r3">{rel}</div></div></section>
+  {related}
 </main>
 ''' + footer(lang)
     out = os.path.join(ROOT, t['path'])

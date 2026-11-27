@@ -336,7 +336,7 @@ header.solid .burger{color:var(--ink)}
 /* Cinematic about */
 .cine{position:relative;overflow:hidden;color:#fff;background:var(--plum);min-height:min(92vh,820px);display:flex;align-items:center}
 .cine-media{position:absolute;inset:0;overflow:hidden}
-.cine-vid{width:100%;height:100%;object-fit:cover;object-position:50% 62%;transform:scale(1.04);animation:drift 30s ease-in-out infinite alternate;filter:saturate(1.05) brightness(1.04)}
+.cine-vid{width:100%;height:100%;object-fit:cover;object-position:42% 50%;transform:scale(1.04);animation:drift 30s ease-in-out infinite alternate;filter:saturate(1.05) brightness(1.04)}
 @keyframes drift{to{transform:scale(1.1) translateX(-1%)}}
 .cine-media{left:36%}
 .cine-shade{position:absolute;inset:0;background:linear-gradient(90deg,rgba(36,19,47,1) 0%,rgba(36,19,47,1) 36%,rgba(36,19,47,.55) 46%,rgba(36,19,47,.1) 60%,rgba(36,19,47,0) 72%)}
@@ -380,7 +380,7 @@ header.solid .burger{color:var(--ink)}
 @media(max-width:900px){
 .cine{display:block;min-height:0;background:var(--plum)}
 .cine-media{position:relative;inset:auto;height:clamp(240px,62vw,460px)}
-.cine-vid{object-position:50% 64%}
+.cine-vid{object-position:55% 50%}
 .cine-shade{inset:auto 0 auto 0;top:0;height:clamp(240px,62vw,460px);background:linear-gradient(180deg,rgba(36,19,47,0) 55%,rgba(36,19,47,1) 100%)}
 .cine-in{padding-block:8px 64px;margin-top:-56px}
 .cine-stats b{font-size:28px}
@@ -652,7 +652,7 @@ body{padding-bottom:78px}
 
 <section class="cine" id="om-oss" aria-labelledby="ab-h">
   <div class="cine-media" aria-hidden="true">
-    <img class="cine-vid" src="img/om-oss-team.webp" alt="" width="1200" height="1800" loading="lazy" decoding="async">
+    <video class="cine-vid" autoplay muted loop playsinline preload="metadata" poster="video/renhold-team-poster.webp" src="video/renhold-team.mp4"></video>
   </div>
   <div class="cine-shade" aria-hidden="true"></div>
   <div class="cine-in pad">
@@ -677,6 +677,7 @@ body{padding-bottom:78px}
       </div>
     </div>
   </div>
+  <button class="cine-pp" type="button" aria-pressed="false" data-ta="vidPause"><svg class="i ip-pause" viewBox="0 0 24 24"><path d="M9 5v14M15 5v14"/></svg><svg class="i ip-play" viewBox="0 0 24 24"><path d="M7 4l13 8-13 8z"/></svg></button>
 </section>
 
 <section class="pad trust2" id="omtaler">
@@ -974,8 +975,13 @@ const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.targ
 els.forEach(el=>{const r=el.getBoundingClientRect();if(r.top<innerHeight)return;const sib=[...el.parentNode.children].indexOf(el);el.style.transitionDelay=Math.min(sib,3)*.1+'s';el.classList.add('sr');io.observe(el)})}}}
 /* Phone: hide the sticky bar and chat bubble while the form is on screen */
 if('IntersectionObserver' in window){const io=new IntersectionObserver(es=>es.forEach(en=>document.body.classList.toggle('inform',en.isIntersecting&&innerWidth<=720)),{threshold:0.12});io.observe($('#qform'))}
-/* Cinematic section: reveal text when it scrolls into view */
-{const sec=document.querySelector('.cine');if(sec){if('IntersectionObserver' in window){const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){sec.classList.add('in');io.disconnect()}}),{threshold:.2});io.observe(sec)}else sec.classList.add('in')}}
+/* Cinematic video: reveal text, play only on screen, pause button, respect reduced motion */
+{const sec=document.querySelector('.cine');if(sec){const v=sec.querySelector('.cine-vid'),pp=sec.querySelector('.cine-pp');let user=false;
+const rm=matchMedia('(prefers-reduced-motion: reduce)').matches;
+const play=()=>{if(rm||user)return;const r=v.play();if(r)r.catch(()=>{})};
+if(rm){v.removeAttribute('autoplay');v.pause();pp.setAttribute('aria-pressed','true')}
+if('IntersectionObserver' in window){new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){sec.classList.add('in');play()}else v.pause()}),{threshold:.2}).observe(sec)}else{sec.classList.add('in');play()}
+pp.addEventListener('click',()=>{if(v.paused){user=false;const r=v.play();if(r)r.catch(()=>{});pp.setAttribute('aria-pressed','false')}else{user=true;v.pause();pp.setAttribute('aria-pressed','true')}})}}
 /* Quote form */
 const form=$('#qform'),steps=$$('#qform [data-step]'),dots=$$('#qform .stepper li');let cur=1;
 function setNext(){const n=$('#next');n.textContent='';const sp=document.createElement('span');sp.textContent=t(cur===3?'qfSend':'qfNext');n.append(sp);n.insertAdjacentHTML('beforeend','<svg class="i"><use href="#i-arrow"/></svg>')}

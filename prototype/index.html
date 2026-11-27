@@ -208,6 +208,23 @@ header.solid .burger{color:var(--ink)}
 .sum div{display:flex;justify-content:space-between;gap:12px}
 .sum span{color:var(--soft)}
 
+/* Find us */
+.findus{background:var(--lilac);padding-block:clamp(56px,7vw,96px)}
+.fgrid2{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:clamp(28px,5vw,64px);align-items:center}
+.findus h2{font-size:clamp(28px,3vw,40px)}
+.finfo{list-style:none;padding:0;display:grid;gap:16px;margin:26px 0 30px}
+.finfo li{display:flex;gap:14px;align-items:flex-start}
+.finfo .ic{width:46px;height:46px;border-radius:14px;background:#fff;color:var(--violet);display:grid;place-items:center;flex:none}
+.finfo b{display:block;font-family:"Plus Jakarta Sans",sans-serif;font-size:17px}
+.finfo li>span:last-child{color:var(--soft)}
+.mapbox{position:relative;display:block;border-radius:24px;overflow:hidden;box-shadow:0 20px 46px rgba(36,19,47,.16);aspect-ratio:1300/680;background:#e9e6e1}
+.mapbox img{width:100%;height:100%;object-fit:cover;transition:transform .5s}
+.mapbox:hover img{transform:scale(1.03)}
+.pinlabel{position:absolute;left:50%;top:48.5%;transform:translate(-50%,calc(-100% - 46px));background:var(--plum);color:#fff;font:700 14px "Plus Jakarta Sans",sans-serif;padding:7px 12px;border-radius:10px;white-space:nowrap;box-shadow:0 8px 18px rgba(36,19,47,.25)}
+.pinlabel::after{content:"";position:absolute;left:50%;bottom:-6px;margin-left:-6px;border:6px solid transparent;border-bottom:0;border-top-color:var(--plum)}
+.mapchip{position:absolute;right:16px;bottom:16px;display:flex;gap:8px;align-items:center;background:#fff;color:var(--plum);font-weight:600;font-size:14px;padding:9px 14px;border-radius:999px;box-shadow:0 8px 20px rgba(36,19,47,.15)}
+.osm{position:absolute;left:12px;bottom:10px;font-size:11px;color:#555;background:rgba(255,255,255,.8);padding:2px 6px;border-radius:4px}
+
 /* Footer */
 footer{background:#170b1f;color:rgba(255,255,255,.66);font-size:15px}
 .fgrid{display:flex;justify-content:space-between;gap:28px;flex-wrap:wrap;padding-block:48px}
@@ -252,7 +269,7 @@ footer a:hover{color:var(--mint)}
 .nav .lang{margin-left:auto}
 .menu.open{display:grid;background:#fff;padding:8px 0 20px}
 .menu a{padding:14px 0;text-decoration:none;font-weight:600;border-bottom:1px solid var(--line);color:var(--ink)}
-.split,.qgrid,.t2grid{grid-template-columns:minmax(0,1fr)}
+.split,.qgrid,.t2grid,.fgrid2{grid-template-columns:minmax(0,1fr)}
 }
 @media(max-width:720px){
 .nav .btn-quote{display:none}
@@ -466,12 +483,32 @@ body{padding-bottom:78px}
 </section>
 </main>
 
+<section class="findus pad" id="finn-oss">
+  <div class="wrap fgrid2">
+    <div>
+      <p class="eyebrow" data-t="fEy"></p>
+      <h2 data-t="fH"></h2>
+      <ul class="finfo">
+        <li><span class="ic"><svg class="i"><use href="#i-pin"/></svg></span><span><b>Stølsmyr 16</b>5542 Karmsund</span></li>
+        <li><span class="ic"><svg class="i"><use href="#i-clock"/></svg></span><span><b data-t="fHoursH"></b><span data-t="hours"></span></span></li>
+      </ul>
+      <a class="btn btn-quote" href="https://www.google.com/maps/dir/?api=1&amp;destination=R%20%26%20E%20Renhold%20AS%2C%20St%C3%B8lsmyr%2016%2C%205542%20Karmsund" target="_blank" rel="noopener"><svg class="i"><use href="#i-pin"/></svg><span data-t="fBtn"></span></a>
+    </div>
+    <a class="mapbox" href="https://www.google.com/maps/dir/?api=1&amp;destination=R%20%26%20E%20Renhold%20AS%2C%20St%C3%B8lsmyr%2016%2C%205542%20Karmsund" target="_blank" rel="noopener" data-ta="fOpen">
+      <img src="img/kart.webp" alt="" data-ta="fAlt" width="1300" height="680" loading="lazy">
+      <span class="pinlabel">R&amp;E Renhold</span>
+      <span class="mapchip"><svg class="i"><use href="#i-arrow"/></svg><span data-t="fOpen"></span></span>
+      <small class="osm">© OpenStreetMap</small>
+    </a>
+  </div>
+</section>
+
 <footer class="pad">
   <div class="wrap">
     <div class="fgrid">
       <div class="fcol"><a class="logo flogo" href="#top"><img src="img/logo-dark.png" alt="R&amp;E Renhold, Rent &amp; Effektivt" width="624" height="176"></a></div>
       <div class="fcol"><a href="#tjenester" data-t="nav1"></a><a href="tips-og-rad/index.html" data-t="nav3"></a></div>
-      <div class="fcol"><a href="mailto:post@rentogeffektivt.no">post@rentogeffektivt.no</a><span>Stølsmyr 16, 5542 Karmsund</span></div>
+      <div class="fcol"><a href="mailto:post@rentogeffektivt.no">post@rentogeffektivt.no</a><a href="https://www.google.com/maps/dir/?api=1&amp;destination=R%20%26%20E%20Renhold%20AS%2C%20St%C3%B8lsmyr%2016%2C%205542%20Karmsund" target="_blank" rel="noopener">Stølsmyr 16, 5542 Karmsund</a></div>
       <div class="fcol"><span data-t="hours"></span><span>Org.nr. 916 712 731</span></div>
     </div>
     <div class="legal"><span>© 2026 R &amp; E Renhold AS</span><span data-t="proto"></span></div>
@@ -530,7 +567,7 @@ h1a:"Renhold for bedrifter.",h1b:"Gjort skikkelig.",sub:"Kontor, spesialrenhold 
 svcEy:"Tjenester",svcH:"Det vi gjør best",s1:"Bedriftsrenhold",s1d:"Kontorer og fellesarealer",s2:"Spesialrenhold",s2d:"Dypvask og engangsoppdrag",s3:"Boning av gulv",s3d:"Oppskuring og ny bone",
 years:"År med renhold",years2:"På Haugalandet siden 2016",staff:"Faste medarbeidere",abEy:"Om oss",abH:"Lokalt, grundig og enkelt å samarbeide med",p1:"Fast team",p1d:"Folk som kjenner bygget deres.",p2:"Fleksible avtaler",p2d:"Dere velger hvor ofte.",p3:"Godkjent og trygg",p3d:"Ordnede forhold for alle ansatte.",
 sample:"Eksempel",gScore:"5,0",gLabel:"Google",gRead:"Les omtalene på Google",trEy:"Hvem vi jobber for",trH:"Valgt av bedrifter på Haugalandet",sc1:"Kontorer",sc2:"Butikker",sc3:"Helse og omsorg",sc4:"Borettslag og sameier",sc5:"Industri og lager",scCta:"Deres bygg?",scCtaS:"Få pris",gT:"Snitt av 6 omtaler",gS:"Vurderingen hentes direkte fra Google-profilen.",jobs:"Vi ansetter renholdere på Haugalandet",jobsS:"Vil du jobbe hos oss? Send en kort søknad på ett minutt.",jobsL:"Søk jobb",jH:"Jobb som renholder",jIntro:"Fortell oss litt om deg, så tar vi kontakt for en prat.",jp1:"Faste vakter",jp2:"Opplæring",jp3:"Ordnede forhold",jWhen:"Når kan du jobbe?",jw1:"Dag",jw2:"Kveld",jw3:"Helg",jMsg:"Litt om deg (valgfritt)",jSend:"Send søknad",jErr:"Fyll inn navn, telefon og en gyldig e-post.",jDoneH:"Takk for søknaden!",jDoneP:"Vi tar kontakt så snart vi kan. Prototype: ingenting sendes.",
-qEy:"Pristilbud",qH:"Få pris på under ett minutt",qLead:"Tre korte steg, så sender vi et forslag.",callLine:"Vil du heller ringe?",promise:"Svar innen én arbeidsdag",
+fEy:"Finn oss",fH:"Besøk oss i Karmsund",fHoursH:"Åpningstider",fBtn:"Få veibeskrivelse",fOpen:"Åpne i Google Maps",fAlt:"Kart som viser R & E Renhold i Stølsmyr 16, Karmsund",qEy:"Pristilbud",qH:"Få pris på under ett minutt",qLead:"Tre korte steg, så sender vi et forslag.",callLine:"Vil du heller ringe?",promise:"Svar innen én arbeidsdag",
 st1:"Steg 1 av 3",st2:"Steg 2 av 3",st3:"Steg 3 av 3",f1:"Hva trenger dere?",f2:"Om lokalene",f3:"Hvem kan vi kontakte?",
 lb1:"Type bygg",lb2:"Sted",lb3:"Størrelse",lb4:"Hvor ofte?",lb5:"Bedrift",lb6:"Navn",lb7:"Telefon",lb8:"E-post",lb9:"Kommentar (valgfritt)",
 b1:"Kontor",b2:"Butikk",b3:"Lager eller industri",b4:"Helse og omsorg",b5:"Annet",q1:"Daglig",q2:"Ukentlig",q3:"Annenhver uke",q4:"Engangsoppdrag",
@@ -553,7 +590,7 @@ h1a:"Commercial cleaning.",h1b:"Done properly.",sub:"Offices, specialist cleanin
 svcEy:"Services",svcH:"What we do best",s1:"Office cleaning",s1d:"Offices and shared areas",s2:"Specialist cleaning",s2d:"Deep cleans and one-off jobs",s3:"Floor care",s3d:"Stripping and polishing",
 years:"Years of cleaning",years2:"In Haugalandet since 2016",staff:"Permanent staff",abEy:"About us",abH:"Local, thorough and easy to work with",p1:"A fixed team",p1d:"People who know your building.",p2:"Flexible agreements",p2d:"You choose how often.",p3:"Approved and reliable",p3d:"Fair terms for every employee.",
 sample:"Sample",gScore:"5.0",gLabel:"Google",gRead:"Read the reviews on Google",trEy:"Who we work for",trH:"Trusted by businesses in Haugalandet",sc1:"Offices",sc2:"Shops",sc3:"Health and care",sc4:"Housing associations",sc5:"Industry and warehouses",scCta:"Your building?",scCtaS:"Get a price",gT:"Average of 6 reviews",gS:"The rating is pulled straight from the Google profile.",jobs:"We are hiring cleaners in Haugalandet",jobsS:"Want to work with us? Send a short application in one minute.",jobsL:"Apply now",jH:"Work as a cleaner",jIntro:"Tell us a little about yourself and we will get in touch for a chat.",jp1:"Regular shifts",jp2:"Training",jp3:"Fair terms",jWhen:"When can you work?",jw1:"Days",jw2:"Evenings",jw3:"Weekends",jMsg:"About you (optional)",jSend:"Send application",jErr:"Please fill in name, phone and a valid email.",jDoneH:"Thanks for applying!",jDoneP:"We will get in touch as soon as we can. Prototype: nothing is sent.",
-qEy:"Get a quote",qH:"Get a price in under a minute",qLead:"Three short steps and we send you a proposal.",callLine:"Prefer to call?",promise:"Reply within one working day",
+fEy:"Find us",fH:"Visit us in Karmsund",fHoursH:"Opening hours",fBtn:"Get directions",fOpen:"Open in Google Maps",fAlt:"Map showing R & E Renhold at Stølsmyr 16, Karmsund",qEy:"Get a quote",qH:"Get a price in under a minute",qLead:"Three short steps and we send you a proposal.",callLine:"Prefer to call?",promise:"Reply within one working day",
 st1:"Step 1 of 3",st2:"Step 2 of 3",st3:"Step 3 of 3",f1:"What do you need?",f2:"About your premises",f3:"Who should we contact?",
 lb1:"Type of building",lb2:"Location",lb3:"Size",lb4:"How often?",lb5:"Company",lb6:"Name",lb7:"Phone",lb8:"Email",lb9:"Comment (optional)",
 b1:"Office",b2:"Shop",b3:"Warehouse or industrial",b4:"Health and care",b5:"Other",q1:"Daily",q2:"Weekly",q3:"Every other week",q4:"One-off",

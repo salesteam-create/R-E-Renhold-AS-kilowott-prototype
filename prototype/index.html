@@ -330,14 +330,14 @@ body{padding-bottom:78px}
       <img src="img/logo-dark.png" alt="R&amp;E Renhold, Rent &amp; Effektivt" width="624" height="176">
     </a>
     <nav class="links" aria-label="Meny">
-      <a href="#tjenester" data-t="nav1"></a><a href="#om-oss" data-t="nav2"></a><a href="tips-og-rad/index.html" data-t="nav3"></a><a href="#kontakt" data-t="nav4"></a>
+      <a href="#tjenester" data-t="nav1"></a><a href="#om-oss" data-t="nav2"></a><a href="blogg/index.html" data-blog data-t="nav3"></a><a href="#kontakt" data-t="nav4"></a>
     </nav>
     <div class="lang" role="group" aria-label="Språk / Language"><button data-lang="no" aria-pressed="true">NO</button><button data-lang="en" aria-pressed="false">EN</button></div>
     <a class="btn btn-quote" href="#kontakt" data-t="quote"></a>
     <button class="burger" id="burger" aria-expanded="false" aria-controls="menu" aria-label="Meny"><svg class="i"><use href="#i-menu"/></svg></button>
   </div>
   <nav class="menu wrap" id="menu">
-    <a href="#tjenester" data-t="nav1"></a><a href="#om-oss" data-t="nav2"></a><a href="tips-og-rad/index.html" data-t="nav3"></a><a href="#kontakt" data-t="nav4"></a>
+    <a href="#tjenester" data-t="nav1"></a><a href="#om-oss" data-t="nav2"></a><a href="blogg/index.html" data-blog data-t="nav3"></a><a href="#kontakt" data-t="nav4"></a>
   </nav>
 </header>
 
@@ -507,7 +507,7 @@ body{padding-bottom:78px}
   <div class="wrap">
     <div class="fgrid">
       <div class="fcol"><a class="logo flogo" href="#top"><img src="img/logo-dark.png" alt="R&amp;E Renhold, Rent &amp; Effektivt" width="624" height="176"></a></div>
-      <div class="fcol"><a href="#tjenester" data-t="nav1"></a><a href="tips-og-rad/index.html" data-t="nav3"></a></div>
+      <div class="fcol"><a href="#tjenester" data-t="nav1"></a><a href="blogg/index.html" data-blog data-t="nav3"></a></div>
       <div class="fcol"><a href="mailto:post@rentogeffektivt.no">post@rentogeffektivt.no</a><a href="https://www.google.com/maps/dir/?api=1&amp;destination=R%20%26%20E%20Renhold%20AS%2C%20St%C3%B8lsmyr%2016%2C%205542%20Karmsund" target="_blank" rel="noopener">Stølsmyr 16, 5542 Karmsund</a></div>
       <div class="fcol"><span data-t="hours"></span><span>Org.nr. 916 712 731</span></div>
     </div>
@@ -562,7 +562,7 @@ body{padding-bottom:78px}
 <script>
 {
 const T={
-no:{nav1:"Tjenester",nav2:"Om oss",nav3:"Tips & råd",nav4:"Kontakt",quote:"Få pristilbud",quoteFree:"Få gratis pristilbud",heroAlt:"Lyst og rent kontorlokale med grønne planter og store vinduer",
+no:{nav1:"Tjenester",nav2:"Om oss",nav3:"Blogg",nav4:"Kontakt",quote:"Få pristilbud",quoteFree:"Få gratis pristilbud",heroAlt:"Lyst og rent kontorlokale med grønne planter og store vinduer",
 h1a:"Renhold for bedrifter.",h1b:"Gjort skikkelig.",sub:"Kontor, spesialrenhold og gulv på Haugalandet.",t1:"Gratis befaring",t2:"Fast pris per måned",t3:"Svar innen én arbeidsdag",
 svcEy:"Tjenester",svcH:"Det vi gjør best",s1:"Bedriftsrenhold",s1d:"Kontorer og fellesarealer",s2:"Spesialrenhold",s2d:"Dypvask og engangsoppdrag",s3:"Boning av gulv",s3d:"Oppskuring og ny bone",
 years:"År med renhold",years2:"På Haugalandet siden 2016",staff:"Faste medarbeidere",abEy:"Om oss",abH:"Lokalt, grundig og enkelt å samarbeide med",p1:"Fast team",p1d:"Folk som kjenner bygget deres.",p2:"Fleksible avtaler",p2d:"Dere velger hvor ofte.",p3:"Godkjent og trygg",p3d:"Ordnede forhold for alle ansatte.",
@@ -585,7 +585,7 @@ askName:"Gjerne! Hva heter du?",askPhone:"Takk, {n}. Hvilket telefonnummer kan v
 thanks:"Supert! Vi ringer deg på {p} innen én arbeidsdag.\n(Prototype: ingenting sendes.)",
 human:"Ring oss på 454 02 012 (man til fre 08 til 16) eller send e-post til post@rentogeffektivt.no.",
 unknown:"Det er jeg ikke sikker på. Velg et tema under, eller be om å bli ringt opp.",more:"Noe annet jeg kan hjelpe med?"}},
-en:{nav1:"Services",nav2:"About",nav3:"Tips & advice",nav4:"Contact",quote:"Get a quote",quoteFree:"Get a free quote",heroAlt:"Bright, clean office lounge with green plants and large windows",
+en:{nav1:"Services",nav2:"About",nav3:"Blog",nav4:"Contact",quote:"Get a quote",quoteFree:"Get a free quote",heroAlt:"Bright, clean office lounge with green plants and large windows",
 h1a:"Commercial cleaning.",h1b:"Done properly.",sub:"Offices, specialist cleaning and floor care in Haugalandet.",t1:"Free site visit",t2:"Fixed monthly price",t3:"Reply within one working day",
 svcEy:"Services",svcH:"What we do best",s1:"Office cleaning",s1d:"Offices and shared areas",s2:"Specialist cleaning",s2d:"Deep cleans and one-off jobs",s3:"Floor care",s3d:"Stripping and polishing",
 years:"Years of cleaning",years2:"In Haugalandet since 2016",staff:"Permanent staff",abEy:"About us",abH:"Local, thorough and easy to work with",p1:"A fixed team",p1d:"People who know your building.",p2:"Flexible agreements",p2d:"You choose how often.",p3:"Approved and reliable",p3d:"Fair terms for every employee.",
@@ -622,6 +622,7 @@ function apply(){
   $$('[data-ta]').forEach(e=>e.setAttribute(e.tagName==='IMG'?'alt':'aria-label',t(e.dataset.ta)));
   $$('[data-tp]').forEach(e=>e.placeholder=t(e.dataset.tp));
   $$('.lang button').forEach(b=>b.setAttribute('aria-pressed',b.dataset.lang===lang));
+  $$('[data-blog]').forEach(l=>l.setAttribute('href',lang==='en'?'blog/index.html':'blogg/index.html'));
   setNext();
   if(!$('#chat').hidden||$('#msgs').children.length){$('#msgs').innerHTML='';greet()}
 }

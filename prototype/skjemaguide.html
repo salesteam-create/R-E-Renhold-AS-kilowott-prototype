@@ -128,6 +128,66 @@ footer{border-top:1px solid var(--line);padding-block:22px;color:var(--soft);fon
 .lang{display:flex;border:1.5px solid rgba(255,255,255,.35);border-radius:999px;padding:3px}
 .lang button{border:0;background:none;color:#fff;font:600 13px Inter,sans-serif;padding:6px 12px;border-radius:999px;cursor:pointer}
 .lang button[aria-pressed=true]{background:var(--mint);color:#24132f}
+.dstepper{list-style:none;padding:0;margin:0 0 4px;display:grid;grid-template-columns:repeat(3,minmax(0,1fr))}
+.dstepper li{display:flex;flex-direction:column;align-items:center;gap:6px;position:relative;font-size:13px;font-weight:600;color:var(--soft)}
+.dstepper li+li::before{content:"";position:absolute;top:15px;right:calc(50% + 20px);width:calc(100% - 40px);height:2px;background:var(--line)}
+.dstepper li.done::before,.dstepper li.now::before{background:#6b3fa0}
+.ddot{width:30px;height:30px;border-radius:50%;border:2px solid var(--line);display:grid;place-items:center;font:700 13px "Plus Jakarta Sans",sans-serif;background:var(--card)}
+.ddot svg{display:none}
+.dstepper li.now{color:var(--ink)}
+.dstepper li.now .ddot{background:#6b3fa0;border-color:#6b3fa0;color:#fff}
+.dstepper li.done .ddot{border-color:#6b3fa0;color:#6b3fa0}
+.dstepper li.done .ddot b{display:none}
+.dstepper li.done .ddot svg{display:block}
+.dcount{text-align:center;font-size:13px;color:var(--soft);margin-bottom:16px}
+.dform fieldset{border:0;padding:0;margin:0;min-width:0}
+.dform legend{font:800 22px/1.2 "Plus Jakarta Sans",sans-serif;padding:0}
+.dhint{color:var(--soft);font-size:14px;margin:4px 0 16px}
+.dopt span{display:flex;flex-direction:column;gap:4px}
+.dopt small{color:var(--soft);font-weight:400;font-size:13px;line-height:1.4}
+.dferr{display:none;color:#b3261e;font-size:13px;font-weight:500}
+.df.bad input{border-color:#b3261e}
+.df.bad .dferr{display:block}
+.dpriv{margin-top:14px;padding:10px 12px;border-radius:10px;background:light-dark(#f4fbf8,#14251d);color:light-dark(#3d5a4d,#a9d8c1);font-size:14px}
+.dback{background:none;border:0;font:600 15px Inter,sans-serif;color:var(--soft);cursor:pointer;padding:8px 2px}
+.dreassure{text-align:right;font-size:13px;color:var(--soft);margin-top:8px}
+.dnexts{list-style:none;padding:0;margin:16px 0 0;text-align:left;display:grid;gap:10px}
+.dnexts b{display:block}
+.dnexts span{color:var(--soft);font-size:14px}
+.dhours{margin-top:14px;padding:10px 12px;border:1px solid var(--line);border-radius:10px;text-align:left;font-size:14px}
+.dsumbox{margin-top:10px;text-align:left}
+.dsumbox summary{cursor:pointer;color:var(--violet);font-weight:600;font-size:14px}
+.dproto{margin:12px 0;font-size:13px;color:#8a5a00;background:#fff6e0;border-radius:8px;padding:6px 10px}
+.dstepper{list-style:none;padding:0;margin:0 0 4px;display:grid;grid-template-columns:repeat(3,minmax(0,1fr))}
+.dstepper li{display:flex;flex-direction:column;align-items:center;gap:6px;position:relative;font-size:13px;font-weight:600;color:var(--soft)}
+.dstepper li+li::before{content:"";position:absolute;top:15px;right:calc(50% + 20px);width:calc(100% - 40px);height:2px;background:var(--line)}
+.dstepper li.done::before,.dstepper li.now::before{background:#6b3fa0}
+.ddot{width:30px;height:30px;border-radius:50%;border:2px solid var(--line);display:grid;place-items:center;font:700 13px "Plus Jakarta Sans",sans-serif;background:var(--card)}
+.ddot svg{display:none}
+.dstepper li.now{color:var(--ink)}
+.dstepper li.now .ddot{background:#6b3fa0;border-color:#6b3fa0;color:#fff}
+.dstepper li.done .ddot{border-color:#6b3fa0;color:#6b3fa0}
+.dstepper li.done .ddot b{display:none}
+.dstepper li.done .ddot svg{display:block}
+.dcount{text-align:center;font-size:13px;color:var(--soft);margin-bottom:16px}
+.dform fieldset{border:0;padding:0;margin:0;min-width:0}
+.dform legend{font:800 22px/1.2 "Plus Jakarta Sans",sans-serif;padding:0}
+.dhint{color:var(--soft);font-size:14px;margin:4px 0 16px}
+.dopt span{display:flex;flex-direction:column;gap:4px}
+.dopt small{color:var(--soft);font-weight:400;font-size:13px;line-height:1.4}
+.dferr{display:none;color:#b3261e;font-size:13px;font-weight:500}
+.df.bad input{border-color:#b3261e}
+.df.bad .dferr{display:block}
+.dpriv{margin-top:14px;padding:10px 12px;border-radius:10px;background:light-dark(#f4fbf8,#14251d);color:light-dark(#3d5a4d,#a9d8c1);font-size:14px}
+.dback{background:none;border:0;font:600 15px Inter,sans-serif;color:var(--soft);cursor:pointer;padding:8px 2px}
+.dreassure{text-align:right;font-size:13px;color:var(--soft);margin-top:8px}
+.dnexts{list-style:none;padding:0;margin:16px 0 0;text-align:left;display:grid;gap:10px}
+.dnexts b{display:block}
+.dnexts span{color:var(--soft);font-size:14px}
+.dhours{margin-top:14px;padding:10px 12px;border:1px solid var(--line);border-radius:10px;text-align:left;font-size:14px}
+.dsumbox{margin-top:10px;text-align:left}
+.dsumbox summary{cursor:pointer;color:var(--violet);font-weight:600;font-size:14px}
+.dproto{margin:12px 0;font-size:13px;color:#8a5a00;background:#fff6e0;border-radius:8px;padding:6px 10px}
 </style>
 </head>
 <body>
@@ -150,7 +210,7 @@ footer{border-top:1px solid var(--line);padding-block:22px;color:var(--soft);fon
         <div class="bar"><i class="on"></i><i class="on"></i><i></i></div>
         <small data-t="st2"></small><b data-t="f2"></b>
         <div class="fld" data-t="miniBld"></div>
-        <div class="sld"></div>
+        <div class="pills"><span data-t="z1"></span><span class="sel" data-t="z2"></span><span data-t="z5"></span></div>
         <div class="pills"><span data-t="q1"></span><span class="sel" data-t="q2"></span><span data-t="q4"></span></div>
         <span class="go" data-t="next"></span>
       </div>
@@ -178,55 +238,54 @@ footer{border-top:1px solid var(--line);padding-block:22px;color:var(--soft);fon
       <p class="lead" data-t="tryLead"></p>
       <div class="demo">
         <form class="dform" id="dform" novalidate>
-          <div class="dprog" aria-hidden="true"><i class="on"></i><i></i><i></i></div>
-          <div data-step="1">
-            <p class="dstep" data-t="st1"></p>
-            <h3 data-t="f1"></h3>
+          <ol class="dstepper" aria-label="Fremdrift">
+            <li data-s="1"><span class="ddot"><b>1</b><svg viewBox="0 0 24 24" width="13" height="13" aria-hidden="true"><path d="M20 6 9 17l-5-5" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span data-t="sN1"></span></li>
+            <li data-s="2"><span class="ddot"><b>2</b><svg viewBox="0 0 24 24" width="13" height="13" aria-hidden="true"><path d="M20 6 9 17l-5-5" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span data-t="sN2"></span></li>
+            <li data-s="3"><span class="ddot"><b>3</b><svg viewBox="0 0 24 24" width="13" height="13" aria-hidden="true"><path d="M20 6 9 17l-5-5" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span data-t="sN3"></span></li>
+          </ol>
+          <p class="dcount" id="dcount"></p>
+          <fieldset data-step="1">
+            <legend data-t="qQ1"></legend><p class="dhint" data-t="qQ1h"></p>
             <div class="dopts">
-              <label class="dopt"><input type="radio" name="svc" value="o1" checked><span data-t="o1"></span></label>
-              <label class="dopt"><input type="radio" name="svc" value="o2"><span data-t="o2"></span></label>
-              <label class="dopt"><input type="radio" name="svc" value="o3"><span data-t="o3"></span></label>
+              <label class="dopt"><input type="radio" name="svc" value="o1" checked><span><b data-t="o1"></b><small data-t="oD1"></small></span></label>
+              <label class="dopt"><input type="radio" name="svc" value="o2"><span><b data-t="o2"></b><small data-t="oD2"></small></span></label>
+              <label class="dopt"><input type="radio" name="svc" value="o3"><span><b data-t="o3"></b><small data-t="oD3"></small></span></label>
             </div>
-          </div>
-          <div data-step="2" hidden>
-            <p class="dstep" data-t="st2"></p>
-            <h3 data-t="f2"></h3>
+          </fieldset>
+          <fieldset data-step="2" hidden>
+            <legend data-t="qQ2"></legend><p class="dhint" data-t="qQ2h"></p>
             <div class="dgrid">
-              <label class="df"><span data-t="lbBld"></span><select id="dbld"><option value="b1" data-t="b1"></option><option value="b2" data-t="b2"></option><option value="b3" data-t="b3"></option><option value="b4" data-t="b4"></option><option value="b5" data-t="b5"></option></select></label>
-              <label class="df"><span data-t="lbLoc"></span><select id="dloc"><option>Haugesund</option><option>Karmøy</option><option>Tysvær</option><option>Bokn</option><option>Sveio</option></select></label>
-              <label class="df full"><span><span data-t="lbSize"></span> <b id="dsizeout">400 m²</b></span><input type="range" id="dsize" min="50" max="3000" step="50" value="400"></label>
-              <div class="df full"><span data-t="lbFreq"></span>
-                <div class="dpills">
-                  <label><input type="radio" name="freq" value="q1"><span data-t="q1"></span></label>
-                  <label><input type="radio" name="freq" value="q2" checked><span data-t="q2"></span></label>
-                  <label><input type="radio" name="freq" value="q3"><span data-t="q3"></span></label>
-                  <label><input type="radio" name="freq" value="q4"><span data-t="q4"></span></label>
-                </div>
-              </div>
+              <label class="df"><span data-t="lbBld"></span><select id="dbld"><option value="b1" data-t="b1"></option><option value="b2" data-t="b2"></option><option value="b3" data-t="b3"></option><option value="b4" data-t="b4"></option><option value="b5" data-t="b5"></option><option value="b6" data-t="b6"></option></select></label>
+              <label class="df"><span data-t="lbLoc"></span><select id="dloc"><option>Haugesund</option><option>Karmøy</option><option>Tysvær</option><option>Bokn</option><option>Sveio</option><option value="x" data-t="locOther"></option></select></label>
+              <div class="df full"><span data-t="lbSize"></span><div class="dpills"><label><input type="radio" name="size" value="z1"><span data-t="z1"></span></label><label><input type="radio" name="size" value="z2" checked><span data-t="z2"></span></label><label><input type="radio" name="size" value="z3"><span data-t="z3"></span></label><label><input type="radio" name="size" value="z4"><span data-t="z4"></span></label><label><input type="radio" name="size" value="z5"><span data-t="z5"></span></label></div></div>
+              <div class="df full"><span data-t="lbFreq"></span><div class="dpills"><label><input type="radio" name="freq" value="q1"><span data-t="q1"></span></label><label><input type="radio" name="freq" value="q2" checked><span data-t="q2"></span></label><label><input type="radio" name="freq" value="q3"><span data-t="q3"></span></label><label><input type="radio" name="freq" value="q4"><span data-t="q4"></span></label></div></div>
             </div>
-          </div>
-          <div data-step="3" hidden>
-            <p class="dstep" data-t="st3"></p>
-            <h3 data-t="f3"></h3>
+          </fieldset>
+          <fieldset data-step="3" hidden>
+            <legend data-t="qQ3"></legend><p class="dhint" data-t="qQ3h"></p>
             <div class="dgrid">
-              <label class="df"><span data-t="lbCo"></span><input id="dco" required></label>
-              <label class="df"><span data-t="lbName"></span><input id="dname" required></label>
-              <label class="df"><span data-t="lbPhone"></span><input id="dphone" type="tel" required pattern="[0-9 +]{8,}"></label>
-              <label class="df"><span data-t="lbEmail"></span><input id="demail" type="email" required></label>
+              <label class="df"><span data-t="lbCo"></span><input id="dco" required><small class="dferr" data-t="eCo"></small></label>
+              <label class="df"><span data-t="lbName"></span><input id="dname" required><small class="dferr" data-t="eName"></small></label>
+              <label class="df"><span data-t="lbPhone"></span><input id="dphone" type="tel" required pattern="[+0-9 ]{8,}"><small class="dferr" data-t="ePhone"></small></label>
+              <label class="df"><span data-t="lbEmail"></span><input id="demail" type="email" required><small class="dferr" data-t="eEmail"></small></label>
             </div>
-          </div>
+            <p class="dpriv" data-t="priv"></p>
+          </fieldset>
           <div data-step="4" hidden class="ddone">
             <div class="dok">✓</div>
-            <h3 data-t="doneH"></h3>
+            <h3 id="ddoneH"></h3>
             <p data-t="doneP"></p>
-            <div class="dsum" id="dsum"></div>
-            <button type="button" class="dbtn ghost" id="dagain" style="margin-top:14px" data-t="again"></button>
+            <ol class="dnexts"><li><b data-t="n1"></b><span data-t="n1d"></span></li><li><b data-t="n2"></b><span data-t="n2d"></span></li></ol>
+            <p class="dhours" data-t="hours"></p>
+            <details class="dsumbox"><summary data-t="sumH"></summary><div class="dsum" id="dsum"></div></details>
+            <p class="dproto" data-t="proto"></p>
+            <button type="button" class="dbtn ghost" id="dagain" data-t="again"></button>
           </div>
-          <p class="derr" id="derr" role="alert"></p>
           <div class="dnav">
-            <button type="button" class="dbtn ghost" id="dback" hidden data-t="back"></button>
+            <button type="button" class="dback" id="dback" hidden>← <span data-t="back"></span></button>
             <button type="submit" class="dbtn" id="dnext"></button>
           </div>
+          <p class="dreassure" id="dreassure" data-t="reassure"></p>
         </form>
         <aside class="dside">
           <b data-t="sideH"></b>
@@ -293,17 +352,17 @@ footer{border-top:1px solid var(--line);padding-block:22px;color:var(--soft);fon
 <script>
 {
 const T={
-no:{who:"R & E Renhold AS · Nettsideprototype fra Kilowott",h1:"Slik fungerer skjemaet for pristilbud på den nye nettsiden",
+no:{proto:"Demo: ingenting sendes.",sumH:"Se hva du sendte",hours:"Vi er tilgjengelige mandag til fredag 08:00 til 16:00. Haster det? Ring 454 02 012.",n2d:"På telefon eller e-post med et uforpliktende pristilbud, eller for å avtale befaring.",n2:"Vi kontakter deg",n1d:"Tjenesten, lokalene og hvor ofte dere trenger renhold.",n1:"Vi går gjennom opplysningene",reassure:"Uforpliktende. Tar under ett minutt.",priv:"Opplysningene brukes bare til å svare på forespørselen din.",eEmail:"Skriv inn en gyldig e-postadresse.",ePhone:"Skriv inn et telefonnummer med minst 8 sifre.",eName:"Skriv inn navnet ditt.",eCo:"Skriv inn navnet på bedriften.",qQ3h:"Vi bruker dette bare til å svare på forespørselen.",qQ3:"Hvor kan vi nå dere?",z5:"Vet ikke",z4:"Over 1 000 m²",z3:"500 til 1 000 m²",z2:"200 til 500 m²",z1:"Under 200 m²",b6:"Annet",locOther:"Et annet sted",qQ2h:"Et omtrentlig svar holder.",qQ2:"Fortell litt om lokalene",oD3:"Oppskuring og ny bone på gulv",oD2:"Grundig engangsjobb, for eksempel hovedrengjøring",oD1:"Fast renhold av kontor og fellesarealer",qQ1h:"Usikker? Velg det som ligner mest.",qQ1:"Hva kan vi hjelpe dere med?",countDone:"Ferdig",count:"Steg {n} av 3",sN3:"Kontakt",sN2:"Lokaler",sN1:"Tjeneste",who:"R & E Renhold AS · Nettsideprototype fra Kilowott",h1:"Slik fungerer skjemaet for pristilbud på den nye nettsiden",
 sum:"Et kort skjema der bedrifter kan be om pris på renhold på under ett minutt, og som gir dere alt dere trenger for å svare med et godt tilbud.",tryLink:"Prøv det under",
-st1:"Steg 1 av 3",st2:"Steg 2 av 3",st3:"Steg 3 av 3",f1:"Hva trenger dere?",f2:"Om lokalene",f3:"Hvem kan vi kontakte?",
+st1:"Steg 1 av 3",st2:"Steg 2 av 3",st3:"Steg 3 av 3",f1:"Hva kan vi hjelpe dere med?",f2:"Fortell om lokalene",f3:"Hvor kan vi nå dere?",
 o1:"Bedriftsrenhold",o2:"Spesialrenhold",o3:"Boning av gulv",next:"Neste",send:"Send forespørsel",back:"Tilbake",again:"Prøv igjen",
-miniBld:"Kontor · Haugesund",miniContact:"Telefon · E-post",miniSum:"Bedriftsrenhold · 400 m² · Ukentlig",thanks:"Takk",soon:"Vi tar kontakt snart.",
+miniBld:"Kontor · Haugesund",miniContact:"Telefon · E-post",miniSum:"Bedriftsrenhold · 200 til 500 m² · Ukentlig",thanks:"Takk",soon:"Vi tar kontakt snart.",
 l1:"Velg tjeneste",l2:"Beskriv bygget",l3:"Legg igjen kontaktinfo",l4:"Se oppsummering",
 tryH:"Prøv skjemaet selv",tryLead:"Dette er en fungerende kopi av skjemaet fra nettsiden. Klikk deg gjennom de tre stegene og se det kundene deres ser. Ingenting sendes.",
-lbBld:"Type bygg",lbLoc:"Sted",lbSize:"Omtrentlig størrelse:",lbFreq:"Hvor ofte?",lbCo:"Bedrift",lbName:"Navn",lbPhone:"Telefon",lbEmail:"E-post",
-b1:"Kontor",b2:"Butikk",b3:"Lager eller lettere industri",b4:"Skole eller offentlig bygg",b5:"Borettslag",
+lbBld:"Hva slags bygg?",lbLoc:"Hvor ligger lokalene?",lbSize:"Omtrent hvor stort?",lbFreq:"Hvor ofte trenger dere renhold?",lbCo:"Bedrift",lbName:"Ditt navn",lbPhone:"Telefon",lbEmail:"E-post",
+b1:"Kontor",b2:"Butikk",b3:"Skole eller offentlig bygg",b4:"Borettslag eller sameie",b5:"Lager eller lettere industri",
 q1:"Daglig",q2:"Ukentlig",q3:"Annenhver uke",q4:"Engangsoppdrag",
-doneH:"Takk, vi har mottatt forespørselen",doneP:"På den ferdige nettsiden ville dere nå fått denne forespørselen. I denne demoen sendes ingenting.",
+doneH:"Takk, {name}!",doneP:"Forespørselen er registrert. Slik går det videre:",
 err:"Fyll inn bedrift, navn, telefon (minst 8 sifre) og en gyldig e-post.",
 sumS:"Tjeneste",sumB:"Bygg",sumZ:"Størrelse",sumF:"Hvor ofte",sumC:"Kontakt",sideH:"Hva skjer nå",
 ex:["Den besøkende velger tjenesten de trenger. Ett klikk, ingen skriving.","De beskriver bygget: type, sted, størrelse og hvor ofte. Det forteller dere omtrent hvor stor jobben er.","De legger igjen kontaktinformasjon slik at dere kan svare. Skjemaet sjekker at telefon og e-post ser riktige ut før det sendes.","Den besøkende ser en oppsummering av forespørselen. På den ferdige nettsiden kommer den samme oppsummeringen i innboksen deres."],
@@ -311,12 +370,12 @@ forH:"Hva skjemaet brukes til",
 forP:"Bedrifter som vil vite hva renhold koster, kan be om pris uten å skrive en lang e-post eller ringe i åpningstiden. De svarer på noen raske spørsmål, og dere får en forespørsel med alt som trengs for å lage et <span class=\"term\">pristilbud</span>, altså et prisforslag for en bestemt jobb.",
 good:"<b>Verdt å vite:</b> skjemaet regner ikke ut en pris på skjermen. Det samler inn opplysningene, og dere sender prisen etterpå på telefon eller e-post. Derfor står det «Be om pris på under ett minutt».",
 howH:"Slik bruker en besøkende skjemaet",h1b:"Velg tjeneste",h1s:"Bedriftsrenhold, spesialrenhold eller boning av gulv. Ett klikk, så «Neste».",
-h2b:"Beskriv bygget",h2s:"Type bygg, sted, omtrentlig størrelse og hvor ofte det trengs renhold.",
-h3b:"Legg igjen kontaktinfo",h3s:"Bedrift, navn, telefon og e-post. Så «Send forespørsel».",
-h4b:"Se oppsummeringen",h4s:"En takkemelding vises med svarene, slik at de kan se at alt stemmer.",
-howNote:"En fremdriftslinje viser hvor langt de har kommet, og «Tilbake» lar dem rette et svar. Mangler et felt, eller er e-posten ugyldig, forklarer skjemaet hva som må rettes før det sendes.",
+h2b:"Beskriv bygget",h2s:"Type bygg, sted, omtrentlig størrelse (med valget «Vet ikke») og hvor ofte det trengs renhold.",
+h3b:"Legg igjen kontaktinfo",h3s:"Bedrift, navn, telefon og e-post, med en kort personvernmerknad. Så «Send forespørsel».",
+h4b:"Se oppsummeringen",h4s:"En personlig takk med navnet deres, hva som skjer videre, åpningstider og en oppsummering av svarene.",
+howNote:"Fremdriften vises med tre nummererte steg: Tjeneste, Lokaler og Kontakt. Mangler et felt, vises en kort melding rett under feltet som må rettes.",
 inH:"Hva den besøkende fyller inn, og hvorfor",thStep:"Steg",thInfo:"Opplysning",thWhy:"Hvorfor dere trenger det",
-rows:[["Steg 1","Type tjeneste","Hver tjeneste prises og planlegges ulikt."],["Steg 2","Type bygg","Et kontor, en butikk og et lager trenger ulikt renhold."],["Steg 2","Sted","Planlegging av ruter og reisetid på Haugalandet."],["Steg 2","Størrelse i m²","Større arealer tar lengre tid. Et rom på 10 × 5 meter er 50 m²."],["Steg 2","Hvor ofte","Daglig, ukentlig, annenhver uke eller engangsoppdrag endrer arbeidsmengden per måned."],["Steg 3","Bedrift, navn, telefon, e-post","Slik at dere kan svare raskt."]],
+rows:[["Steg 1","Type tjeneste","Hver tjeneste prises og planlegges ulikt."],["Steg 2","Type bygg","Et kontor, en butikk og et lager trenger ulikt renhold."],["Steg 2","Sted","Planlegging av ruter og reisetid på Haugalandet."],["Steg 2","Omtrentlig størrelse","Velges blant faste intervaller, eller «Vet ikke». Et rom på 10 × 5 meter er 50 m²."],["Steg 2","Hvor ofte","Daglig, ukentlig, annenhver uke eller engangsoppdrag endrer arbeidsmengden per måned."],["Steg 3","Bedrift, navn, telefon, e-post","Slik at dere kan svare raskt."]],
 benH:"Hvorfor det hjelper kundene og bedriften",custH:"For kundene deres",bizH:"For R & E Renhold",
 cust:[["Raskt.","Omtrent ett minutt med klikking i stedet for en e-post."],["Uforpliktende.","Å be om pris binder dem ikke til noe."],["Åpent hele døgnet.","De kan sende forespørsel på kvelden eller i helgen."],["Et tydeligere svar.","Svaret deres kan være konkret fra starten."]],
 biz:[["Flere henvendelser.","Korte steg og klikkbare valg gjør at færre gir opp underveis."],["Bedre kundeemner.","Et <span class=\"term\">kundeemne</span> er en mulig kunde. Dere ser størrelse, sted og frekvens med en gang."],["Raskere svar.","Alt kommer samlet, og den som svarer først vinner ofte jobben."],["Målbart.","Hver forespørsel kan telles, så dere ser hva nettsiden gir hver måned."]],
@@ -326,17 +385,17 @@ convNote:"20 forespørsler fra 1 000 besøkende er en konverteringsrate på 2 %.
 funnelAlt:"Eksempel: 1 000 besøkende, 300 ser på tjenester, 20 sender forespørsel, 2 prosent konvertering",
 nextH:"Mulig neste steg: prisanslag",nextP:"Skjemaet kan senere vise et anslått prisintervall på skjermen, basert på størrelse og frekvens. Det er iøynefallende, men krever deres faktiske prisnivå, fordi kunder gjerne holder dere til tallet de ser. Vi anbefaler å starte med skjemaet og legge til et anslag når prisene er avklart.",
 foot:"I prototypen sendes ingenting. På den ferdige nettsiden kommer forespørslene i innboksen eller kundesystemet deres."},
-en:{who:"R & E Renhold AS · Website prototype by Kilowott",h1:"How the quote form on your new website works",
+en:{proto:"Demo: nothing is sent.",sumH:"See what you sent",hours:"We are available Monday to Friday, 08:00 to 16:00. In a hurry? Call 454 02 012.",n2d:"By phone or email with a no-obligation quote, or to arrange a site visit.",n2:"We get in touch",n1d:"The service, your premises and how often you need cleaning.",n1:"We review your details",reassure:"No obligation. Takes less than a minute.",priv:"Your details are only used to reply to your request.",eEmail:"Please enter a valid email address.",ePhone:"Please enter a phone number with at least 8 digits.",eName:"Please enter your name.",eCo:"Please enter your company name.",qQ3h:"We only use this to reply to your request.",qQ3:"How can we reach you?",z5:"Not sure",z4:"Over 1,000 m²",z3:"500 to 1,000 m²",z2:"200 to 500 m²",z1:"Under 200 m²",b6:"Other",locOther:"Somewhere else",qQ2h:"A rough answer is fine.",qQ2:"Tell us a little about your premises",oD3:"Floor stripping and a new coat of polish",oD2:"A thorough one-off job, such as a deep clean",oD1:"Regular cleaning of offices and shared areas",qQ1h:"Not sure? Pick the closest match.",qQ1:"What can we help you with?",countDone:"Done",count:"Step {n} of 3",sN3:"Contact",sN2:"Premises",sN1:"Service",who:"R & E Renhold AS · Website prototype by Kilowott",h1:"How the quote form on your new website works",
 sum:"A short form that lets businesses ask for a cleaning price in under a minute, and gives you every detail you need to reply with a good offer.",tryLink:"Try it below",
-st1:"Step 1 of 3",st2:"Step 2 of 3",st3:"Step 3 of 3",f1:"What do you need?",f2:"About your premises",f3:"Who should we contact?",
+st1:"Step 1 of 3",st2:"Step 2 of 3",st3:"Step 3 of 3",f1:"What can we help you with?",f2:"About your premises",f3:"How can we reach you?",
 o1:"Office cleaning",o2:"Specialist cleaning",o3:"Floor care",next:"Next",send:"Send request",back:"Back",again:"Try again",
-miniBld:"Office · Haugesund",miniContact:"Phone · Email",miniSum:"Office cleaning · 400 m² · Weekly",thanks:"Thank you",soon:"We will be in touch soon.",
+miniBld:"Office · Haugesund",miniContact:"Phone · Email",miniSum:"Office cleaning · 200 to 500 m² · Weekly",thanks:"Thank you",soon:"We will be in touch soon.",
 l1:"Choose a service",l2:"Describe the building",l3:"Leave contact details",l4:"See a summary",
 tryH:"Try the form yourself",tryLead:"This is a working copy of the form from the website. Click through the three steps to see what your customers will see. Nothing is sent.",
-lbBld:"Type of building",lbLoc:"Location",lbSize:"Approximate size:",lbFreq:"How often?",lbCo:"Company",lbName:"Name",lbPhone:"Phone",lbEmail:"Email",
-b1:"Office",b2:"Shop",b3:"Warehouse or light industry",b4:"School or public building",b5:"Housing association",
+lbBld:"What type of building?",lbLoc:"Where are the premises?",lbSize:"Roughly how big?",lbFreq:"How often do you need cleaning?",lbCo:"Company",lbName:"Your name",lbPhone:"Phone",lbEmail:"Email",
+b1:"Office",b2:"Shop",b3:"School or public building",b4:"Housing association",b5:"Warehouse or light industry",
 q1:"Daily",q2:"Weekly",q3:"Every other week",q4:"One-off",
-doneH:"Thank you, we have your request",doneP:"On the live website you would now receive this request. In this demo nothing is sent.",
+doneH:"Thank you, {name}!",doneP:"Your request has been registered. Here is what happens next:",
 err:"Please fill in company, name, phone (8 digits or more) and a valid email.",
 sumS:"Service",sumB:"Building",sumZ:"Size",sumF:"How often",sumC:"Contact",sideH:"What is happening",
 ex:["The visitor picks the service they need. One click, no typing.","They describe the building: type, location, size and how often. This tells you roughly how much work the job is.","They leave their contact details so you can reply. The form checks that phone and email look right before sending.","The visitor sees a summary of their request. On the live site, the same summary arrives in your inbox."],
@@ -344,12 +403,12 @@ forH:"What the form is for",
 forP:"Businesses that want to know what cleaning would cost can ask for a price without writing a long email or calling during office hours. They answer a few quick questions, and you receive a request with everything needed to prepare a <span class=\"term\">quote</span>, which simply means a price offer for a specific job.",
 good:"<b>Good to know:</b> the form does not calculate a price on screen. It collects the details, and you send the price afterwards by phone or email. That is why the heading says \"Request a price in under a minute\".",
 howH:"How a visitor uses it",h1b:"Choose a service",h1s:"Office cleaning, specialist cleaning or floor care. One click, then \"Next\".",
-h2b:"Describe the building",h2s:"Type of building, location, approximate size and how often cleaning is needed.",
-h3b:"Leave contact details",h3s:"Company, name, phone and email. Then \"Send request\".",
-h4b:"Check the summary",h4s:"A thank-you message appears with their answers, so they can see that everything is correct.",
-howNote:"A progress bar shows how far they have come, and \"Back\" lets them correct an answer. If a required field is missing or an email address is not valid, the form explains what to fix before it sends.",
+h2b:"Describe the building",h2s:"Type of building, location, approximate size (including a 'Not sure' option) and how often cleaning is needed.",
+h3b:"Leave contact details",h3s:"Company, name, phone and email, with a short privacy note. Then 'Send request'.",
+h4b:"Check the summary",h4s:"A personal thank-you using their name, what happens next, opening hours and a summary of their answers.",
+howNote:"Progress is shown as three numbered steps: Service, Premises and Contact. If a field is missing, a short message appears right under the field that needs fixing.",
 inH:"What the visitor enters, and why it matters",thStep:"Step",thInfo:"Information",thWhy:"Why you need it",
-rows:[["Step 1","Type of service","Each service is priced and planned differently."],["Step 2","Type of building","An office, a shop and a warehouse need different cleaning."],["Step 2","Location","Planning routes and travel time across Haugalandet."],["Step 2","Size in m²","Larger areas take longer. A room 10 × 5 metres is 50 m²."],["Step 2","How often","Daily, weekly, every other week or a one-off job changes the monthly workload."],["Step 3","Company, name, phone, email","So you can reply quickly."]],
+rows:[["Step 1","Type of service","Each service is priced and planned differently."],["Step 2","Type of building","An office, a shop and a warehouse need different cleaning."],["Step 2","Location","Planning routes and travel time across Haugalandet."],["Step 2","Approximate size","Chosen from set ranges, or 'Not sure'. A room 10 × 5 metres is 50 m²."],["Step 2","How often","Daily, weekly, every other week or a one-off job changes the monthly workload."],["Step 3","Company, name, phone, email","So you can reply quickly."]],
 benH:"Why it helps your customers and your business",custH:"For your customers",bizH:"For R & E Renhold",
 cust:[["Quick.","About a minute of clicking instead of writing an email."],["No obligation.","Asking for a price commits them to nothing."],["Open at any hour.","They can send a request in the evening or at the weekend."],["A clearer answer.","Your reply can be specific from the start."]],
 biz:[["More enquiries.","Short steps and clickable choices mean fewer visitors give up halfway."],["Better leads.","A <span class=\"term\">lead</span> is a potential customer. You see size, location and frequency straight away."],["Faster replies.","All details arrive in one place, and the first company to reply often wins the job."],["Measurable.","Every request can be counted, so you can see what the website brings in each month."]],
@@ -362,12 +421,14 @@ foot:"In the prototype nothing is sent. On the live website, requests would arri
 };
 let lang='no';
 const $=s=>document.querySelector(s),$$=s=>[...document.querySelectorAll(s)];
-const f=$('#dform'),steps=[...f.querySelectorAll('[data-step]')],bars=[...f.querySelectorAll('.dprog i')];
-const back=$('#dback'),next=$('#dnext'),err=$('#derr'),size=$('#dsize'),out=$('#dsizeout');
+const f=$('#dform'),steps=[...f.querySelectorAll('[data-step]')],dots=[...f.querySelectorAll('.dstepper li')];
+const back=$('#dback'),next=$('#dnext');
 let cur=1;
-const fmt=n=>n.toLocaleString(lang==='no'?'nb-NO':'en-GB')+' m²';
 function list(id,items){const el=$(id);el.textContent='';items.forEach(([b,t])=>{const li=document.createElement('li'),bb=document.createElement('b'),sp=document.createElement('span');bb.textContent=b+' ';sp.innerHTML=t;li.append(bb,sp);el.append(li)})}
-function show(n){cur=n;steps.forEach(s=>s.hidden=+s.dataset.step!==n);bars.forEach((b,i)=>b.classList.toggle('on',i<Math.min(n,3)));back.hidden=n===1||n===4;next.hidden=n===4;next.textContent=T[lang][n===3?'send':'next'];err.textContent='';$('#dexplain').textContent=T[lang].ex[n-1]}
+function show(n){cur=n;steps.forEach(s=>s.hidden=+s.dataset.step!==n);
+  dots.forEach((d,i)=>{d.classList.toggle('done',i<n-1||n===4);d.classList.toggle('now',i===n-1&&n<4)});
+  $('#dcount').textContent=n<4?T[lang].count.replace('{n}',n):T[lang].countDone;
+  back.hidden=n===1||n===4;next.hidden=n===4;$('#dreassure').hidden=n===4;next.textContent=T[lang][n===3?'send':'next'];$('#dexplain').textContent=T[lang].ex[n-1]}
 function apply(){
   const L=T[lang];document.documentElement.lang=lang==='no'?'nb':'en';
   $$('[data-t]').forEach(e=>e.textContent=L[e.dataset.t]);
@@ -376,20 +437,21 @@ function apply(){
   $$('.lang button').forEach(b=>b.setAttribute('aria-pressed',b.dataset.lang===lang));
   const tb=$('#itable');tb.textContent='';L.rows.forEach(r=>{const tr=document.createElement('tr');r.forEach(c=>{const td=document.createElement('td');td.textContent=c;tr.append(td)});tb.append(tr)});
   list('#cust',L.cust);list('#biz',L.biz);
-  out.textContent=fmt(+size.value);
   if(cur===4)render();show(cur);
 }
 function render(){const L=T[lang],v=id=>document.getElementById(id);const sel=s=>s.options[s.selectedIndex].textContent;
-  const rows=[[L.sumS,L[f.svc.value]],[L.sumB,sel(v('dbld'))+', '+v('dloc').value],[L.sumZ,out.textContent],[L.sumF,L[f.freq.value]],[L.sumC,v('dname').value+', '+v('dco').value]];
+  $('#ddoneH').textContent=L.doneH.replace('{name}',v('dname').value.trim().split(' ')[0]);
+  const rows=[[L.sumS,L[f.svc.value]],[L.sumB,sel(v('dbld'))+', '+sel(v('dloc'))],[L.sumZ,L[f.size.value]],[L.sumF,L[f.freq.value]],[L.sumC,v('dname').value+', '+v('dco').value]];
   const sum=$('#dsum');sum.textContent='';rows.forEach(([k,val])=>{const d=document.createElement('div'),a=document.createElement('span'),b=document.createElement('b');a.textContent=k;b.textContent=val;d.append(a,b);sum.append(d)})}
-size.addEventListener('input',()=>{out.textContent=fmt(+size.value)});
+const chk=i=>{const ok=i.checkValidity();i.closest('.df').classList.toggle('bad',!ok);return ok};
+[...f.querySelectorAll('[required]')].forEach(i=>i.addEventListener('input',()=>{if(i.closest('.df').classList.contains('bad'))chk(i)}));
+[...f.querySelectorAll('input[name=svc]')].forEach(r=>r.addEventListener('change',()=>{const q=f.querySelector(`input[name=freq][value="${r.value==='o1'?'q2':'q4'}"]`);if(q)q.checked=true}));
 f.addEventListener('submit',e=>{e.preventDefault();
   if(cur<3)return show(cur+1);
-  const req=[...steps[2].querySelectorAll('[required]')];req.forEach(i=>i.classList.add('touched'));
-  const bad=req.find(i=>!i.checkValidity());if(bad){err.textContent=T[lang].err;bad.focus();return}
+  const bad=[...steps[2].querySelectorAll('[required]')].filter(i=>!chk(i));if(bad.length){bad[0].focus();return}
   render();show(4)});
 back.addEventListener('click',()=>show(cur-1));
-$('#dagain').addEventListener('click',()=>{f.reset();$$('#dform .touched').forEach(i=>i.classList.remove('touched'));out.textContent=fmt(400);show(1)});
+$('#dagain').addEventListener('click',()=>{f.reset();$$('#dform .bad').forEach(x=>x.classList.remove('bad'));show(1)});
 $$('.lang button').forEach(b=>b.addEventListener('click',()=>{lang=b.dataset.lang;apply()}));
 apply();
 }

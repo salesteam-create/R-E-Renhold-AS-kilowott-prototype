@@ -14,6 +14,7 @@ BASE = 'https://www.rentogeffektivt.no'
 DATE = '2026-11-27'
 
 pairs = [('', None)]                                   # homepage: Norwegian only
+pairs.append(('jobb-hos-oss.html', None))
 pairs.append(('blogg/', 'blog/'))
 for no, en in zip(articles_no.ARTICLES, articles_en.ARTICLES):
     pairs.append((f'blogg/{no["slug"]}.html', f'blog/{en["slug"]}.html'))

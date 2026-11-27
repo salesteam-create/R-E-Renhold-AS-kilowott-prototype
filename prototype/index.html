@@ -125,6 +125,8 @@ header.solid .burger{color:var(--ink)}
 .t2grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(28px,5vw,72px);align-items:center}
 .trust2 h2{font-size:clamp(28px,3vw,40px)}
 .chips2{display:flex;flex-wrap:wrap;gap:10px;margin-top:24px}
+.areas-line{display:flex;gap:8px;align-items:flex-start;margin-top:18px;color:var(--soft);font-size:15px}
+.areas-line svg{width:18px;height:18px;color:var(--violet);margin-top:2px}
 .chip2{display:inline-flex;align-items:center;gap:8px;padding:10px 16px 10px 12px;border-radius:999px;background:var(--lilac);color:var(--plum);font-weight:600;font-size:15px;white-space:nowrap}
 .chip2 svg{width:18px;height:18px;color:var(--violet)}
 .rcard{margin:0;position:relative;overflow:hidden;background:linear-gradient(135deg,var(--plum) 0%,var(--plum2) 100%);color:#fff;border-radius:24px;padding:28px 30px;box-shadow:0 24px 50px rgba(36,19,47,.22)}
@@ -321,6 +323,7 @@ body{padding-bottom:78px}
 <symbol id="i-bag" viewBox="0 0 24 24"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><path d="M3 6h18M16 10a4 4 0 0 1-8 0"/></symbol>
 <symbol id="i-heart" viewBox="0 0 24 24"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.7l-1-1.1a5.5 5.5 0 0 0-7.8 7.8l1 1.1L12 21l7.8-7.5 1-1.1a5.5 5.5 0 0 0 0-7.8z"/></symbol>
 <symbol id="i-box" viewBox="0 0 24 24"><path d="M21 16V8a2 2 0 0 0-1-1.7l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.7l7 4a2 2 0 0 0 2 0l7-4a2 2 0 0 0 1-1.7z"/><path d="M3.3 7 12 12l8.7-5M12 22V12"/></symbol>
+<symbol id="i-school" viewBox="0 0 24 24"><path d="M22 10 12 5 2 10l10 5 10-5z"/><path d="M6 12v5c3 2 9 2 12 0v-5"/></symbol>
 <symbol id="i-send" viewBox="0 0 24 24"><path d="m22 2-7 20-4-9-9-4z"/><path d="M22 2 11 13"/></symbol>
 </svg>
 
@@ -397,12 +400,13 @@ body{padding-bottom:78px}
       <p class="eyebrow" data-t="trEy"></p>
       <h2 data-t="trH"></h2>
       <div class="chips2">
-        <span class="chip2"><svg class="i"><use href="#i-pin"/></svg><span>Haugesund</span></span>
-        <span class="chip2"><svg class="i"><use href="#i-pin"/></svg><span>Karmøy</span></span>
-        <span class="chip2"><svg class="i"><use href="#i-pin"/></svg><span>Tysvær</span></span>
-        <span class="chip2"><svg class="i"><use href="#i-pin"/></svg><span>Bokn</span></span>
-        <span class="chip2"><svg class="i"><use href="#i-pin"/></svg><span>Sveio</span></span>
+        <span class="chip2"><svg class="i"><use href="#i-office"/></svg><span data-t="sc1"></span></span>
+        <span class="chip2"><svg class="i"><use href="#i-bag"/></svg><span data-t="sc2"></span></span>
+        <span class="chip2"><svg class="i"><use href="#i-floor"/></svg><span data-t="sc4"></span></span>
+        <span class="chip2"><svg class="i"><use href="#i-school"/></svg><span data-t="sc3"></span></span>
+        <span class="chip2"><svg class="i"><use href="#i-box"/></svg><span data-t="sc5"></span></span>
       </div>
+      <p class="areas-line"><svg class="i"><use href="#i-pin"/></svg><span data-t="areasLine"></span></p>
     </div>
     <div>
     <div class="rcard">
@@ -562,7 +566,7 @@ no:{nav1:"Tjenester",nav2:"Om oss",nav3:"Blogg",nav4:"Kontakt",quote:"Få pristi
 h1a:"Renhold for bedrifter.",h1b:"Gjort skikkelig.",sub:"Kontor, spesialrenhold og gulv på Haugalandet.",t1:"Uforpliktende pristilbud",t2:"Dere bestemmer hvor ofte",t3:"Godkjent av Arbeidstilsynet",
 svcEy:"Tjenester",svcH:"Det vi gjør best",s1:"Bedriftsrenhold",s1d:"Kontorer og fellesarealer",s2:"Spesialrenhold",s2d:"Dypvask og engangsoppdrag",s3:"Boning av gulv",s3d:"Oppskuring og ny bone",
 years:"År med renhold",years2:"På Haugalandet siden 2016",staff:"Faste medarbeidere",abEy:"Om oss",abH:"Lokalt, grundig og enkelt å samarbeide med",p1:"Lokalt i Karmsund",p1d:"Kort vei til kunder på hele Haugalandet.",p2:"God kundeservice",p2d:"Vi tilpasser oss deres ønsker og behov.",p3:"Grundig kvalitetsarbeid",p3d:"Fokus på detaljer i hvert oppdrag.",
-sample:"Eksempel",gScore:"5,0",gLabel:"Google",gRead:"Les omtalene på Google",trEy:"Hvem vi jobber for",trH:"Valgt av bedrifter på Haugalandet",sc1:"Kontorer",sc2:"Butikker",sc3:"Helse og omsorg",sc4:"Borettslag og sameier",sc5:"Industri og lager",scCta:"Deres bygg?",scCtaS:"Få pris",gT:"Snitt av 6 omtaler",gS:"Vurderingen hentes direkte fra Google-profilen.",jobs:"Vi ansetter renholdere på Haugalandet",jobsS:"Vil du jobbe hos oss? Send en kort søknad på ett minutt.",jobsL:"Søk jobb",jH:"Jobb som renholder",jIntro:"Fortell oss litt om deg, så tar vi kontakt for en prat.",jp1:"Faste vakter",jp2:"Opplæring",jp3:"Ordnede forhold",jWhen:"Når kan du jobbe?",jw1:"Dag",jw2:"Kveld",jw3:"Helg",jMsg:"Litt om deg (valgfritt)",jSend:"Send søknad",jErr:"Fyll inn navn, telefon og en gyldig e-post.",jDoneH:"Takk for søknaden!",jDoneP:"Vi tar kontakt så snart vi kan. Prototype: ingenting sendes.",
+sample:"Eksempel",gScore:"5,0",gLabel:"Google",gRead:"Les omtalene på Google",trEy:"Hvem vi jobber for",trH:"Bygg vi rengjør",sc1:"Kontorer",sc2:"Butikker",sc3:"Skoler og offentlige bygg",sc4:"Borettslag og sameier",sc5:"Lettere industri og lager",areasLine:"Fra Karmsund dekker vi Haugesund, Karmøy, Tysvær, Bokn og Sveio.",scCta:"Deres bygg?",scCtaS:"Få pris",gT:"Snitt av 6 omtaler",gS:"Vurderingen hentes direkte fra Google-profilen.",jobs:"Vi ansetter renholdere på Haugalandet",jobsS:"Vil du jobbe hos oss? Send en kort søknad på ett minutt.",jobsL:"Søk jobb",jH:"Jobb som renholder",jIntro:"Fortell oss litt om deg, så tar vi kontakt for en prat.",jp1:"Faste vakter",jp2:"Opplæring",jp3:"Ordnede forhold",jWhen:"Når kan du jobbe?",jw1:"Dag",jw2:"Kveld",jw3:"Helg",jMsg:"Litt om deg (valgfritt)",jSend:"Send søknad",jErr:"Fyll inn navn, telefon og en gyldig e-post.",jDoneH:"Takk for søknaden!",jDoneP:"Vi tar kontakt så snart vi kan. Prototype: ingenting sendes.",
 fEy:"Finn oss",fH:"Besøk oss i Karmsund",fHoursH:"Åpningstider",fBtn:"Få veibeskrivelse",fOpen:"Åpne i Google Maps",fAlt:"Kart som viser R & E Renhold i Stølsmyr 16, Karmsund",qEy:"Pristilbud",qH:"Få pris på under ett minutt",qLead:"Tre korte steg. Helt uforpliktende.",callLine:"Vil du heller ringe?",
 st1:"Steg 1 av 3",st2:"Steg 2 av 3",st3:"Steg 3 av 3",f1:"Hva trenger dere?",f2:"Om lokalene",f3:"Hvem kan vi kontakte?",
 lb1:"Type bygg",lb2:"Sted",lb3:"Størrelse",lb4:"Hvor ofte?",lb5:"Bedrift",lb6:"Navn",lb7:"Telefon",lb8:"E-post",lb9:"Kommentar (valgfritt)",
@@ -585,7 +589,7 @@ en:{nav1:"Services",nav2:"About",nav3:"Blog",nav4:"Contact",quote:"Get a quote",
 h1a:"Commercial cleaning.",h1b:"Done properly.",sub:"Offices, specialist cleaning and floor care in Haugalandet.",t1:"No-obligation quote",t2:"You decide how often",t3:"Approved by the Labour Inspection Authority",
 svcEy:"Services",svcH:"What we do best",s1:"Office cleaning",s1d:"Offices and shared areas",s2:"Specialist cleaning",s2d:"Deep cleans and one-off jobs",s3:"Floor care",s3d:"Stripping and polishing",
 years:"Years of cleaning",years2:"In Haugalandet since 2016",staff:"Permanent staff",abEy:"About us",abH:"Local, thorough and easy to work with",p1:"Based in Karmsund",p1d:"Close to customers across Haugalandet.",p2:"Good customer service",p2d:"We adapt to your wishes and needs.",p3:"Thorough, quality work",p3d:"Attention to detail on every job.",
-sample:"Sample",gScore:"5.0",gLabel:"Google",gRead:"Read the reviews on Google",trEy:"Who we work for",trH:"Trusted by businesses in Haugalandet",sc1:"Offices",sc2:"Shops",sc3:"Health and care",sc4:"Housing associations",sc5:"Industry and warehouses",scCta:"Your building?",scCtaS:"Get a price",gT:"Average of 6 reviews",gS:"The rating is pulled straight from the Google profile.",jobs:"We are hiring cleaners in Haugalandet",jobsS:"Want to work with us? Send a short application in one minute.",jobsL:"Apply now",jH:"Work as a cleaner",jIntro:"Tell us a little about yourself and we will get in touch for a chat.",jp1:"Regular shifts",jp2:"Training",jp3:"Fair terms",jWhen:"When can you work?",jw1:"Days",jw2:"Evenings",jw3:"Weekends",jMsg:"About you (optional)",jSend:"Send application",jErr:"Please fill in name, phone and a valid email.",jDoneH:"Thanks for applying!",jDoneP:"We will get in touch as soon as we can. Prototype: nothing is sent.",
+sample:"Sample",gScore:"5.0",gLabel:"Google",gRead:"Read the reviews on Google",trEy:"Who we work for",trH:"Buildings we clean",sc1:"Offices",sc2:"Shops",sc3:"Schools and public buildings",sc4:"Housing associations",sc5:"Light industry and warehouses",areasLine:"From Karmsund we cover Haugesund, Karmøy, Tysvær, Bokn and Sveio.",scCta:"Your building?",scCtaS:"Get a price",gT:"Average of 6 reviews",gS:"The rating is pulled straight from the Google profile.",jobs:"We are hiring cleaners in Haugalandet",jobsS:"Want to work with us? Send a short application in one minute.",jobsL:"Apply now",jH:"Work as a cleaner",jIntro:"Tell us a little about yourself and we will get in touch for a chat.",jp1:"Regular shifts",jp2:"Training",jp3:"Fair terms",jWhen:"When can you work?",jw1:"Days",jw2:"Evenings",jw3:"Weekends",jMsg:"About you (optional)",jSend:"Send application",jErr:"Please fill in name, phone and a valid email.",jDoneH:"Thanks for applying!",jDoneP:"We will get in touch as soon as we can. Prototype: nothing is sent.",
 fEy:"Find us",fH:"Visit us in Karmsund",fHoursH:"Opening hours",fBtn:"Get directions",fOpen:"Open in Google Maps",fAlt:"Map showing R & E Renhold at Stølsmyr 16, Karmsund",qEy:"Get a quote",qH:"Get a price in under a minute",qLead:"Three short steps, with no obligation.",callLine:"Prefer to call?",
 st1:"Step 1 of 3",st2:"Step 2 of 3",st3:"Step 3 of 3",f1:"What do you need?",f2:"About your premises",f3:"Who should we contact?",
 lb1:"Type of building",lb2:"Location",lb3:"Size",lb4:"How often?",lb5:"Company",lb6:"Name",lb7:"Phone",lb8:"Email",lb9:"Comment (optional)",

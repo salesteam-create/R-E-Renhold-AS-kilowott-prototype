@@ -164,7 +164,7 @@ PAGES = {
   'seo_title': 'Boning og oppskuring av gulv i Haugesund | R&E Renhold',
   'desc': 'Oppskuring og boning av vinyl- og linoleumsgulv i kontorer, butikker og fellesarealer på Haugalandet. Gi gulvet nytt liv og lengre levetid.',
   'h1': 'Boning og oppskuring av gulv', 'crumb': 'Boning og oppskuring', 'tag': 'Tjeneste',
-  'alt': 'Renholder vasker et lyst gulv med mopp i et rom med store vinduer',
+  'alt': 'Gulvmaskin på et blankt, nybonet gulv i et stort lokale',
   'intro': 'Få gulvet til å se nytt ut igjen. Med oppskuring fjernes gammel, slitt bone, og en ny beskyttende bone gir gulvet glans og tåler hverdagen bedre.',
   'body': '''
 <h2>Når trenger gulvet ny bone?</h2>
@@ -196,7 +196,7 @@ PAGES = {
   'seo_title': 'Floor stripping and polishing in Haugesund | R&E Renhold',
   'desc': 'Stripping and polishing of vinyl and linoleum floors in offices, shops and shared areas in Haugalandet. Give your floor new life and a longer lifespan.',
   'h1': 'Floor stripping and polishing', 'crumb': 'Floor stripping and polishing', 'tag': 'Service',
-  'alt': 'Cleaner mopping a bright floor in a room with large windows',
+  'alt': 'Floor machine on a glossy, freshly polished floor in a large hall',
   'intro': 'Make your floor look new again. Stripping removes old, worn polish, and a new protective coat gives the floor shine and helps it stand up to everyday use.',
   'body': '''
 <h2>When does a floor need a new coat?</h2>

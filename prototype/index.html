@@ -333,6 +333,51 @@ header.solid .burger{color:var(--ink)}
 .mapchip{position:absolute;right:16px;bottom:16px;display:flex;gap:8px;align-items:center;background:#fff;color:var(--plum);font-weight:600;font-size:14px;padding:9px 14px;border-radius:999px;box-shadow:0 8px 20px rgba(36,19,47,.15)}
 .osm{position:absolute;left:12px;bottom:10px;font-size:11px;color:#555;background:rgba(255,255,255,.8);padding:2px 6px;border-radius:4px}
 
+/* Cinematic about */
+.cine{position:relative;overflow:hidden;color:#fff;background:var(--plum) url("video/renhold-poster.webp") center/cover;min-height:min(92vh,820px);display:flex;align-items:center}
+.cine-media{position:absolute;inset:0}
+.cine-vid{width:100%;height:100%;object-fit:cover;object-position:62% 55%;transform:scale(1.06);animation:drift 24s ease-in-out infinite alternate}
+@keyframes drift{to{transform:scale(1.12) translateX(-1.5%)}}
+.cine-shade{position:absolute;inset:0;background:linear-gradient(95deg,rgba(36,19,47,.94) 0%,rgba(36,19,47,.82) 38%,rgba(36,19,47,.3) 68%,rgba(36,19,47,.1) 100%),linear-gradient(0deg,rgba(36,19,47,.55),rgba(36,19,47,0) 40%)}
+.cine-in{position:relative;width:100%;padding-block:clamp(72px,9vw,120px)}
+.cine-grid{display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,.7fr);gap:clamp(28px,5vw,72px);align-items:end}
+.cine-ey{display:inline-flex;align-items:center;gap:10px;font-weight:600;font-size:15px;color:var(--mint);background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.16);backdrop-filter:blur(6px);padding:7px 14px 7px 10px;border-radius:999px}
+.cdot{width:9px;height:9px;border-radius:50%;background:var(--mint)}
+.cine h2{color:#fff;font-size:clamp(36px,5vw,66px);font-weight:800;letter-spacing:-.03em;line-height:1.03;margin-top:18px;max-width:680px;text-shadow:0 2px 30px rgba(0,0,0,.25)}
+.cine-pts{display:grid;gap:12px;margin-top:32px;max-width:560px}
+.cpt{display:flex;gap:16px;align-items:center;padding:14px 18px;border-radius:18px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.14);backdrop-filter:blur(10px);transition:background .25s,transform .25s}
+.cpt:hover{background:rgba(255,255,255,.14);transform:translateX(4px)}
+.cpt .ic{width:46px;height:46px;border-radius:14px;background:var(--mint);color:var(--plum);display:grid;place-items:center;flex:none}
+.cpt b{display:block;font-family:"Plus Jakarta Sans",sans-serif;font-size:17px}
+.cpt span{color:rgba(255,255,255,.78);font-size:15px}
+.cine-acts{display:flex;flex-wrap:wrap;align-items:center;gap:22px;margin-top:32px}
+.cine-cta{position:relative;display:inline-flex;align-items:center;gap:14px;padding:8px 8px 8px 28px;border-radius:999px;background:var(--mint);color:var(--plum);font:700 17px Inter,sans-serif;text-decoration:none;box-shadow:0 14px 34px rgba(99,214,166,.4);overflow:hidden;transition:transform .25s,box-shadow .25s}
+.cine-cta::before{content:"";position:absolute;inset:0;background:linear-gradient(110deg,transparent 30%,rgba(255,255,255,.55) 50%,transparent 70%);transform:translateX(-120%);transition:transform .7s}
+.cine-cta:hover{transform:translateY(-3px);box-shadow:0 20px 44px rgba(99,214,166,.5)}
+.cine-cta:hover::before{transform:translateX(120%)}
+.cine-cta .arr{position:relative;width:46px;height:46px;border-radius:50%;background:var(--plum);color:var(--mint);display:grid;place-items:center;transition:transform .3s}
+.cine-cta:hover .arr{transform:translateX(4px) rotate(-45deg)}
+.cine-cta span{position:relative}
+.cine-sec{color:#fff;font-weight:600;text-decoration:underline;text-underline-offset:5px;text-decoration-color:rgba(255,255,255,.4)}
+.cine-sec:hover{text-decoration-color:var(--mint)}
+.cine-stats{display:grid;gap:12px}
+.cine-stats>div{display:flex;align-items:center;gap:16px;padding:18px 20px;border-radius:20px;background:rgba(36,19,47,.55);border:1px solid rgba(255,255,255,.16);backdrop-filter:blur(12px)}
+.cine-stats b{font:800 40px/1 "Plus Jakarta Sans",sans-serif;color:var(--mint);min-width:76px;letter-spacing:-.03em}
+.cine-stats b span{color:#fff}
+.cine-stats b svg{width:38px;height:38px}
+.cine-stats small{font-size:15px;color:rgba(255,255,255,.85);line-height:1.3}
+.cine-pp{position:absolute;right:max(5vw,16px);bottom:22px;width:42px;height:42px;border-radius:50%;border:1px solid rgba(255,255,255,.3);background:rgba(36,19,47,.45);color:#fff;display:grid;place-items:center;cursor:pointer;backdrop-filter:blur(6px)}
+.cine-pp .ip-play{display:none}
+.cine-pp[aria-pressed=true] .ip-play{display:block}
+.cine-pp[aria-pressed=true] .ip-pause{display:none}
+.reveal{opacity:0;transform:translateY(22px);transition:opacity .8s cubic-bezier(.2,.7,.2,1),transform .8s cubic-bezier(.2,.7,.2,1)}
+.cine.in .reveal{opacity:1;transform:none}
+.cine.in .reveal:nth-child(2){transition-delay:.08s}
+.cine-pts .cpt:nth-child(1){transition-delay:.16s}.cine-pts .cpt:nth-child(2){transition-delay:.24s}.cine-pts .cpt:nth-child(3){transition-delay:.32s}
+.cine-acts{transition-delay:.4s}.cine-stats{transition-delay:.5s}
+@media(max-width:900px){.cine-grid{grid-template-columns:minmax(0,1fr)}.cine-stats{grid-template-columns:repeat(3,minmax(0,1fr))}.cine-stats>div{flex-direction:column;align-items:flex-start;gap:8px;padding:14px}.cine-stats b{font-size:30px;min-width:0}.cine-stats b svg{width:30px;height:30px}.cine-shade{background:linear-gradient(180deg,rgba(36,19,47,.7),rgba(36,19,47,.9) 45%,rgba(36,19,47,.95))}}
+@media(max-width:520px){.cine-stats small{font-size:13px}.cine-cta{width:100%;justify-content:space-between}.cpt{padding:12px 14px}}
+@media(prefers-reduced-motion:reduce){.cine-vid{animation:none;transform:none}.reveal{opacity:1;transform:none;transition:none}}
 /* Footer */
 footer{background:#170b1f;color:rgba(255,255,255,.66);font-size:15px}
 .fgrid{display:flex;justify-content:space-between;gap:28px;flex-wrap:wrap;padding-block:48px}
@@ -540,23 +585,34 @@ body{padding-bottom:78px}
   </div>
 </section>
 
-<section class="band pad about" id="om-oss">
-  <div class="wrap split">
-    <div class="ph">
-      <img src="img/om-oss.webp" alt="Renholder i gule hansker vasker et vindu med nal og spray" loading="lazy">
-    </div>
-    <div>
-      <p class="eyebrow" data-t="abEy">Hvorfor R&amp;E</p>
-      <h2 data-t="abH">Vi tar renholdet. Dere tar resten.</h2>
-      <div class="pts">
-        <div class="pt"><span class="ic"><svg class="i"><use href="#i-pin"/></svg></span><div><b data-t="p1">Alltid i nærheten</b><span data-t="p1d">Basert i Karmsund, med kort vei til hele Haugalandet.</span></div></div>
-        <div class="pt"><span class="ic"><svg class="i"><use href="#i-user"/></svg></span><div><b data-t="p2">Renhold på deres premisser</b><span data-t="p2d">Dere bestemmer hvor ofte og hva som skal gjøres.</span></div></div>
-        <div class="pt"><span class="ic"><svg class="i"><use href="#i-spark"/></svg></span><div><b data-t="p3">Detaljene gjør forskjellen</b><span data-t="p3d">Vi tar renhold på alvor, helt ned til siste hjørne.</span></div></div>
+<section class="cine" id="om-oss" aria-labelledby="ab-h">
+  <div class="cine-media" aria-hidden="true">
+    <video class="cine-vid" muted loop playsinline preload="none" poster="video/renhold-poster.webp" data-src="video/renhold-loop.mp4"></video>
+  </div>
+  <div class="cine-shade" aria-hidden="true"></div>
+  <div class="cine-in pad">
+    <div class="wrap cine-grid">
+      <div class="cine-copy">
+        <p class="cine-ey reveal"><span class="cdot"></span><span data-t="abEy">Hvorfor R&amp;E</span></p>
+        <h2 id="ab-h" class="reveal" data-t="abH">Vi tar renholdet. Dere tar resten.</h2>
+        <div class="cine-pts">
+          <div class="cpt reveal"><span class="ic"><svg class="i"><use href="#i-pin"/></svg></span><div><b data-t="p1">Alltid i nærheten</b><span data-t="p1d">Basert i Karmsund, med kort vei til hele Haugalandet.</span></div></div>
+          <div class="cpt reveal"><span class="ic"><svg class="i"><use href="#i-user"/></svg></span><div><b data-t="p2">Renhold på deres premisser</b><span data-t="p2d">Dere bestemmer hvor ofte og hva som skal gjøres.</span></div></div>
+          <div class="cpt reveal"><span class="ic"><svg class="i"><use href="#i-spark"/></svg></span><div><b data-t="p3">Detaljene gjør forskjellen</b><span data-t="p3d">Vi tar renhold på alvor, helt ned til siste hjørne.</span></div></div>
+        </div>
+        <div class="cine-acts reveal">
+          <a class="cine-cta" href="#tjenester"><span data-t="abCta">Se tjenestene våre</span><span class="arr"><svg class="i"><use href="#i-arrow"/></svg></span></a>
+          <a class="cine-sec" href="#kontakt" data-t="quote">Be om pristilbud</a>
+        </div>
       </div>
-      <a class="ab-cta" href="#tjenester"><span data-t="abCta">Se tjenestene våre</span><svg class="i"><use href="#i-arrow"/></svg></a>
-      <div class="nums"><div><b>10<span>+</span></b><small data-t="years">År med renhold</small></div><div><b>25</b><small data-t="staff">Faste medarbeidere</small></div></div>
+      <div class="cine-stats reveal">
+        <div><b>10<span>+</span></b><small data-t="years">År med renhold</small></div>
+        <div><b>25</b><small data-t="staff">Faste medarbeidere</small></div>
+        <div><b><svg class="i"><use href="#i-shield"/></svg></b><small data-t="t3">Godkjent av Arbeidstilsynet</small></div>
+      </div>
     </div>
   </div>
+  <button class="cine-pp" type="button" aria-pressed="false" data-ta="vidPause"><svg class="i ip-pause" viewBox="0 0 24 24"><path d="M9 5v14M15 5v14"/></svg><svg class="i ip-play" viewBox="0 0 24 24"><path d="M7 4l13 8-13 8z"/></svg></button>
 </section>
 
 <section class="pad trust2" id="omtaler">
@@ -770,7 +826,7 @@ const T={
 no:{nav1:"Tjenester",nav2:"Om oss",nav3:"Blogg",nav4:"Kontakt",quote:"Be om pristilbud",quoteFree:"Be om pristilbud",heroAlt:"Lyst og rent kontorlokale med grønne planter og store vinduer",
 h1a:"Renhold for bedrifter.",h1b:"Gjort skikkelig.",sub:"Kontor, spesialrenhold og gulv på Haugalandet.",t1:"Uforpliktende pristilbud",t2:"Dere bestemmer hvor ofte",t3:"Godkjent av Arbeidstilsynet",
 svcEy:"Tjenester",svcH:"Det vi gjør best",svcLead:"Tre tjenester for bedrifter på Haugalandet. Dere bestemmer omfanget, vi gjør jobben grundig.",readMore:"Les mer",quoteShort:"Be om pris",s1:"Bedriftsrenhold",s1tag:"Fast avtale",s1d:"Daglig eller regelmessig renhold av kontorer, butikker og fellesarealer.",s1p1:"Dere bestemmer hvor ofte",s1p2:"Kontor, toaletter, kjøkken og gulv",s1p3:"Tilpasset lokalene deres",s1alt:"Renholder støvsuger gulvet i et moderne kontor",s2:"Spesialrenhold",s2tag:"Enkeltoppdrag",s2d:"Grundig rengjøring når det faste renholdet ikke strekker til.",s2p1:"Hovedrengjøring",s2p2:"Etter oppussing eller før overlevering",s2p3:"Høye flater, lamper og ventiler",s2alt:"Hånd i gul hanske tørker av en pult",s3:"Boning av gulv",s3tag:"Gulvbehandling",s3d:"Oppskuring og ny bone som gir vinyl- og linoleumsgulv nytt liv.",s3p1:"Fjerner gammel, slitt bone",s3p2:"Ny beskyttende bone",s3p3:"Kan gjøres kveld eller helg",s3alt:"Renholder vasker et lyst gulv",
-years:"År med renhold",years2:"På Haugalandet siden 2016",staff:"Faste medarbeidere",abEy:"Hvorfor R&E",jobsEy:"Vi ansetter",jobsH1:"Bli en del av teamet som holder",jobsH2:"Haugalandet rent.",jk1:"Godkjent av Arbeidstilsynet",jk2:"25 faste kolleger",jk3:"Jobb nær der du bor",jobsMore:"Les mer om å jobbe hos oss",jbadge:"etablert i Karmsund",heroCall:"Eller ring oss",abCta:"Se tjenestene våre",abH:"Vi tar renholdet. Dere tar resten.",p1:"Alltid i nærheten",p1d:"Basert i Karmsund, med kort vei til hele Haugalandet.",p2:"Renhold på deres premisser",p2d:"Dere bestemmer hvor ofte og hva som skal gjøres.",p3:"Detaljene gjør forskjellen",p3d:"Vi tar renhold på alvor, helt ned til siste hjørne.",
+years:"År med renhold",years2:"På Haugalandet siden 2016",staff:"Faste medarbeidere",abEy:"Hvorfor R&E",vidPause:"Pause eller spill av video",jobsEy:"Vi ansetter",jobsH1:"Bli en del av teamet som holder",jobsH2:"Haugalandet rent.",jk1:"Godkjent av Arbeidstilsynet",jk2:"25 faste kolleger",jk3:"Jobb nær der du bor",jobsMore:"Les mer om å jobbe hos oss",jbadge:"etablert i Karmsund",heroCall:"Eller ring oss",abCta:"Se tjenestene våre",abH:"Vi tar renholdet. Dere tar resten.",p1:"Alltid i nærheten",p1d:"Basert i Karmsund, med kort vei til hele Haugalandet.",p2:"Renhold på deres premisser",p2d:"Dere bestemmer hvor ofte og hva som skal gjøres.",p3:"Detaljene gjør forskjellen",p3d:"Vi tar renhold på alvor, helt ned til siste hjørne.",
 sample:"Eksempel",gScore:"5,0",gLabel:"Google",gRead:"Les omtalene på Google",trEy:"Hvem vi jobber for",trH:"Bygg vi rengjør",sc1:"Kontorer",sc2:"Butikker",sc3:"Skoler og offentlige bygg",sc4:"Borettslag og sameier",sc5:"Lettere industri og lager",areasPre:"Fra Karmsund dekker vi",areasAnd:"og",scCta:"Deres bygg?",scCtaS:"Få pris",gT:"Snitt av 6 omtaler",gS:"Vurderingen hentes direkte fra Google-profilen.",jobs:"Vi ansetter renholdere på Haugalandet",jobsS:"Vi ser etter pålitelige renholdere. Send en kort søknad på ett minutt.",jobsL:"Søk jobb",jH:"Jobb som renholder",jIntro:"Fortell oss litt om deg, så tar vi kontakt for en prat.",jp1:"Faste vakter",jp2:"Opplæring",jp3:"Ordnede forhold",jWhen:"Når kan du jobbe?",jw1:"Dag",jw2:"Kveld",jw3:"Helg",jMsg:"Litt om deg (valgfritt)",jSend:"Send søknad",jErr:"Fyll inn navn, telefon og en gyldig e-post.",jDoneH:"Takk for søknaden!",jDoneP:"Vi tar kontakt så snart vi kan. Prototype: ingenting sendes.",
 fHaug:"Renhold i Haugesund",navJobs:"Jobb hos oss",fKarm:"Renhold på Karmøy",mgH:"Slik fungerer det",mg1:"Velg tjeneste",mg1d:"Ett klikk på det dere trenger.",mg2:"Beskriv lokalene",mg2d:"Type bygg, sted, størrelse og hvor ofte.",mg3:"Legg igjen kontaktinfo",mg3d:"Så vi kan svare dere.",mgNext:"Deretter tar vi kontakt med et uforpliktende pristilbud.",guideLink:"Slik fungerer skjemaet",guideBtn:"Se hvordan skjemaet fungerer",fEy:"Finn oss",fH:"Besøk oss i Karmsund",fHoursH:"Åpningstider",fBtn:"Få veibeskrivelse",fOpen:"Åpne i Google Maps",fAlt:"Kart som viser R & E Renhold i Stølsmyr 16, Karmsund",qfS1:"Tjeneste",qfS2:"Lokaler",qfS3:"Kontakt",qfCount:"Steg {n} av 3",qfCountDone:"Ferdig",qfQ1:"Hva kan vi hjelpe dere med?",qfQ1h:"Usikker? Velg det som ligner mest. Vi finner ut av resten sammen.",qfO1:"Fast renhold av kontor og fellesarealer",qfO2:"Grundig engangsjobb, for eksempel hovedrengjøring",qfO3:"Oppskuring og ny bone på gulv",qfQ2:"Fortell litt om lokalene",qfQ2h:"Et omtrentlig svar holder. Det hjelper oss å gi et riktig tilbud.",qfBld:"Hva slags bygg?",qfB1:"Kontor",qfB2:"Butikk",qfB3:"Skole eller offentlig bygg",qfB4:"Borettslag eller sameie",qfB5:"Lager eller lettere industri",qfB6:"Annet",qfLoc:"Hvor ligger lokalene?",qfLocOther:"Et annet sted",qfSize:"Omtrent hvor stort?",qfZ1:"Under 200 m²",qfZ2:"200 til 500 m²",qfZ3:"500 til 1 000 m²",qfZ4:"Over 1 000 m²",qfZ5:"Vet ikke",qfFreq:"Hvor ofte trenger dere renhold?",qfQ3:"Hvor kan vi nå dere?",qfQ3h:"Vi bruker dette bare til å svare på forespørselen.",qfName:"Ditt navn",qfMsg:"Noe vi bør vite?",qfOptional:"(valgfritt)",qfMsgPh:"For eksempel ønsket oppstart eller spesielle behov",qfEco:"Skriv inn navnet på bedriften.",qfEname:"Skriv inn navnet ditt.",qfEphone:"Skriv inn et telefonnummer med minst 8 sifre.",qfEemail:"Skriv inn en gyldig e-postadresse, for eksempel navn@bedrift.no.",qfPriv:"Opplysningene brukes bare til å svare på forespørselen din.",qfPrivLink:"Les personvernerklæringen",qfNext:"Neste",qfSend:"Send forespørsel",qfReassure:"Uforpliktende. Tar under ett minutt.",qfDoneH:"Takk, {name}!",qfDoneP:"Forespørselen din er registrert. Slik går det videre:",qfN1:"Vi går gjennom opplysningene",qfN1d:"Vi ser på tjenesten, lokalene og hvor ofte dere trenger renhold.",qfN2:"Vi kontakter deg",qfN2d:"Du hører fra oss på telefon eller e-post med et uforpliktende pristilbud, eller for å avtale en befaring.",qfHours:"Vi er tilgjengelige mandag til fredag 08:00 til 16:00. Haster det? Ring",qfSumH:"Se hva du sendte",qfProto:"Prototype: forespørselen er ikke sendt. Skjemaet kobles til e-post eller kundesystem på den ferdige nettsiden.",qfAgain:"Send en ny forespørsel",qEy:"Pristilbud",qH:"Be om pris på under ett minutt",qLead:"Tre korte steg. Helt uforpliktende.",callLine:"Vil du heller ringe?",
 st1:"Steg 1 av 3",st2:"Steg 2 av 3",st3:"Steg 3 av 3",f1:"Hva trenger dere?",f2:"Om lokalene",f3:"Hvem kan vi kontakte?",
@@ -793,7 +849,7 @@ unknown:"Det er jeg ikke sikker på. Velg et tema under, eller be om å bli ring
 en:{nav1:"Services",nav2:"About",nav3:"Blog",nav4:"Contact",quote:"Request a quote",quoteFree:"Request a quote",heroAlt:"Bright, clean office lounge with green plants and large windows",
 h1a:"Commercial cleaning.",h1b:"Done properly.",sub:"Offices, specialist cleaning and floor care in Haugalandet.",t1:"No-obligation quote",t2:"You decide how often",t3:"Approved by the Labour Inspection Authority",
 svcEy:"Services",svcH:"What we do best",svcLead:"Three services for businesses in Haugalandet. You decide the scope, we do the job thoroughly.",readMore:"Read more",quoteShort:"Get a price",s1:"Office cleaning",s1tag:"Regular agreement",s1d:"Daily or regular cleaning of offices, shops and shared areas.",s1p1:"You decide how often",s1p2:"Offices, toilets, kitchens and floors",s1p3:"Tailored to your premises",s1alt:"Cleaner vacuuming the floor in a modern office",s2:"Specialist cleaning",s2tag:"One-off job",s2d:"Thorough cleaning when regular cleaning is not enough.",s2p1:"Deep cleaning",s2p2:"After renovation or before handover",s2p3:"High surfaces, lamps and vents",s2alt:"Hand in a yellow glove wiping a desk",s3:"Floor care",s3tag:"Floor treatment",s3d:"Stripping and a new coat of polish that bring vinyl and linoleum floors back to life.",s3p1:"Removes old, worn polish",s3p2:"New protective coat",s3p3:"Can be done evenings or weekends",s3alt:"Cleaner mopping a bright floor",
-years:"Years of cleaning",years2:"In Haugalandet since 2016",staff:"Permanent staff",abEy:"Why R&E",jobsEy:"We're hiring",jobsH1:"Join the team that keeps",jobsH2:"Haugalandet clean.",jk1:"Approved by the Labour Inspection Authority",jk2:"25 permanent colleagues",jk3:"Work close to home",jobsMore:"Read more about working with us",jbadge:"founded in Karmsund",heroCall:"Or give us a call",abCta:"See our services",abH:"We handle the cleaning. You handle the rest.",p1:"Always close by",p1d:"Based in Karmsund, a short trip from all of Haugalandet.",p2:"Cleaning on your terms",p2d:"You decide how often and what gets done.",p3:"The details make the difference",p3d:"We take cleaning seriously, right down to the last corner.",
+years:"Years of cleaning",years2:"In Haugalandet since 2016",staff:"Permanent staff",abEy:"Why R&E",vidPause:"Pause or play video",jobsEy:"We're hiring",jobsH1:"Join the team that keeps",jobsH2:"Haugalandet clean.",jk1:"Approved by the Labour Inspection Authority",jk2:"25 permanent colleagues",jk3:"Work close to home",jobsMore:"Read more about working with us",jbadge:"founded in Karmsund",heroCall:"Or give us a call",abCta:"See our services",abH:"We handle the cleaning. You handle the rest.",p1:"Always close by",p1d:"Based in Karmsund, a short trip from all of Haugalandet.",p2:"Cleaning on your terms",p2d:"You decide how often and what gets done.",p3:"The details make the difference",p3d:"We take cleaning seriously, right down to the last corner.",
 sample:"Sample",gScore:"5.0",gLabel:"Google",gRead:"Read the reviews on Google",trEy:"Who we work for",trH:"Buildings we clean",sc1:"Offices",sc2:"Shops",sc3:"Schools and public buildings",sc4:"Housing associations",sc5:"Light industry and warehouses",areasPre:"From Karmsund we cover",areasAnd:"and",scCta:"Your building?",scCtaS:"Get a price",gT:"Average of 6 reviews",gS:"The rating is pulled straight from the Google profile.",jobs:"We are hiring cleaners in Haugalandet",jobsS:"We are looking for reliable cleaners. Send a short application in one minute.",jobsL:"Apply now",jH:"Work as a cleaner",jIntro:"Tell us a little about yourself and we will get in touch for a chat.",jp1:"Regular shifts",jp2:"Training",jp3:"Fair terms",jWhen:"When can you work?",jw1:"Days",jw2:"Evenings",jw3:"Weekends",jMsg:"About you (optional)",jSend:"Send application",jErr:"Please fill in name, phone and a valid email.",jDoneH:"Thanks for applying!",jDoneP:"We will get in touch as soon as we can. Prototype: nothing is sent.",
 fHaug:"Cleaning in Haugesund",navJobs:"Careers",fKarm:"Cleaning on Karmøy",mgH:"How it works",mg1:"Choose a service",mg1d:"One click on what you need.",mg2:"Describe your premises",mg2d:"Type of building, location, size and how often.",mg3:"Leave contact details",mg3d:"So we can reply to you.",mgNext:"We then get back to you with a no-obligation quote.",guideLink:"How the form works",guideBtn:"See how the form works",fEy:"Find us",fH:"Visit us in Karmsund",fHoursH:"Opening hours",fBtn:"Get directions",fOpen:"Open in Google Maps",fAlt:"Map showing R & E Renhold at Stølsmyr 16, Karmsund",qfS1:"Service",qfS2:"Premises",qfS3:"Contact",qfCount:"Step {n} of 3",qfCountDone:"Done",qfQ1:"What can we help you with?",qfQ1h:"Not sure? Pick the closest match. We will work out the rest together.",qfO1:"Regular cleaning of offices and shared areas",qfO2:"A thorough one-off job, such as a deep clean",qfO3:"Floor stripping and a new coat of polish",qfQ2:"Tell us a little about your premises",qfQ2h:"A rough answer is fine. It helps us give you an accurate quote.",qfBld:"What type of building?",qfB1:"Office",qfB2:"Shop",qfB3:"School or public building",qfB4:"Housing association",qfB5:"Warehouse or light industry",qfB6:"Other",qfLoc:"Where are the premises?",qfLocOther:"Somewhere else",qfSize:"Roughly how big?",qfZ1:"Under 200 m²",qfZ2:"200 to 500 m²",qfZ3:"500 to 1,000 m²",qfZ4:"Over 1,000 m²",qfZ5:"Not sure",qfFreq:"How often do you need cleaning?",qfQ3:"How can we reach you?",qfQ3h:"We only use this to reply to your request.",qfName:"Your name",qfMsg:"Anything we should know?",qfOptional:"(optional)",qfMsgPh:"For example a preferred start date or special requirements",qfEco:"Please enter your company name.",qfEname:"Please enter your name.",qfEphone:"Please enter a phone number with at least 8 digits.",qfEemail:"Please enter a valid email address, for example name@company.no.",qfPriv:"Your details are only used to reply to your request.",qfPrivLink:"Read the privacy policy",qfNext:"Next",qfSend:"Send request",qfReassure:"No obligation. Takes less than a minute.",qfDoneH:"Thank you, {name}!",qfDoneP:"Your request has been registered. Here is what happens next:",qfN1:"We review your details",qfN1d:"We look at the service, your premises and how often you need cleaning.",qfN2:"We get in touch",qfN2d:"You will hear from us by phone or email with a no-obligation quote, or to arrange a site visit.",qfHours:"We are available Monday to Friday, 08:00 to 16:00. In a hurry? Call",qfSumH:"See what you sent",qfProto:"Prototype: this request has not been sent. On the live website the form will be connected to email or a customer system.",qfAgain:"Send another request",qEy:"Get a quote",qH:"Request a price in under a minute",qLead:"Three short steps, with no obligation.",callLine:"Prefer to call?",
 st1:"Step 1 of 3",st2:"Step 2 of 3",st3:"Step 3 of 3",f1:"What do you need?",f2:"About your premises",f3:"Who should we contact?",
@@ -842,6 +898,14 @@ $$('#menu a').forEach(a=>a.onclick=()=>{$('#menu').classList.remove('open');$('#
 
 /* Phone: hide the sticky bar and chat bubble while the form is on screen */
 if('IntersectionObserver' in window){const io=new IntersectionObserver(es=>es.forEach(en=>document.body.classList.toggle('inform',en.isIntersecting&&innerWidth<=720)),{threshold:0.12});io.observe($('#qform'))}
+/* Cinematic video: load and play only near the viewport; pause button; respect reduced motion */
+{const sec=document.querySelector('.cine');if(sec){const v=sec.querySelector('.cine-vid'),pp=sec.querySelector('.cine-pp');let user=false;
+const rm=matchMedia('(prefers-reduced-motion: reduce)').matches;
+const load=()=>{if(!v.src){v.src=v.dataset.src;}};
+const play=()=>{if(rm||user)return;load();const p=v.play();if(p)p.catch(()=>{})};
+if(rm){pp.setAttribute('aria-pressed','true')}
+if('IntersectionObserver' in window){new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){sec.classList.add('in');play()}else v.pause()}),{threshold:.2,rootMargin:'200px 0px'}).observe(sec)}else{sec.classList.add('in');play()}
+pp.addEventListener('click',()=>{if(v.paused){user=false;load();v.play();pp.setAttribute('aria-pressed','false')}else{user=true;v.pause();pp.setAttribute('aria-pressed','true')}})}}
 /* Quote form */
 const form=$('#qform'),steps=$$('#qform [data-step]'),dots=$$('#qform .stepper li');let cur=1;
 function setNext(){const n=$('#next');n.textContent='';const sp=document.createElement('span');sp.textContent=t(cur===3?'qfSend':'qfNext');n.append(sp);n.insertAdjacentHTML('beforeend','<svg class="i"><use href="#i-arrow"/></svg>')}

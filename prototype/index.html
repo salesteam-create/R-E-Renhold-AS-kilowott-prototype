@@ -387,6 +387,37 @@ header.solid .burger{color:var(--ink)}
 }
 @media(max-width:520px){.cine-stats small{font-size:13px}.cine-cta{width:100%;justify-content:space-between}.cpt{padding:12px 14px}}
 @media(prefers-reduced-motion:reduce){.cine-vid{animation:none;transform:none}.reveal{opacity:1;transform:none;transition:none}}
+
+/* Hero: cinematic entrance, slow camera drift, scroll parallax */
+.hero>img{scale:1.04;animation:heroIn 2.8s cubic-bezier(.16,.8,.24,1) both,heroDrift 24s ease-in-out 2.8s infinite alternate;will-change:transform}
+@keyframes heroIn{from{scale:1.22;filter:brightness(.35) saturate(.6) blur(8px)}to{scale:1.04;filter:none}}
+@keyframes heroDrift{from{scale:1.04}to{scale:1.12}}
+.hero::before{content:"";position:absolute;inset:0;z-index:1;pointer-events:none;background:linear-gradient(110deg,transparent 35%,rgba(255,255,255,.14) 48%,transparent 60%);transform:translateX(-120%);animation:sweep 2.2s cubic-bezier(.3,.6,.2,1) 1.2s forwards}
+@keyframes sweep{to{transform:translateX(120%)}}
+.hglow{position:absolute;z-index:1;left:-12vw;top:18%;width:min(60vw,720px);aspect-ratio:1;border-radius:50%;background:radial-gradient(circle,rgba(139,232,193,.22),rgba(139,232,193,0) 65%);filter:blur(30px);pointer-events:none;opacity:0;animation:glowIn 2s ease 1s forwards,glowMove 16s ease-in-out 3s infinite alternate}
+@keyframes glowIn{to{opacity:1}}
+@keyframes glowMove{to{transform:translate(8vw,-6vh) scale(1.15)}}
+.hero h1 .ln{display:block;overflow:hidden;padding-bottom:.08em;margin-bottom:-.08em}
+.hero h1 .ln>*{display:inline-block;transform:translateY(110%);animation:lineUp 1.2s cubic-bezier(.16,.9,.24,1) .45s forwards}
+.hero h1 .ln+.ln>*{animation-delay:.62s}
+@keyframes lineUp{to{transform:none}}
+.hero h1 em{background:linear-gradient(100deg,var(--mint) 0 38%,#fff 50%,var(--mint) 62% 100%);background-size:260% 100%;background-position:100% 0;-webkit-background-clip:text;background-clip:text;color:transparent;animation:lineUp 1.2s cubic-bezier(.16,.9,.24,1) .62s forwards,shine 7s ease-in-out 2.2s infinite}
+@keyframes shine{0%,55%{background-position:100% 0}80%,100%{background-position:0 0}}
+.hfx{opacity:0;transform:translateY(24px);animation:fadeUp 1s cubic-bezier(.2,.8,.2,1) forwards}
+.hero p.sub.hfx{animation-delay:1s}.hero .cta.hfx{animation-delay:1.18s}
+@keyframes fadeUp{to{opacity:1;transform:none}}
+.trust{transform:translateY(100%);animation:barUp 1s cubic-bezier(.2,.8,.2,1) 1.4s forwards}
+.trust .wrap>div{opacity:0;animation:fadeUp .8s ease forwards}
+.trust .wrap>div:nth-child(1){animation-delay:1.7s}.trust .wrap>div:nth-child(2){animation-delay:1.82s}.trust .wrap>div:nth-child(3){animation-delay:1.94s}
+@keyframes barUp{to{transform:none}}
+.hero .wrap{will-change:transform,opacity}
+.hero .btn-quote{position:relative;overflow:hidden}
+.hero .btn-quote::after{content:"";position:absolute;inset:0;background:linear-gradient(110deg,transparent 30%,rgba(255,255,255,.55) 50%,transparent 70%);transform:translateX(-130%);animation:btnShine 5s ease-in-out 3s infinite;pointer-events:none}
+@keyframes btnShine{0%,70%{transform:translateX(-130%)}90%,100%{transform:translateX(130%)}}
+/* Smooth reveal for the rest of the homepage */
+.sr{opacity:0;transform:translateY(34px);transition:opacity .9s cubic-bezier(.2,.7,.2,1),transform .9s cubic-bezier(.2,.7,.2,1)}
+.sr.on{opacity:1;transform:none}
+@media(prefers-reduced-motion:reduce){.hero h1 .ln>*,.hfx,.trust,.trust .wrap>div,.sr{opacity:1!important;transform:none!important}.hero>img{scale:1.04;filter:none}.hero::before,.hglow,.hero .btn-quote::after{display:none}}
 /* Footer */
 footer{background:#170b1f;color:rgba(255,255,255,.66);font-size:15px}
 .fgrid{display:flex;justify-content:space-between;gap:28px;flex-wrap:wrap;padding-block:48px}
@@ -529,11 +560,12 @@ body{padding-bottom:78px}
 
 <main id="top">
 <section class="hero pad">
-  <img src="img/hero.webp" data-ta="heroAlt" alt="Lyst og rent kontorlokale med grønne planter og store vinduer">
+  <div class="hglow" aria-hidden="true"></div>
+  <img src="img/hero.webp" fetchpriority="high" data-ta="heroAlt" alt="Lyst og rent kontorlokale med grønne planter og store vinduer">
   <div class="wrap">
-    <h1><span data-t="h1a">Renhold for bedrifter.</span><br><em data-t="h1b">Gjort skikkelig.</em></h1>
-    <p class="sub" data-t="sub">Kontor, spesialrenhold og gulv på Haugalandet.</p>
-    <div class="cta">
+    <h1><span class="ln"><span data-t="h1a">Renhold for bedrifter.</span></span><span class="ln"><em data-t="h1b">Gjort skikkelig.</em></span></h1>
+    <p class="sub hfx" data-t="sub">Kontor, spesialrenhold og gulv på Haugalandet.</p>
+    <div class="cta hfx">
       <a class="btn btn-quote" href="#kontakt"><span data-t="quoteFree">Be om pristilbud</span><svg class="i"><use href="#i-arrow"/></svg></a>
       <a class="hphone" href="tel:45402012"><span class="hpi"><svg class="i"><use href="#i-phone"/></svg></span><span><small data-t="heroCall">Eller ring oss</small><b>454 02 012</b></span></a>
     </div>
@@ -905,6 +937,18 @@ addEventListener('scroll',onScroll,{passive:true});
 $('#burger').onclick=()=>{const o=$('#menu').classList.toggle('open');$('#burger').setAttribute('aria-expanded',o);onScroll()};
 $$('#menu a').forEach(a=>a.onclick=()=>{$('#menu').classList.remove('open');$('#burger').setAttribute('aria-expanded','false');onScroll()});
 
+/* Hero parallax and page reveal */
+{const rm=matchMedia('(prefers-reduced-motion: reduce)').matches,img=hero.querySelector('img'),hw=hero.querySelector('.wrap');
+if(!rm){let mx=0,my=0,tx=0,ty=0,raf=0;const fine=matchMedia('(pointer:fine)').matches;
+const frame=()=>{raf=0;tx+=(mx-tx)*.08;ty+=(my-ty)*.08;const y=scrollY,h=hero.offsetHeight;
+if(y<h){img.style.translate=(tx*-14)+'px '+(y*.28+ty*-10)+'px';hw.style.transform='translateY('+(y*-.14)+'px)';hw.style.opacity=Math.max(0,1-y/(h*.75))}
+if(Math.abs(mx-tx)>.002||Math.abs(my-ty)>.002)raf=requestAnimationFrame(frame)};
+const kick=()=>{if(!raf)raf=requestAnimationFrame(frame)};
+addEventListener('scroll',kick,{passive:true});
+if(fine&&innerWidth>900)hero.addEventListener('pointermove',e=>{mx=e.clientX/innerWidth-.5;my=e.clientY/innerHeight-.5;kick()});
+if('IntersectionObserver' in window){const els=$$((innerWidth>720?'#tjenester .svc,':'')+'#tjenester .shead,.trust2 .wrap>*,.jobs .wrap>*,.quote .qgrid>*,.findus .wrap>*');
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('on');io.unobserve(e.target)}}),{threshold:.12,rootMargin:'0px 0px -6% 0px'});
+els.forEach(el=>{const r=el.getBoundingClientRect();if(r.top<innerHeight)return;const sib=[...el.parentNode.children].indexOf(el);el.style.transitionDelay=Math.min(sib,3)*.1+'s';el.classList.add('sr');io.observe(el)})}}}
 /* Phone: hide the sticky bar and chat bubble while the form is on screen */
 if('IntersectionObserver' in window){const io=new IntersectionObserver(es=>es.forEach(en=>document.body.classList.toggle('inform',en.isIntersecting&&innerWidth<=720)),{threshold:0.12});io.observe($('#qform'))}
 /* Cinematic video: load and play only near the viewport; pause button; respect reduced motion */

@@ -163,3 +163,15 @@ body{font-size:16px}
 .mnav nav a.msub{padding:11px 0 11px 18px;font-weight:500;font-size:15px}
 .mnav nav a.msub[aria-current=page]{color:var(--violet)}
 .ahero img[src$="bedriftsrenhold.webp"]{object-position:50% 100%}
+/* Service page header photos: cinematic entrance, then a slow camera move unique to each service */
+.ahero{overflow:hidden;border-radius:24px}
+.ahero img{transform-origin:50% 60%;animation:aheroIn 2.4s cubic-bezier(.22,.61,.24,1) both;will-change:transform;backface-visibility:hidden}
+@keyframes aheroIn{from{transform:scale(1.14);opacity:.001}to{transform:scale(1);opacity:1}}
+.ahero img[src$="bedriftsrenhold.webp"]{animation:aheroIn 2.4s cubic-bezier(.22,.61,.24,1) both,aOffice 18s ease-in-out 2.4s infinite alternate}
+.ahero img[src$="spesialrenhold.webp"]{animation:aheroIn 2.4s cubic-bezier(.22,.61,.24,1) both,aSpecial 18s ease-in-out 2.4s infinite alternate}
+.ahero img[src$="boning.webp"]{animation:aheroIn 2.4s cubic-bezier(.22,.61,.24,1) both,aFloor 20s ease-in-out 2.4s infinite alternate}
+@keyframes aOffice{from{transform:scale(1)}to{transform:scale(1.06) translateY(-1.5%)}}
+@keyframes aSpecial{from{transform:scale(1)}to{transform:scale(1.05) translateX(-2%)}}
+@keyframes aFloor{from{transform:scale(1)}to{transform:scale(1.05) translateY(1%)}}
+@media(max-width:640px){.ahero{border-radius:0}}
+@media(prefers-reduced-motion:reduce){.ahero img{animation:none!important;transform:none}}

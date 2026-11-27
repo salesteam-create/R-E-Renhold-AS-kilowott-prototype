@@ -101,6 +101,10 @@ svg.i{width:18px;height:18px;flex:none;fill:none;stroke:currentColor;stroke-widt
 .related h2{font-size:clamp(24px,2.6vw,32px);margin-bottom:24px}
 .rgrid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px}
 .rgrid .card h2,.rgrid .card h3{font-size:20px}
+.rgrid.r3{grid-template-columns:repeat(3,minmax(0,1fr))}
+.cimg{position:relative;display:block}
+.here{position:absolute;left:14px;top:14px;background:var(--plum);color:var(--mint);font-size:13px;font-weight:600;padding:5px 12px;border-radius:999px}
+.card.current{border-color:var(--violet);box-shadow:0 0 0 1px var(--violet)}
 .rgrid .card h3 a{color:inherit;text-decoration:none}
 
 /* Footer */
@@ -113,7 +117,9 @@ svg.i{width:18px;height:18px;flex:none;fill:none;stroke:currentColor;stroke-widt
 .flogo img{height:40px;width:auto}
 .legal{border-top:1px solid rgba(255,255,255,.1);padding-block:20px;display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;font-size:13px}
 
+@media(max-width:760px){.rgrid.r3{grid-template-columns:minmax(0,1fr)}}
 @media(max-width:960px){
+.rgrid.r3 .card h3{font-size:18px}
 .links,.nav>.btn{display:none}
 .mnav{display:block;margin-left:0}
 .lang{margin-left:auto}
@@ -123,7 +129,7 @@ svg.i{width:18px;height:18px;flex:none;fill:none;stroke:currentColor;stroke-widt
 @media(max-width:640px){
 body{font-size:16px}
 .logo img{height:36px}
-.bgrid,.rgrid{grid-template-columns:minmax(0,1fr)}
+.bgrid,.rgrid,.rgrid.r3{grid-template-columns:minmax(0,1fr)}
 .article .intro{font-size:18px}
 .ahero img{border-radius:0}
 .ahero{margin-inline:calc(-1*max(5vw,16px))}

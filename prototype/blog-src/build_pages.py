@@ -14,8 +14,8 @@ OTHER = {'no': 'en', 'en': 'no'}
 BLOG = {'no': '../blogg/index.html', 'en': '../blog/index.html'}
 CITIES = ["Haugesund", "Karmøy", "Tysvær", "Bokn", "Sveio"]
 EXTRA = {
-    'no': dict(services_h='Våre tjenester', areas_h='Områder', more_services='Andre tjenester', area_services='Tjenester', home_services='Tjenester'),
-    'en': dict(services_h='Our services', areas_h='Areas', more_services='Other services', area_services='Services', home_services='Services'),
+    'no': dict(services_h='Våre tjenester', areas_h='Områder', more_services='Alle tjenestene våre', area_services='Tjenester i området', here='Du er her', short='Kort fortalt', home_services='Tjenester'),
+    'en': dict(services_h='Our services', areas_h='Areas', more_services='All our services', area_services='Services in this area', here='You are here', short='In short', home_services='Services'),
 }
 
 
@@ -98,12 +98,14 @@ def footer(lang):
 '''
 
 
-def link_card(lang, key):
+def link_card(lang, key, current=False):
     t = PAGES[key][lang]
     href = '../' + t['path']
-    return f'''<article class="card">
-  <a href="{href}" tabindex="-1" aria-hidden="true"><img src="../img/{PAGES[key]['img']}" alt="{esc(t['alt'])}" width="1200" height="750" loading="lazy"></a>
-  <div class="cb"><h3><a href="{href}">{esc(t['h1'])}</a></h3><p>{esc(t['intro'][:110].rsplit(' ', 1)[0])} …</p>
+    here = f'<span class="here">{EXTRA[lang]["here"]}</span>' if current else ''
+    cur = ' aria-current="page"' if current else ''
+    return f'''<article class="card{' current' if current else ''}">
+  <a href="{href}" tabindex="-1" aria-hidden="true" class="cimg"><img src="../img/{PAGES[key]['img']}" alt="{esc(t['alt'])}" width="1200" height="750" loading="lazy">{here}</a>
+  <div class="cb"><h3><a href="{href}"{cur}>{esc(t['h1'])}</a></h3><p>{esc(t['intro'][:110].rsplit(' ', 1)[0])} …</p>
   <a class="more" href="{href}" aria-label="{LANGS[lang]['L']['more']}: {esc(t['h1'])}">{LANGS[lang]['L']['more']} {ICON_ARROW}</a></div>
 </article>'''
 
@@ -137,7 +139,7 @@ def build(lang, key):
     faq = ''.join(f'<details><summary>{esc(q)}</summary><p>{esc(a)}</p></details>' for q, a in t['faq'])
     cta_h, cta_p = t['cta']
     crumb_mid = X['services_h'] if P['kind'] == 'service' else X['areas_h']
-    rel = ''.join(link_card(lang, k) for k in others[:2]) if P['kind'] == 'service' else ''.join(link_card(lang, k) for k in others[:2])
+    rel = ''.join(link_card(lang, k, current=(k == key)) for k in ORDER_SERVICES)
     html_out = head(lang, key, t['seo_title'], t['desc'], P['img'], schemas) + header(lang, key) + f'''<main>
   <div class="pad">
     <div class="ahead">
@@ -153,7 +155,7 @@ def build(lang, key):
       <section aria-labelledby="faq-h"><h2 id="faq-h">{L['faq']}</h2><div class="faq">{faq}</div></section>
     </article>
   </div>
-  <section class="related pad" aria-labelledby="rel-h"><div class="wrap"><h2 id="rel-h">{rel_h}</h2><div class="rgrid">{rel}</div></div></section>
+  <section class="related pad" aria-labelledby="rel-h"><div class="wrap"><h2 id="rel-h">{rel_h}</h2><div class="rgrid r3">{rel}</div></div></section>
 </main>
 ''' + footer(lang)
     out = os.path.join(ROOT, t['path'])

@@ -336,8 +336,8 @@ header.solid .burger{color:var(--ink)}
 /* Cinematic about */
 .cine{position:relative;overflow:hidden;color:#fff;background:var(--plum);min-height:min(92vh,820px);display:flex;align-items:center}
 .cine-media{position:absolute;inset:0;overflow:hidden}
-.cine-vid{width:100%;height:100%;object-fit:cover;object-position:32% 50%;transform:scale(1.04);animation:drift 30s ease-in-out infinite alternate;filter:saturate(1.05) brightness(1.04)}
-@keyframes drift{to{transform:scale(1.1) translateX(-1%)}}
+.cine-vid{width:100%;height:100%;object-fit:cover;object-position:45% 50%;transform:scale(1.02);animation:drift 30s ease-in-out infinite alternate;filter:saturate(1.05) brightness(1.04)}
+@keyframes drift{to{transform:scale(1.05) translateX(-.6%)}}
 .cine-media{left:36%}
 .cine-shade{position:absolute;inset:0;background:linear-gradient(90deg,rgba(36,19,47,1) 0%,rgba(36,19,47,1) 36%,rgba(36,19,47,.55) 46%,rgba(36,19,47,.1) 60%,rgba(36,19,47,0) 72%)}
 .cine-in{position:relative;width:100%;padding-block:clamp(72px,9vw,120px)}
@@ -652,7 +652,7 @@ body{padding-bottom:78px}
 
 <section class="cine" id="om-oss" aria-labelledby="ab-h">
   <div class="cine-media" aria-hidden="true">
-    <video class="cine-vid" autoplay muted loop playsinline preload="metadata" poster="video/renhold-mop-poster.webp" src="video/renhold-mop.mp4"></video>
+    <video class="cine-vid" autoplay muted loop playsinline preload="none" poster="video/renhold-mop-poster.webp" data-src-desk="video/renhold-mop-desk.mp4" data-poster-desk="video/renhold-mop-desk-poster.webp" data-src-mob="video/renhold-mop.mp4"></video>
   </div>
   <div class="cine-shade" aria-hidden="true"></div>
   <div class="cine-in pad">
@@ -978,10 +978,12 @@ if('IntersectionObserver' in window){const io=new IntersectionObserver(es=>es.fo
 /* Cinematic video: reveal text, play only on screen, pause button, respect reduced motion */
 {const sec=document.querySelector('.cine');if(sec){const v=sec.querySelector('.cine-vid'),pp=sec.querySelector('.cine-pp');let user=false;
 const rm=matchMedia('(prefers-reduced-motion: reduce)').matches;
-const play=()=>{if(rm||user)return;const r=v.play();if(r)r.catch(()=>{})};
+const desk=matchMedia('(min-width: 901px)').matches;if(desk)v.poster=v.dataset.posterDesk;
+const load=()=>{if(!v.getAttribute('src')){v.src=desk?v.dataset.srcDesk:v.dataset.srcMob;v.preload='auto'}};
+const play=()=>{if(rm||user)return;load();const r=v.play();if(r)r.catch(()=>{})};
 if(rm){v.removeAttribute('autoplay');v.pause();pp.setAttribute('aria-pressed','true')}
 if('IntersectionObserver' in window){new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){sec.classList.add('in');play()}else v.pause()}),{threshold:.2}).observe(sec)}else{sec.classList.add('in');play()}
-pp.addEventListener('click',()=>{if(v.paused){user=false;const r=v.play();if(r)r.catch(()=>{});pp.setAttribute('aria-pressed','false')}else{user=true;v.pause();pp.setAttribute('aria-pressed','true')}})}}
+pp.addEventListener('click',()=>{if(v.paused){user=false;load();const r=v.play();if(r)r.catch(()=>{});pp.setAttribute('aria-pressed','false')}else{user=true;v.pause();pp.setAttribute('aria-pressed','true')}})}}
 /* Quote form */
 const form=$('#qform'),steps=$$('#qform [data-step]'),dots=$$('#qform .stepper li');let cur=1;
 function setNext(){const n=$('#next');n.textContent='';const sp=document.createElement('span');sp.textContent=t(cur===3?'qfSend':'qfNext');n.append(sp);n.insertAdjacentHTML('beforeend','<svg class="i"><use href="#i-arrow"/></svg>')}

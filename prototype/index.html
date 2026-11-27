@@ -79,17 +79,27 @@ header.solid .burger{color:var(--ink)}
 .trust span{color:rgba(255,255,255,.8);font-size:15px;line-height:1.3}
 
 /* Services */
+.slead{color:var(--soft);font-size:17px;max-width:420px}
 .shead{display:flex;justify-content:space-between;align-items:end;gap:24px;flex-wrap:wrap;margin-bottom:44px}
 .cards{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:22px}
-.svc{display:block;text-decoration:none;position:relative;border-radius:24px;overflow:hidden;aspect-ratio:3/4;color:#fff;cursor:pointer;border:0;padding:0;text-align:left;font:inherit;background:var(--plum)}
-.svc img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform .6s}
-.svc:hover img{transform:scale(1.05)}
-.svc::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(36,19,47,0) 40%,rgba(36,19,47,.92) 100%)}
-.svc .txt{position:absolute;left:0;right:0;bottom:0;z-index:2;padding:28px;display:flex;justify-content:space-between;align-items:end;gap:16px}
-.svc h3{font-size:26px}
-.svc p{color:rgba(255,255,255,.8);font-size:15px;margin-top:6px}
-.svc .go{width:48px;height:48px;border-radius:50%;background:var(--mint);color:var(--plum);display:grid;place-items:center;flex:none;transition:transform .3s}
-.svc:hover .go{transform:rotate(-45deg)}
+.svc{display:flex;flex-direction:column;border:1px solid var(--line);border-radius:24px;overflow:hidden;background:#fff;transition:transform .25s,box-shadow .25s}
+.svc:hover{transform:translateY(-4px);box-shadow:0 18px 40px rgba(36,19,47,.1)}
+.svc-img{position:relative;display:block;aspect-ratio:4/3;overflow:hidden;background:var(--lilac)}
+.svc-img img{width:100%;height:100%;object-fit:cover;transition:transform .6s}
+.svc:hover .svc-img img{transform:scale(1.04)}
+.svc-tag{position:absolute;left:16px;top:16px;background:rgba(255,255,255,.92);color:var(--plum);font-size:13px;font-weight:600;padding:5px 12px;border-radius:999px}
+.svc-body{padding:24px;display:flex;flex-direction:column;gap:12px;flex:1}
+.svc h3{font-size:24px}
+.svc h3 a{color:var(--ink);text-decoration:none}
+.svc h3 a:hover{color:var(--violet)}
+.svc-body>p{color:var(--soft);font-size:15px}
+.svc-pts{list-style:none;padding:0;display:grid;gap:8px;font-size:15px;margin:4px 0 8px}
+.svc-pts li{display:flex;gap:10px;align-items:flex-start}
+.svc-pts svg{width:18px;height:18px;color:#1d8a5e;margin-top:3px}
+.svc-act{margin-top:auto;display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;padding-top:8px;border-top:1px solid var(--line)}
+.svc-more{display:inline-flex;gap:8px;align-items:center;color:var(--violet);font-weight:600;text-decoration:none;padding-top:10px}
+.svc-more:hover{text-decoration:underline}
+.svc-q{padding:10px 18px;font-size:15px;margin-top:10px}
 
 /* About */
 .about{background:var(--lilac)}
@@ -273,6 +283,9 @@ footer a:hover{color:var(--mint)}
 .menu.open{display:grid;background:#fff;padding:8px 0 20px}
 .menu a{padding:14px 0;text-decoration:none;font-weight:600;border-bottom:1px solid var(--line);color:var(--ink)}
 .split,.qgrid,.t2grid,.fgrid2{grid-template-columns:minmax(0,1fr)}
+.cards{grid-template-columns:repeat(2,minmax(0,1fr))}
+.svc:last-child{grid-column:1/-1;flex-direction:row}
+.svc:last-child .svc-img{width:50%;aspect-ratio:auto;flex:none}
 }
 @media(max-width:720px){
 .nav .btn-quote{display:none}
@@ -289,7 +302,9 @@ footer a:hover{color:var(--mint)}
 .trust b{font-size:20px}
 .trust span{font-size:13px}
 .cards{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;gap:14px;margin-inline:calc(-1*max(5vw,16px));padding-inline:max(5vw,16px);scrollbar-width:none}
-.svc{flex:0 0 78%;scroll-snap-align:start}
+.svc{flex:0 0 84%;scroll-snap-align:start}
+.svc:last-child{flex-direction:column}
+.svc:last-child .svc-img{width:auto;aspect-ratio:4/3}
 .chip2{font-size:14px;padding:8px 13px 8px 10px}
 .opts,.fg{grid-template-columns:minmax(0,1fr)}
 .mbar{display:grid;grid-template-columns:1fr 1.5fr;gap:10px;position:fixed;left:0;right:0;bottom:0;z-index:60;background:#fff;border-top:1px solid var(--line);padding:10px max(16px,env(safe-area-inset-right,0px)) calc(10px + env(safe-area-inset-bottom,0px)) max(16px,env(safe-area-inset-left,0px))}
@@ -368,11 +383,45 @@ body{padding-bottom:78px}
   <div class="wrap">
     <div class="shead">
       <div><p class="eyebrow" data-t="svcEy"></p><h2 data-t="svcH"></h2></div>
+      <p class="slead" data-t="svcLead"></p>
     </div>
     <div class="cards">
-      <a class="svc" href="tjenester/bedriftsrenhold.html" data-href-no="tjenester/bedriftsrenhold.html" data-href-en="services/office-cleaning.html"><img src="img/bedriftsrenhold.webp" alt="" loading="lazy"><div class="txt"><div><h3 data-t="s1"></h3><p data-t="s1d"></p></div><span class="go"><svg class="i"><use href="#i-arrow"/></svg></span></div></a>
-      <a class="svc" href="tjenester/spesialrenhold.html" data-href-no="tjenester/spesialrenhold.html" data-href-en="services/specialist-cleaning.html"><img src="img/spesialrenhold.webp" alt="" loading="lazy"><div class="txt"><div><h3 data-t="s2"></h3><p data-t="s2d"></p></div><span class="go"><svg class="i"><use href="#i-arrow"/></svg></span></div></a>
-      <a class="svc" href="tjenester/boning-og-oppskuring.html" data-href-no="tjenester/boning-og-oppskuring.html" data-href-en="services/floor-stripping-and-polishing.html"><img src="img/boning.webp" alt="" loading="lazy"><div class="txt"><div><h3 data-t="s3"></h3><p data-t="s3d"></p></div><span class="go"><svg class="i"><use href="#i-arrow"/></svg></span></div></a>
+      <article class="svc">
+        <a class="svc-img" href="tjenester/bedriftsrenhold.html" data-href-no="tjenester/bedriftsrenhold.html" data-href-en="services/office-cleaning.html" tabindex="-1" aria-hidden="true"><img src="img/bedriftsrenhold.webp" alt="" data-ta="s1alt" loading="lazy"><span class="svc-tag" data-t="s1tag"></span></a>
+        <div class="svc-body">
+          <h3><a href="tjenester/bedriftsrenhold.html" data-href-no="tjenester/bedriftsrenhold.html" data-href-en="services/office-cleaning.html" data-t="s1"></a></h3>
+          <p data-t="s1d"></p>
+          <ul class="svc-pts"><li><svg class="i"><use href="#i-check"/></svg><span data-t="s1p1"></span></li><li><svg class="i"><use href="#i-check"/></svg><span data-t="s1p2"></span></li><li><svg class="i"><use href="#i-check"/></svg><span data-t="s1p3"></span></li></ul>
+          <div class="svc-act">
+            <a class="svc-more" href="tjenester/bedriftsrenhold.html" data-href-no="tjenester/bedriftsrenhold.html" data-href-en="services/office-cleaning.html"><span data-t="readMore"></span><svg class="i"><use href="#i-arrow"/></svg></a>
+            <button type="button" class="btn btn-quote svc-q" data-service="Bedriftsrenhold" data-t="quoteShort"></button>
+          </div>
+        </div>
+      </article>
+      <article class="svc">
+        <a class="svc-img" href="tjenester/spesialrenhold.html" data-href-no="tjenester/spesialrenhold.html" data-href-en="services/specialist-cleaning.html" tabindex="-1" aria-hidden="true"><img src="img/spesialrenhold.webp" alt="" data-ta="s2alt" loading="lazy"><span class="svc-tag" data-t="s2tag"></span></a>
+        <div class="svc-body">
+          <h3><a href="tjenester/spesialrenhold.html" data-href-no="tjenester/spesialrenhold.html" data-href-en="services/specialist-cleaning.html" data-t="s2"></a></h3>
+          <p data-t="s2d"></p>
+          <ul class="svc-pts"><li><svg class="i"><use href="#i-check"/></svg><span data-t="s2p1"></span></li><li><svg class="i"><use href="#i-check"/></svg><span data-t="s2p2"></span></li><li><svg class="i"><use href="#i-check"/></svg><span data-t="s2p3"></span></li></ul>
+          <div class="svc-act">
+            <a class="svc-more" href="tjenester/spesialrenhold.html" data-href-no="tjenester/spesialrenhold.html" data-href-en="services/specialist-cleaning.html"><span data-t="readMore"></span><svg class="i"><use href="#i-arrow"/></svg></a>
+            <button type="button" class="btn btn-quote svc-q" data-service="Spesialrenhold" data-t="quoteShort"></button>
+          </div>
+        </div>
+      </article>
+      <article class="svc">
+        <a class="svc-img" href="tjenester/boning-og-oppskuring.html" data-href-no="tjenester/boning-og-oppskuring.html" data-href-en="services/floor-stripping-and-polishing.html" tabindex="-1" aria-hidden="true"><img src="img/boning.webp" alt="" data-ta="s3alt" loading="lazy"><span class="svc-tag" data-t="s3tag"></span></a>
+        <div class="svc-body">
+          <h3><a href="tjenester/boning-og-oppskuring.html" data-href-no="tjenester/boning-og-oppskuring.html" data-href-en="services/floor-stripping-and-polishing.html" data-t="s3"></a></h3>
+          <p data-t="s3d"></p>
+          <ul class="svc-pts"><li><svg class="i"><use href="#i-check"/></svg><span data-t="s3p1"></span></li><li><svg class="i"><use href="#i-check"/></svg><span data-t="s3p2"></span></li><li><svg class="i"><use href="#i-check"/></svg><span data-t="s3p3"></span></li></ul>
+          <div class="svc-act">
+            <a class="svc-more" href="tjenester/boning-og-oppskuring.html" data-href-no="tjenester/boning-og-oppskuring.html" data-href-en="services/floor-stripping-and-polishing.html"><span data-t="readMore"></span><svg class="i"><use href="#i-arrow"/></svg></a>
+            <button type="button" class="btn btn-quote svc-q" data-service="Boning og oppskuring" data-t="quoteShort"></button>
+          </div>
+        </div>
+      </article>
     </div>
   </div>
 </section>
@@ -566,7 +615,7 @@ body{padding-bottom:78px}
 const T={
 no:{nav1:"Tjenester",nav2:"Om oss",nav3:"Blogg",nav4:"Kontakt",quote:"Få pristilbud",quoteFree:"Be om pristilbud",heroAlt:"Lyst og rent kontorlokale med grønne planter og store vinduer",
 h1a:"Renhold for bedrifter.",h1b:"Gjort skikkelig.",sub:"Kontor, spesialrenhold og gulv på Haugalandet.",t1:"Uforpliktende pristilbud",t2:"Dere bestemmer hvor ofte",t3:"Godkjent av Arbeidstilsynet",
-svcEy:"Tjenester",svcH:"Det vi gjør best",s1:"Bedriftsrenhold",s1d:"Kontorer og fellesarealer",s2:"Spesialrenhold",s2d:"Dypvask og engangsoppdrag",s3:"Boning av gulv",s3d:"Oppskuring og ny bone",
+svcEy:"Tjenester",svcH:"Det vi gjør best",svcLead:"Tre tjenester for bedrifter på Haugalandet. Dere bestemmer omfanget, vi gjør jobben grundig.",readMore:"Les mer",quoteShort:"Be om pris",s1:"Bedriftsrenhold",s1tag:"Fast avtale",s1d:"Daglig eller regelmessig renhold av kontorer, butikker og fellesarealer.",s1p1:"Dere bestemmer hvor ofte",s1p2:"Kontor, toaletter, kjøkken og gulv",s1p3:"Tilpasset lokalene deres",s1alt:"Renholder støvsuger gulvet i et moderne kontor",s2:"Spesialrenhold",s2tag:"Enkeltoppdrag",s2d:"Grundig rengjøring når det faste renholdet ikke strekker til.",s2p1:"Hovedrengjøring",s2p2:"Etter oppussing eller før overlevering",s2p3:"Høye flater, lamper og ventiler",s2alt:"Hånd i gul hanske tørker av en pult",s3:"Boning av gulv",s3tag:"Gulvbehandling",s3d:"Oppskuring og ny bone som gir vinyl- og linoleumsgulv nytt liv.",s3p1:"Fjerner gammel, slitt bone",s3p2:"Ny beskyttende bone",s3p3:"Kan gjøres kveld eller helg",s3alt:"Renholder vasker et lyst gulv",
 years:"År med renhold",years2:"På Haugalandet siden 2016",staff:"Faste medarbeidere",abEy:"Om oss",abH:"Lokalt, grundig og enkelt å samarbeide med",p1:"Lokalt i Karmsund",p1d:"Kort vei til kunder på hele Haugalandet.",p2:"God kundeservice",p2d:"Vi tilpasser oss deres ønsker og behov.",p3:"Grundig kvalitetsarbeid",p3d:"Fokus på detaljer i hvert oppdrag.",
 sample:"Eksempel",gScore:"5,0",gLabel:"Google",gRead:"Les omtalene på Google",trEy:"Hvem vi jobber for",trH:"Bygg vi rengjør",sc1:"Kontorer",sc2:"Butikker",sc3:"Skoler og offentlige bygg",sc4:"Borettslag og sameier",sc5:"Lettere industri og lager",areasPre:"Fra Karmsund dekker vi",areasAnd:"og",scCta:"Deres bygg?",scCtaS:"Få pris",gT:"Snitt av 6 omtaler",gS:"Vurderingen hentes direkte fra Google-profilen.",jobs:"Vi ansetter renholdere på Haugalandet",jobsS:"Vil du jobbe hos oss? Send en kort søknad på ett minutt.",jobsL:"Søk jobb",jH:"Jobb som renholder",jIntro:"Fortell oss litt om deg, så tar vi kontakt for en prat.",jp1:"Faste vakter",jp2:"Opplæring",jp3:"Ordnede forhold",jWhen:"Når kan du jobbe?",jw1:"Dag",jw2:"Kveld",jw3:"Helg",jMsg:"Litt om deg (valgfritt)",jSend:"Send søknad",jErr:"Fyll inn navn, telefon og en gyldig e-post.",jDoneH:"Takk for søknaden!",jDoneP:"Vi tar kontakt så snart vi kan. Prototype: ingenting sendes.",
 fHaug:"Renhold i Haugesund",fKarm:"Renhold på Karmøy",fEy:"Finn oss",fH:"Besøk oss i Karmsund",fHoursH:"Åpningstider",fBtn:"Få veibeskrivelse",fOpen:"Åpne i Google Maps",fAlt:"Kart som viser R & E Renhold i Stølsmyr 16, Karmsund",qEy:"Pristilbud",qH:"Få pris på under ett minutt",qLead:"Tre korte steg. Helt uforpliktende.",callLine:"Vil du heller ringe?",
@@ -589,7 +638,7 @@ human:"Ring oss på 454 02 012 (man til fre 08 til 16) eller send e-post til pos
 unknown:"Det er jeg ikke sikker på. Velg et tema under, eller be om å bli ringt opp.",more:"Noe annet jeg kan hjelpe med?"}},
 en:{nav1:"Services",nav2:"About",nav3:"Blog",nav4:"Contact",quote:"Get a quote",quoteFree:"Request a quote",heroAlt:"Bright, clean office lounge with green plants and large windows",
 h1a:"Commercial cleaning.",h1b:"Done properly.",sub:"Offices, specialist cleaning and floor care in Haugalandet.",t1:"No-obligation quote",t2:"You decide how often",t3:"Approved by the Labour Inspection Authority",
-svcEy:"Services",svcH:"What we do best",s1:"Office cleaning",s1d:"Offices and shared areas",s2:"Specialist cleaning",s2d:"Deep cleans and one-off jobs",s3:"Floor care",s3d:"Stripping and polishing",
+svcEy:"Services",svcH:"What we do best",svcLead:"Three services for businesses in Haugalandet. You decide the scope, we do the job thoroughly.",readMore:"Read more",quoteShort:"Get a price",s1:"Office cleaning",s1tag:"Regular agreement",s1d:"Daily or regular cleaning of offices, shops and shared areas.",s1p1:"You decide how often",s1p2:"Offices, toilets, kitchens and floors",s1p3:"Tailored to your premises",s1alt:"Cleaner vacuuming the floor in a modern office",s2:"Specialist cleaning",s2tag:"One-off job",s2d:"Thorough cleaning when regular cleaning is not enough.",s2p1:"Deep cleaning",s2p2:"After renovation or before handover",s2p3:"High surfaces, lamps and vents",s2alt:"Hand in a yellow glove wiping a desk",s3:"Floor care",s3tag:"Floor treatment",s3d:"Stripping and a new coat of polish that bring vinyl and linoleum floors back to life.",s3p1:"Removes old, worn polish",s3p2:"New protective coat",s3p3:"Can be done evenings or weekends",s3alt:"Cleaner mopping a bright floor",
 years:"Years of cleaning",years2:"In Haugalandet since 2016",staff:"Permanent staff",abEy:"About us",abH:"Local, thorough and easy to work with",p1:"Based in Karmsund",p1d:"Close to customers across Haugalandet.",p2:"Good customer service",p2d:"We adapt to your wishes and needs.",p3:"Thorough, quality work",p3d:"Attention to detail on every job.",
 sample:"Sample",gScore:"5.0",gLabel:"Google",gRead:"Read the reviews on Google",trEy:"Who we work for",trH:"Buildings we clean",sc1:"Offices",sc2:"Shops",sc3:"Schools and public buildings",sc4:"Housing associations",sc5:"Light industry and warehouses",areasPre:"From Karmsund we cover",areasAnd:"and",scCta:"Your building?",scCtaS:"Get a price",gT:"Average of 6 reviews",gS:"The rating is pulled straight from the Google profile.",jobs:"We are hiring cleaners in Haugalandet",jobsS:"Want to work with us? Send a short application in one minute.",jobsL:"Apply now",jH:"Work as a cleaner",jIntro:"Tell us a little about yourself and we will get in touch for a chat.",jp1:"Regular shifts",jp2:"Training",jp3:"Fair terms",jWhen:"When can you work?",jw1:"Days",jw2:"Evenings",jw3:"Weekends",jMsg:"About you (optional)",jSend:"Send application",jErr:"Please fill in name, phone and a valid email.",jDoneH:"Thanks for applying!",jDoneP:"We will get in touch as soon as we can. Prototype: nothing is sent.",
 fHaug:"Cleaning in Haugesund",fKarm:"Cleaning on Karmøy",fEy:"Find us",fH:"Visit us in Karmsund",fHoursH:"Opening hours",fBtn:"Get directions",fOpen:"Open in Google Maps",fAlt:"Map showing R & E Renhold at Stølsmyr 16, Karmsund",qEy:"Get a quote",qH:"Get a price in under a minute",qLead:"Three short steps, with no obligation.",callLine:"Prefer to call?",

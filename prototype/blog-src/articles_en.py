@@ -50,7 +50,7 @@ ARTICLES = [
 <li>how issues and requests for changes are handled</li>
 <li>the price, notice period and what is included</li>
 </ul>
-<p>Wondering how often your premises should be cleaned? See <a href="office-cleaning-tips.html">our tips for a clean office</a>, or read about <a href="../index.html#tjenester">our commercial cleaning services</a>.</p>
+<p>Wondering how often your premises should be cleaned? See <a href="office-cleaning-tips.html">our tips for a clean office</a>, or read about <a href="../services/office-cleaning.html">our commercial cleaning services</a>.</p>
 """,
  "cta": ("Thinking about outsourcing your cleaning?", "R & E Renhold is approved by the Labour Inspection Authority and has provided commercial cleaning in Haugalandet since 2016."),
  "faq": [
@@ -100,7 +100,7 @@ ARTICLES = [
 <li><strong>Toilets and kitchens:</strong> more often than the rest of the premises, whatever the size.</li>
 </ul>
 <div class="tip"><p><strong>Tip:</strong> Once or twice a year you should also do a more thorough round. See <a href="deep-cleaning-guide.html">our deep cleaning plan</a>.</p></div>
-<p>Thinking about outsourcing your cleaning? Read about <a href="benefits-of-professional-cleaning.html">the benefits of professional cleaning</a>, or see what we offer in <a href="../index.html#tjenester">commercial cleaning</a>.</p>
+<p>Thinking about outsourcing your cleaning? Read about <a href="benefits-of-professional-cleaning.html">the benefits of professional cleaning</a>, or see what we offer in <a href="../services/office-cleaning.html">commercial cleaning</a>.</p>
 """,
  "cta": ("Does your office need regular cleaning?", "We create a cleaning plan tailored to your premises in Haugesund, Karmøy and the rest of Haugalandet."),
  "faq": [
@@ -235,7 +235,7 @@ ARTICLES = [
 <li>New polish is applied in several thin coats, with drying time between each.</li>
 <li>Furniture goes back once the floor has cured.</li>
 </ol>
-<p>Because the floor has to dry between coats, the job is often done in the evening or at the weekend. See also how floors fit into <a href="office-cleaning-tips.html">day-to-day office cleaning</a>, or read about <a href="../index.html#tjenester">our floor stripping and polishing service</a>.</p>
+<p>Because the floor has to dry between coats, the job is often done in the evening or at the weekend. See also how floors fit into <a href="office-cleaning-tips.html">day-to-day office cleaning</a>, or read about <a href="../services/floor-stripping-and-polishing.html">our floor stripping and polishing service</a>.</p>
 """,
  "cta": ("Are your floors looking tired?", "We strip and polish floors in offices, shops and shared areas in Haugesund and the surrounding area."),
  "faq": [

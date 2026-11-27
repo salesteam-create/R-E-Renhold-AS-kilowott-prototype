@@ -50,7 +50,7 @@ ARTICLES = [
 <li>how issues and requests for changes are handled</li>
 <li>the price, notice period and what is included</li>
 </ul>
-<p>Wondering how often your premises should be cleaned? See <a href="office-cleaning-tips.html">our tips for a clean office</a>, or read about <a href="../services/office-cleaning.html">our commercial cleaning services</a>.</p>
+<p>Wondering how often your premises should be cleaned? See <a href="office-cleaning-tips.html">our tips for a clean office</a>, or read about <a href="../services/office-cleaning.html">our commercial cleaning services</a>. We provide cleaning in <a href="../areas/cleaning-haugesund.html">Haugesund</a>, on <a href="../areas/cleaning-karmoy.html">Karmøy</a> and across the rest of Haugalandet.</p>
 """,
  "cta": ("Thinking about outsourcing your cleaning?", "R & E Renhold is approved by the Labour Inspection Authority and has provided commercial cleaning in Haugalandet since 2016."),
  "faq": [
@@ -100,7 +100,7 @@ ARTICLES = [
 <li><strong>Toilets and kitchens:</strong> more often than the rest of the premises, whatever the size.</li>
 </ul>
 <div class="tip"><p><strong>Tip:</strong> Once or twice a year you should also do a more thorough round. See <a href="deep-cleaning-guide.html">our deep cleaning plan</a>.</p></div>
-<p>Thinking about outsourcing your cleaning? Read about <a href="benefits-of-professional-cleaning.html">the benefits of professional cleaning</a>, or see what we offer in <a href="../services/office-cleaning.html">commercial cleaning</a>.</p>
+<p>Thinking about outsourcing your cleaning? Read about <a href="benefits-of-professional-cleaning.html">the benefits of professional cleaning</a>, or see what we offer in <a href="../services/office-cleaning.html">commercial cleaning</a>. We provide cleaning in <a href="../areas/cleaning-haugesund.html">Haugesund</a>, on <a href="../areas/cleaning-karmoy.html">Karmøy</a> and across the rest of Haugalandet.</p>
 """,
  "cta": ("Does your office need regular cleaning?", "We create a cleaning plan tailored to your premises in Haugesund, Karmøy and the rest of Haugalandet."),
  "faq": [
@@ -165,6 +165,7 @@ ARTICLES = [
 <li>Floor coverings in corridors and the entrance.</li>
 </ul>
 <p>Worn vinyl and linoleum floors can often be brought back to life by stripping and re-polishing before handover. Read more in our guide to <a href="floor-polishing-and-maintenance.html">floor polishing and maintenance</a>.</p>
+<p>Is your business moving out of premises in <a href="../areas/cleaning-haugesund.html">Haugesund</a> or on <a href="../areas/cleaning-karmoy.html">Karmøy</a>? We provide <a href="../services/specialist-cleaning.html">specialist cleaning before handover</a> and <a href="../services/floor-stripping-and-polishing.html">floor polishing</a>.</p>
 
 <h2 id="handover">Handover</h2>
 <p>Norwegian tenancy law and most leases assume that premises are returned tidy and clean. Check what your contract says about the expected standard and any requirement for professional cleaning.</p>
@@ -235,7 +236,7 @@ ARTICLES = [
 <li>New polish is applied in several thin coats, with drying time between each.</li>
 <li>Furniture goes back once the floor has cured.</li>
 </ol>
-<p>Because the floor has to dry between coats, the job is often done in the evening or at the weekend. See also how floors fit into <a href="office-cleaning-tips.html">day-to-day office cleaning</a>, or read about <a href="../services/floor-stripping-and-polishing.html">our floor stripping and polishing service</a>.</p>
+<p>Because the floor has to dry between coats, the job is often done in the evening or at the weekend. See also how floors fit into <a href="office-cleaning-tips.html">day-to-day office cleaning</a>, or read about <a href="../services/floor-stripping-and-polishing.html">our floor stripping and polishing service</a>. We provide cleaning in <a href="../areas/cleaning-haugesund.html">Haugesund</a>, on <a href="../areas/cleaning-karmoy.html">Karmøy</a> and across the rest of Haugalandet.</p>
 """,
  "cta": ("Are your floors looking tired?", "We strip and polish floors in offices, shops and shared areas in Haugesund and the surrounding area."),
  "faq": [
@@ -281,6 +282,7 @@ ARTICLES = [
 <li>Consider stripping and re-polishing worn floors.</li>
 </ul>
 <p>The floor often makes the biggest difference. Read more about <a href="floor-polishing-and-maintenance.html">floor polishing and maintenance</a>.</p>
+<p>Would you rather hand the job over? We provide <a href="../services/specialist-cleaning.html">deep cleaning of offices and commercial premises</a> in <a href="../areas/cleaning-haugesund.html">Haugesund</a>, on <a href="../areas/cleaning-karmoy.html">Karmøy</a> and across the rest of Haugalandet.</p>
 
 <h2 id="home">Deep cleaning at home</h2>
 <ul class="check">

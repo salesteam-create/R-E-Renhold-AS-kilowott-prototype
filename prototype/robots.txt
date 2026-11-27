@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+Disallow: /blog-src/
+
+Sitemap: https://www.rentogeffektivt.no/sitemap.xml

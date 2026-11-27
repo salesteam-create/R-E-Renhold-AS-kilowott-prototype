@@ -50,7 +50,7 @@ ARTICLES = [
 <li>hvordan avvik og ønsker om endringer håndteres</li>
 <li>pris, oppsigelsestid og hva som er inkludert</li>
 </ul>
-<p>Lurer du på hvor ofte lokalene deres bør vaskes? Se <a href="tips-til-rent-kontor.html">tipsene våre for et rent kontor</a>, eller les om <a href="../tjenester/bedriftsrenhold.html">bedriftsrenhold hos oss</a>.</p>
+<p>Lurer du på hvor ofte lokalene deres bør vaskes? Se <a href="tips-til-rent-kontor.html">tipsene våre for et rent kontor</a>, eller les om <a href="../tjenester/bedriftsrenhold.html">bedriftsrenhold hos oss</a>. Vi leverer renhold i <a href="../omrader/renhold-haugesund.html">Haugesund</a>, på <a href="../omrader/renhold-karmoy.html">Karmøy</a> og i resten av Haugalandet.</p>
 """,
  "cta": ("Vurderer dere å sette bort renholdet?", "R & E Renhold er godkjent av Arbeidstilsynet og har levert bedriftsrenhold på Haugalandet siden 2016."),
  "faq": [
@@ -101,7 +101,7 @@ ARTICLES = [
 <li><strong>Toaletter og kjøkken:</strong> oftere enn resten av lokalene, uansett størrelse.</li>
 </ul>
 <div class="tip"><p><strong>Tips:</strong> En gang eller to i året bør dere også ta en grundigere runde. Se <a href="hovedrengjoring-bedrift-og-hjem.html">planen vår for hovedrengjøring</a>.</p></div>
-<p>Vurderer dere å sette bort renholdet? Les om <a href="fordeler-med-profesjonelt-renhold.html">fordelene med profesjonelt renhold</a>, eller se hva vi tilbyr innen <a href="../tjenester/bedriftsrenhold.html">bedriftsrenhold</a>.</p>
+<p>Vurderer dere å sette bort renholdet? Les om <a href="fordeler-med-profesjonelt-renhold.html">fordelene med profesjonelt renhold</a>, eller se hva vi tilbyr innen <a href="../tjenester/bedriftsrenhold.html">bedriftsrenhold</a>. Vi leverer renhold i <a href="../omrader/renhold-haugesund.html">Haugesund</a>, på <a href="../omrader/renhold-karmoy.html">Karmøy</a> og i resten av Haugalandet.</p>
 """,
  "cta": ("Trenger kontoret fast renhold?", "Vi lager en renholdsplan tilpasset lokalene deres i Haugesund, Karmøy og resten av Haugalandet."),
  "faq": [
@@ -167,6 +167,7 @@ ARTICLES = [
 <li>Gulvbelegg i korridorer og inngangsparti.</li>
 </ul>
 <p>Slitte vinyl- og linoleumsgulv kan ofte få nytt liv med oppskuring og ny bone før overlevering. Les mer i guiden vår om <a href="boning-og-vedlikehold-av-gulv.html">boning og vedlikehold av gulv</a>.</p>
+<p>Skal bedriften flytte ut av lokaler i <a href="../omrader/renhold-haugesund.html">Haugesund</a> eller på <a href="../omrader/renhold-karmoy.html">Karmøy</a>? Vi tar <a href="../tjenester/spesialrenhold.html">spesialrenhold før overlevering</a> og <a href="../tjenester/boning-og-oppskuring.html">boning av gulv</a>.</p>
 
 <h2 id="overlevering">Overlevering</h2>
 <p>Både husleieloven og de fleste leiekontrakter forutsetter at lokalet leveres ryddet og rengjort. Sjekk derfor hva som står i kontrakten om standard og eventuelle krav til profesjonell vask.</p>
@@ -238,7 +239,7 @@ ARTICLES = [
 <li>Ny bone legges i flere tynne lag, med tørketid mellom hvert lag.</li>
 <li>Møblene settes tilbake når gulvet er herdet.</li>
 </ol>
-<p>Fordi gulvet må tørke mellom lagene, gjøres jobben ofte på kveldstid eller i helgen. Se også hvordan gulvet passer inn i <a href="tips-til-rent-kontor.html">det daglige renholdet på kontoret</a>, eller les om <a href="../tjenester/boning-og-oppskuring.html">boning og oppskuring hos oss</a>.</p>
+<p>Fordi gulvet må tørke mellom lagene, gjøres jobben ofte på kveldstid eller i helgen. Se også hvordan gulvet passer inn i <a href="tips-til-rent-kontor.html">det daglige renholdet på kontoret</a>, eller les om <a href="../tjenester/boning-og-oppskuring.html">boning og oppskuring hos oss</a>. Vi leverer renhold i <a href="../omrader/renhold-haugesund.html">Haugesund</a>, på <a href="../omrader/renhold-karmoy.html">Karmøy</a> og i resten av Haugalandet.</p>
 """,
  "cta": ("Ser gulvene slitne ut?", "Vi skurer opp og boner gulv i kontorer, butikker og fellesarealer i Haugesund og omegn."),
  "faq": [
@@ -285,6 +286,7 @@ ARTICLES = [
 <li>Vurder oppskuring og ny bone på slitte gulv.</li>
 </ul>
 <p>Gulvet er ofte det som gir størst forskjell. Les mer om <a href="boning-og-vedlikehold-av-gulv.html">boning og vedlikehold av gulv</a>.</p>
+<p>Vil dere heller sette bort jobben? Vi tar <a href="../tjenester/spesialrenhold.html">hovedrengjøring av kontorer og næringslokaler</a> i <a href="../omrader/renhold-haugesund.html">Haugesund</a>, på <a href="../omrader/renhold-karmoy.html">Karmøy</a> og i resten av Haugalandet.</p>
 
 <h2 id="hjemme">Hovedrengjøring hjemme</h2>
 <ul class="check">

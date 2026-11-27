@@ -19,7 +19,7 @@ DIRECTIONS = 'https://www.google.com/maps/dir/?api=1&amp;destination=R%20%26%20E
 LANGS = {
     'no': {'dir': 'blogg', 'html': 'nb', 'locale': 'nb_NO', 'in': 'nb-NO', 'items': articles_no.ARTICLES,
            'L': dict(home='Forside', blog='Blogg', services='Tjenester', about='Om oss', contact='Kontakt',
-                     quote='Få pristilbud', quote_free='Be om pristilbud', menu='Meny', mainnav='Hovedmeny', mobnav='Mobilmeny',
+                     quote='Be om pristilbud', quote_free='Be om pristilbud', menu='Meny', mainnav='Hovedmeny', mobnav='Mobilmeny',
                      crumbs='Brødsmuler', toc='Innhold', faq='Ofte stilte spørsmål', related='Les også', more='Les mer',
                      read='min lesetid', published='Publisert', date='27. november 2026', hours='Man til fre 08:00 til 16:00',
                      proto='Prototype laget av Kilowott', lang='Språk',
@@ -29,7 +29,7 @@ LANGS = {
                      idx_lead='Praktiske råd fra hverdagen som renholdsfirma på Haugalandet. For bedrifter som vil ha det rent, og alle som vil gjøre jobben enklere.')},
     'en': {'dir': 'blog', 'html': 'en', 'locale': 'en_GB', 'in': 'en', 'items': articles_en.ARTICLES,
            'L': dict(home='Home', blog='Blog', services='Services', about='About', contact='Contact',
-                     quote='Get a quote', quote_free='Request a quote', menu='Menu', mainnav='Main menu', mobnav='Mobile menu',
+                     quote='Request a quote', quote_free='Request a quote', menu='Menu', mainnav='Main menu', mobnav='Mobile menu',
                      crumbs='Breadcrumb', toc='Contents', faq='Frequently asked questions', related='Read more', more='Read more',
                      read='min read', published='Published', date='27 November 2026', hours='Mon to Fri 08:00 to 16:00',
                      proto='Prototype by Kilowott', lang='Language',

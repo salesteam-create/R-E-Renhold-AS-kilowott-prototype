@@ -179,6 +179,16 @@ header.solid .burger{color:var(--ink)}
 .qgrid{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:clamp(32px,6vw,88px);align-items:start}
 .quote .eyebrow{color:var(--mint)}
 .quote .lead{color:rgba(255,255,255,.75);margin-top:18px;font-size:18px;max-width:420px}
+.mguide{margin-top:30px;max-width:440px}
+.mg-h{color:var(--mint);font-weight:600;font-size:15px;margin-bottom:12px}
+.mg-steps{list-style:none;padding:0;margin:0;display:grid;gap:12px;counter-reset:m}
+.mg-steps li{display:grid;grid-template-columns:34px minmax(0,1fr);column-gap:12px;align-items:start}
+.mg-steps li::before{counter-increment:m;content:counter(m);grid-row:span 2;width:34px;height:34px;border-radius:50%;border:1.5px solid rgba(139,232,193,.5);color:var(--mint);display:grid;place-items:center;font:700 14px "Plus Jakarta Sans",sans-serif}
+.mg-steps b{color:#fff;font-size:16px}
+.mg-steps span{color:rgba(255,255,255,.7);font-size:14px;line-height:1.45}
+.mg-next{display:flex;gap:10px;align-items:flex-start;margin-top:16px;padding-top:14px;border-top:1px solid rgba(255,255,255,.12);color:rgba(255,255,255,.85);font-size:14px}
+.mg-next svg{color:var(--mint);margin-top:2px}
+.guidelink{color:inherit;text-decoration:underline;text-underline-offset:3px}
 .callcard{display:inline-flex;gap:16px;align-items:center;margin-top:36px;padding:14px 26px 14px 14px;border:1.5px solid rgba(255,255,255,.16);border-radius:20px;text-decoration:none;color:#fff;transition:border-color .2s,background .2s}
 .callcard:hover{border-color:var(--mint);background:rgba(139,232,193,.06)}
 .callcard .ic{width:52px;height:52px;border-radius:16px;background:var(--mint);color:var(--plum);display:grid;place-items:center;flex:none}
@@ -477,6 +487,15 @@ body{padding-bottom:78px}
       <p class="eyebrow" data-t="qEy"></p>
       <h2 data-t="qH"></h2>
       <p class="lead" data-t="qLead"></p>
+      <div class="mguide">
+        <p class="mg-h" data-t="mgH"></p>
+        <ol class="mg-steps">
+          <li><b data-t="mg1"></b><span data-t="mg1d"></span></li>
+          <li><b data-t="mg2"></b><span data-t="mg2d"></span></li>
+          <li><b data-t="mg3"></b><span data-t="mg3d"></span></li>
+        </ol>
+        <p class="mg-next"><svg class="i"><use href="#i-check"/></svg><span data-t="mgNext"></span></p>
+      </div>
       <a class="callcard" href="tel:45402012"><span class="ic"><svg class="i"><use href="#i-phone"/></svg></span><span><small data-t="callLine"></small><b>454 02 012</b></span></a>
     </div>
     <form class="form" id="qform" novalidate>
@@ -563,7 +582,7 @@ body{padding-bottom:78px}
       <div class="fcol"><a href="omrader/renhold-haugesund.html" data-href-no="omrader/renhold-haugesund.html" data-href-en="areas/cleaning-haugesund.html" data-t="fHaug"></a><a href="omrader/renhold-karmoy.html" data-href-no="omrader/renhold-karmoy.html" data-href-en="areas/cleaning-karmoy.html" data-t="fKarm"></a><a href="blogg/index.html" data-blog data-t="nav3"></a></div>
       <div class="fcol"><a href="mailto:post@rentogeffektivt.no">post@rentogeffektivt.no</a><span>Org.nr. 916 712 731</span></div>
     </div>
-    <div class="legal"><span>© 2026 R &amp; E Renhold AS</span><span data-t="proto"></span></div>
+    <div class="legal"><span>© 2026 R &amp; E Renhold AS</span><span><span data-t="proto"></span> · <a class="guidelink" href="skjemaguide.html" data-t="guideLink"></a></span></div>
   </div>
 </footer>
 
@@ -618,7 +637,7 @@ h1a:"Renhold for bedrifter.",h1b:"Gjort skikkelig.",sub:"Kontor, spesialrenhold 
 svcEy:"Tjenester",svcH:"Det vi gjør best",svcLead:"Tre tjenester for bedrifter på Haugalandet. Dere bestemmer omfanget, vi gjør jobben grundig.",readMore:"Les mer",quoteShort:"Be om pris",s1:"Bedriftsrenhold",s1tag:"Fast avtale",s1d:"Daglig eller regelmessig renhold av kontorer, butikker og fellesarealer.",s1p1:"Dere bestemmer hvor ofte",s1p2:"Kontor, toaletter, kjøkken og gulv",s1p3:"Tilpasset lokalene deres",s1alt:"Renholder støvsuger gulvet i et moderne kontor",s2:"Spesialrenhold",s2tag:"Enkeltoppdrag",s2d:"Grundig rengjøring når det faste renholdet ikke strekker til.",s2p1:"Hovedrengjøring",s2p2:"Etter oppussing eller før overlevering",s2p3:"Høye flater, lamper og ventiler",s2alt:"Hånd i gul hanske tørker av en pult",s3:"Boning av gulv",s3tag:"Gulvbehandling",s3d:"Oppskuring og ny bone som gir vinyl- og linoleumsgulv nytt liv.",s3p1:"Fjerner gammel, slitt bone",s3p2:"Ny beskyttende bone",s3p3:"Kan gjøres kveld eller helg",s3alt:"Renholder vasker et lyst gulv",
 years:"År med renhold",years2:"På Haugalandet siden 2016",staff:"Faste medarbeidere",abEy:"Om oss",abH:"Lokalt, grundig og enkelt å samarbeide med",p1:"Lokalt i Karmsund",p1d:"Kort vei til kunder på hele Haugalandet.",p2:"God kundeservice",p2d:"Vi tilpasser oss deres ønsker og behov.",p3:"Grundig kvalitetsarbeid",p3d:"Fokus på detaljer i hvert oppdrag.",
 sample:"Eksempel",gScore:"5,0",gLabel:"Google",gRead:"Les omtalene på Google",trEy:"Hvem vi jobber for",trH:"Bygg vi rengjør",sc1:"Kontorer",sc2:"Butikker",sc3:"Skoler og offentlige bygg",sc4:"Borettslag og sameier",sc5:"Lettere industri og lager",areasPre:"Fra Karmsund dekker vi",areasAnd:"og",scCta:"Deres bygg?",scCtaS:"Få pris",gT:"Snitt av 6 omtaler",gS:"Vurderingen hentes direkte fra Google-profilen.",jobs:"Vi ansetter renholdere på Haugalandet",jobsS:"Vil du jobbe hos oss? Send en kort søknad på ett minutt.",jobsL:"Søk jobb",jH:"Jobb som renholder",jIntro:"Fortell oss litt om deg, så tar vi kontakt for en prat.",jp1:"Faste vakter",jp2:"Opplæring",jp3:"Ordnede forhold",jWhen:"Når kan du jobbe?",jw1:"Dag",jw2:"Kveld",jw3:"Helg",jMsg:"Litt om deg (valgfritt)",jSend:"Send søknad",jErr:"Fyll inn navn, telefon og en gyldig e-post.",jDoneH:"Takk for søknaden!",jDoneP:"Vi tar kontakt så snart vi kan. Prototype: ingenting sendes.",
-fHaug:"Renhold i Haugesund",fKarm:"Renhold på Karmøy",fEy:"Finn oss",fH:"Besøk oss i Karmsund",fHoursH:"Åpningstider",fBtn:"Få veibeskrivelse",fOpen:"Åpne i Google Maps",fAlt:"Kart som viser R & E Renhold i Stølsmyr 16, Karmsund",qEy:"Pristilbud",qH:"Be om pris på under ett minutt",qLead:"Tre korte steg. Helt uforpliktende.",callLine:"Vil du heller ringe?",
+fHaug:"Renhold i Haugesund",fKarm:"Renhold på Karmøy",mgH:"Slik fungerer det",mg1:"Velg tjeneste",mg1d:"Ett klikk på det dere trenger.",mg2:"Beskriv lokalene",mg2d:"Type bygg, sted, størrelse og hvor ofte.",mg3:"Legg igjen kontaktinfo",mg3d:"Så vi kan svare dere.",mgNext:"Deretter tar vi kontakt med et uforpliktende pristilbud.",guideLink:"Slik fungerer skjemaet",fEy:"Finn oss",fH:"Besøk oss i Karmsund",fHoursH:"Åpningstider",fBtn:"Få veibeskrivelse",fOpen:"Åpne i Google Maps",fAlt:"Kart som viser R & E Renhold i Stølsmyr 16, Karmsund",qEy:"Pristilbud",qH:"Be om pris på under ett minutt",qLead:"Tre korte steg. Helt uforpliktende.",callLine:"Vil du heller ringe?",
 st1:"Steg 1 av 3",st2:"Steg 2 av 3",st3:"Steg 3 av 3",f1:"Hva trenger dere?",f2:"Om lokalene",f3:"Hvem kan vi kontakte?",
 lb1:"Type bygg",lb2:"Sted",lb3:"Størrelse",lb4:"Hvor ofte?",lb5:"Bedrift",lb6:"Navn",lb7:"Telefon",lb8:"E-post",lb9:"Kommentar (valgfritt)",
 b1:"Kontor",b2:"Butikk",b3:"Lager eller industri",b4:"Helse og omsorg",b5:"Annet",q1:"Daglig",q2:"Ukentlig",q3:"Annenhver uke",q4:"Engangsoppdrag",
@@ -641,7 +660,7 @@ h1a:"Commercial cleaning.",h1b:"Done properly.",sub:"Offices, specialist cleanin
 svcEy:"Services",svcH:"What we do best",svcLead:"Three services for businesses in Haugalandet. You decide the scope, we do the job thoroughly.",readMore:"Read more",quoteShort:"Get a price",s1:"Office cleaning",s1tag:"Regular agreement",s1d:"Daily or regular cleaning of offices, shops and shared areas.",s1p1:"You decide how often",s1p2:"Offices, toilets, kitchens and floors",s1p3:"Tailored to your premises",s1alt:"Cleaner vacuuming the floor in a modern office",s2:"Specialist cleaning",s2tag:"One-off job",s2d:"Thorough cleaning when regular cleaning is not enough.",s2p1:"Deep cleaning",s2p2:"After renovation or before handover",s2p3:"High surfaces, lamps and vents",s2alt:"Hand in a yellow glove wiping a desk",s3:"Floor care",s3tag:"Floor treatment",s3d:"Stripping and a new coat of polish that bring vinyl and linoleum floors back to life.",s3p1:"Removes old, worn polish",s3p2:"New protective coat",s3p3:"Can be done evenings or weekends",s3alt:"Cleaner mopping a bright floor",
 years:"Years of cleaning",years2:"In Haugalandet since 2016",staff:"Permanent staff",abEy:"About us",abH:"Local, thorough and easy to work with",p1:"Based in Karmsund",p1d:"Close to customers across Haugalandet.",p2:"Good customer service",p2d:"We adapt to your wishes and needs.",p3:"Thorough, quality work",p3d:"Attention to detail on every job.",
 sample:"Sample",gScore:"5.0",gLabel:"Google",gRead:"Read the reviews on Google",trEy:"Who we work for",trH:"Buildings we clean",sc1:"Offices",sc2:"Shops",sc3:"Schools and public buildings",sc4:"Housing associations",sc5:"Light industry and warehouses",areasPre:"From Karmsund we cover",areasAnd:"and",scCta:"Your building?",scCtaS:"Get a price",gT:"Average of 6 reviews",gS:"The rating is pulled straight from the Google profile.",jobs:"We are hiring cleaners in Haugalandet",jobsS:"Want to work with us? Send a short application in one minute.",jobsL:"Apply now",jH:"Work as a cleaner",jIntro:"Tell us a little about yourself and we will get in touch for a chat.",jp1:"Regular shifts",jp2:"Training",jp3:"Fair terms",jWhen:"When can you work?",jw1:"Days",jw2:"Evenings",jw3:"Weekends",jMsg:"About you (optional)",jSend:"Send application",jErr:"Please fill in name, phone and a valid email.",jDoneH:"Thanks for applying!",jDoneP:"We will get in touch as soon as we can. Prototype: nothing is sent.",
-fHaug:"Cleaning in Haugesund",fKarm:"Cleaning on Karmøy",fEy:"Find us",fH:"Visit us in Karmsund",fHoursH:"Opening hours",fBtn:"Get directions",fOpen:"Open in Google Maps",fAlt:"Map showing R & E Renhold at Stølsmyr 16, Karmsund",qEy:"Get a quote",qH:"Request a price in under a minute",qLead:"Three short steps, with no obligation.",callLine:"Prefer to call?",
+fHaug:"Cleaning in Haugesund",fKarm:"Cleaning on Karmøy",mgH:"How it works",mg1:"Choose a service",mg1d:"One click on what you need.",mg2:"Describe your premises",mg2d:"Type of building, location, size and how often.",mg3:"Leave contact details",mg3d:"So we can reply to you.",mgNext:"We then get back to you with a no-obligation quote.",guideLink:"How the form works",fEy:"Find us",fH:"Visit us in Karmsund",fHoursH:"Opening hours",fBtn:"Get directions",fOpen:"Open in Google Maps",fAlt:"Map showing R & E Renhold at Stølsmyr 16, Karmsund",qEy:"Get a quote",qH:"Request a price in under a minute",qLead:"Three short steps, with no obligation.",callLine:"Prefer to call?",
 st1:"Step 1 of 3",st2:"Step 2 of 3",st3:"Step 3 of 3",f1:"What do you need?",f2:"About your premises",f3:"Who should we contact?",
 lb1:"Type of building",lb2:"Location",lb3:"Size",lb4:"How often?",lb5:"Company",lb6:"Name",lb7:"Phone",lb8:"Email",lb9:"Comment (optional)",
 b1:"Office",b2:"Shop",b3:"Warehouse or industrial",b4:"Health and care",b5:"Other",q1:"Daily",q2:"Weekly",q3:"Every other week",q4:"One-off",

@@ -57,7 +57,7 @@ header.solid .lang{border-color:var(--line)}
 .lang button{border:0;background:none;color:inherit;font:600 13px Inter,sans-serif;padding:6px 10px;border-radius:999px;cursor:pointer}
 .lang button[aria-pressed=true]{background:var(--mint);color:var(--plum)}
 .nav .btn{padding:12px 20px}
-section[id]{scroll-margin-top:96px}
+section[id],#qform{scroll-margin-top:96px}
 .burger{display:none;background:none;border:0;color:inherit;width:44px;height:44px;cursor:pointer;color:#fff}
 header.solid .burger{color:var(--ink)}
 .menu{display:none}
@@ -196,42 +196,86 @@ header.solid .burger{color:var(--ink)}
 .callcard .ic{width:52px;height:52px;border-radius:16px;background:var(--mint);color:var(--plum);display:grid;place-items:center;flex:none}
 .callcard small{display:block;font-size:14px;color:rgba(255,255,255,.7)}
 .callcard b{display:block;font-family:"Plus Jakarta Sans",sans-serif;font-size:26px;letter-spacing:-.01em;white-space:nowrap}
-.form{background:#fff;color:var(--ink);border-radius:28px;padding:clamp(24px,3.4vw,44px)}
-.prog{display:flex;gap:8px;margin-bottom:26px}
-.prog i{flex:1;height:5px;border-radius:3px;background:var(--line);transition:background .3s}
-.prog i.on{background:var(--violet)}
-.stepn{font-size:14px;color:var(--soft);margin-bottom:6px}
-.form h3{font-size:26px;margin-bottom:22px}
+.form{background:#fff;color:var(--ink);border-radius:28px;padding:clamp(22px,3.4vw,40px);box-shadow:0 30px 60px rgba(0,0,0,.25)}
+.form fieldset{border:0;padding:0;margin:0;min-width:0}
+.form legend{font:800 clamp(22px,2.2vw,27px)/1.2 "Plus Jakarta Sans",sans-serif;letter-spacing:-.02em;padding:0;margin-bottom:6px}
+.hint{color:var(--soft);font-size:15px;margin-bottom:20px}
+.stepper{list-style:none;padding:0;margin:0 0 6px;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;position:relative}
+.stepper li{display:flex;flex-direction:column;align-items:center;gap:8px;position:relative;text-align:center}
+.stepper li+li::before{content:"";position:absolute;top:16px;right:calc(50% + 22px);width:calc(100% - 36px);height:2px;background:var(--line);transition:background .3s}
+.stepper li.done+li::before,.stepper li.done::before{background:var(--violet)}
+.stepper li[aria-current]::before{background:var(--violet)}
+.dot{width:34px;height:34px;border-radius:50%;border:2px solid var(--line);background:#fff;display:grid;place-items:center;font:700 14px "Plus Jakarta Sans",sans-serif;color:var(--soft);transition:all .25s}
+.dot svg{display:none;width:16px;height:16px;stroke-width:3}
+.stepper li[aria-current] .dot{border-color:var(--violet);background:var(--violet);color:#fff;box-shadow:0 0 0 5px rgba(107,63,160,.15)}
+.stepper li.done .dot{border-color:var(--violet);background:var(--lilac);color:var(--violet)}
+.stepper li.done .dot b{display:none}
+.stepper li.done .dot svg{display:block}
+.sl{font-size:13px;font-weight:600;color:var(--soft)}
+.stepper li[aria-current] .sl{color:var(--ink)}
+.stepcount{text-align:center;font-size:13px;color:var(--soft);margin-bottom:22px}
 .opts{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
-.opt input,.pill input{position:absolute;opacity:0;pointer-events:none}
-.opt,.pill{position:relative}
-.opt label{display:flex;flex-direction:column;gap:10px;padding:18px;border:1.5px solid var(--line);border-radius:18px;cursor:pointer;height:100%;font-weight:600}
-.opt label .i{color:var(--violet);width:26px;height:26px}
-.opt input:checked+label{border-color:var(--violet);background:var(--lilac)}
-.opt input:focus-visible+label,.pill input:focus-visible+label{outline:3px solid var(--mint-d)}
-.fg{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
-.f{display:flex;flex-direction:column;gap:6px}
+.opt{position:relative;cursor:pointer}
+.opt input,.chip input{position:absolute;opacity:0;pointer-events:none}
+.ob{position:relative;display:flex;flex-direction:column;gap:6px;height:100%;padding:18px 16px;border:1.5px solid var(--line);border-radius:18px;transition:border-color .2s,background .2s,box-shadow .2s}
+.ob>svg{color:var(--violet);width:26px;height:26px;margin-bottom:4px}
+.ob b{font-family:"Plus Jakarta Sans",sans-serif;font-size:16px}
+.ob small{color:var(--soft);font-size:13.5px;line-height:1.4}
+.ob .tick{position:absolute;top:12px;right:12px;width:22px;height:22px;border-radius:50%;background:var(--violet);color:#fff;display:none;place-items:center}
+.ob .tick svg{width:13px;height:13px;stroke-width:3}
+.opt:hover .ob{border-color:#c9b6dd}
+.opt input:checked+.ob{border-color:var(--violet);background:var(--lilac);box-shadow:0 0 0 1px var(--violet)}
+.opt input:checked+.ob .tick{display:grid}
+.opt input:focus-visible+.ob,.chip input:focus-visible+span{outline:3px solid var(--mint-d);outline-offset:2px}
+.fg{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px 16px}
+.f{display:flex;flex-direction:column;gap:7px}
 .f.full{grid-column:1/-1}
 .f label,.f .lb{font-weight:600;font-size:15px}
-.f input,.f select,.f textarea{font:16px Inter,sans-serif;padding:13px 15px;border:1.5px solid #d9d0e2;border-radius:14px;background:#fff;color:var(--ink);width:100%}
-.f textarea{min-height:84px;resize:vertical}
-.f input.touched:invalid{border-color:#c2412d}
-.range{display:flex;align-items:center;gap:16px}
-.range input{flex:1;accent-color:var(--violet);padding:0;border:0}
-.range output{font-weight:700;white-space:nowrap;min-width:90px;text-align:right}
-.pills{display:flex;flex-wrap:wrap;gap:8px}
-.pill label{display:block;padding:10px 16px;border:1.5px solid #d9d0e2;border-radius:999px;cursor:pointer;font-weight:500;font-size:15px}
-.pill input:checked+label{background:var(--plum);border-color:var(--plum);color:#fff}
-.fnav{display:flex;justify-content:space-between;gap:12px;margin-top:28px}
-.fnav .btn-quote{margin-left:auto}
-.err{color:#c2412d;font-size:14px;min-height:20px;margin-top:10px}
-.done{text-align:center;padding:16px 0}
-.done .ok{width:72px;height:72px;border-radius:50%;background:#e3f8ef;color:#1d8a5e;display:grid;place-items:center;margin:0 auto 18px}
-.done .ok svg{width:34px;height:34px}
-.done p{color:var(--soft);max-width:440px;margin:10px auto 0}
-.sum{text-align:left;background:var(--lilac);border-radius:16px;padding:18px;margin:22px auto 0;max-width:440px;font-size:15px;display:grid;gap:6px}
+.opt-tag{font-weight:400;color:var(--soft);font-size:14px}
+.f input,.f select,.f textarea{font:16px Inter,sans-serif;padding:13px 15px;border:1.5px solid #d9d0e2;border-radius:14px;background:#fff;color:var(--ink);width:100%;transition:border-color .2s,box-shadow .2s}
+.f select{appearance:none;background-image:linear-gradient(45deg,transparent 50%,var(--soft) 50%),linear-gradient(135deg,var(--soft) 50%,transparent 50%);background-position:calc(100% - 20px) 52%,calc(100% - 15px) 52%;background-size:5px 5px;background-repeat:no-repeat;padding-right:40px}
+.f input:focus,.f select:focus,.f textarea:focus{outline:0;border-color:var(--violet);box-shadow:0 0 0 4px rgba(107,63,160,.14)}
+.f textarea{resize:vertical;min-height:84px}
+.f textarea::placeholder{color:#9a90a5}
+.ferr{display:none;color:#b3261e;font-size:13.5px}
+.f.bad input{border-color:#b3261e}
+.f.bad .ferr{display:block}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chip{position:relative}
+.chip span{display:block;padding:10px 16px;border:1.5px solid #d9d0e2;border-radius:999px;cursor:pointer;font-weight:500;font-size:15px;transition:all .2s}
+.chip:hover span{border-color:#c9b6dd}
+.chip input:checked+span{background:var(--plum);border-color:var(--plum);color:#fff}
+.hp{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}
+.privacy{display:flex;gap:10px;align-items:flex-start;margin-top:18px;padding:12px 14px;background:#f4fbf8;border-radius:12px;color:#3d5a4d;font-size:14px;line-height:1.45}
+.privacy svg{color:var(--mint-d);flex:none;margin-top:1px}
+.privacy a{color:#1d6b4a;font-weight:600}
+.fnav{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-top:26px}
+.fnav .btn-quote{margin-left:auto;min-width:180px;padding:16px 28px;font-size:16.5px}
+.back{display:inline-flex;align-items:center;gap:8px;background:none;border:0;padding:10px 4px;font:600 15px Inter,sans-serif;color:var(--soft);cursor:pointer}
+.back svg{transform:rotate(180deg)}
+.back:hover{color:var(--ink)}
+.reassure{text-align:right;font-size:13px;color:var(--soft);margin-top:10px}
+.done{text-align:center;padding:4px 0}
+.done:focus{outline:0}
+.done .ok{width:76px;height:76px;border-radius:50%;background:#e3f8ef;color:#1d8a5e;display:grid;place-items:center;margin:0 auto 18px;animation:pop .45s ease-out}
+.done .ok svg{width:36px;height:36px;stroke-width:2.5}
+@keyframes pop{from{transform:scale(.6);opacity:0}to{transform:scale(1);opacity:1}}
+.done h3{font-size:clamp(22px,2.4vw,28px)}
+.done-lead{color:var(--soft);max-width:460px;margin:10px auto 0}
+.nexts{list-style:none;padding:0;margin:22px auto 0;max-width:460px;text-align:left;display:grid;gap:12px;counter-reset:n}
+.nexts li{display:grid;grid-template-columns:30px minmax(0,1fr);column-gap:12px}
+.nexts li::before{counter-increment:n;content:counter(n);grid-row:span 2;width:30px;height:30px;border-radius:50%;background:var(--lilac);color:var(--violet);display:grid;place-items:center;font:700 14px "Plus Jakarta Sans",sans-serif}
+.nexts span{color:var(--soft);font-size:14.5px}
+.hours{display:flex;gap:10px;align-items:flex-start;text-align:left;max-width:460px;margin:18px auto 0;padding:12px 14px;border:1px solid var(--line);border-radius:12px;font-size:14.5px}
+.hours svg{color:var(--violet);flex:none;margin-top:2px}
+.hours a{color:var(--violet);font-weight:600;white-space:nowrap}
+.sumbox{max-width:460px;margin:14px auto 0;text-align:left}
+.sumbox summary{cursor:pointer;color:var(--violet);font-weight:600;font-size:14.5px;padding:6px 0}
+.sum{background:var(--lilac);border-radius:14px;padding:14px 16px;margin-top:6px;font-size:14.5px;display:grid;gap:6px}
 .sum div{display:flex;justify-content:space-between;gap:12px}
 .sum span{color:var(--soft)}
+.sum b{text-align:right}
+.proto-note{max-width:460px;margin:16px auto 14px;font-size:13px;color:#8a5a00;background:#fff6e0;border-radius:10px;padding:8px 12px}
 
 /* Find us */
 .findus{background:var(--lilac);padding-block:clamp(56px,7vw,96px)}
@@ -324,6 +368,17 @@ footer a:hover{color:var(--mint)}
 .svc:last-child .svc-img{width:auto;aspect-ratio:4/3}
 .chip2{font-size:14px;padding:8px 13px 8px 10px}
 .opts,.fg{grid-template-columns:minmax(0,1fr)}
+.ob{flex-direction:row;flex-wrap:wrap;align-items:center;column-gap:12px;padding:14px 44px 14px 14px}
+.ob>svg{margin:0}
+.ob small{flex-basis:100%;padding-left:38px;margin-top:-4px}
+.ob .tick{top:50%;transform:translateY(-50%)}
+.fnav .btn-quote{flex:1;min-width:0}
+.reassure{text-align:center}
+.mbar{transition:transform .3s}
+body.inform .mbar{transform:translateY(110%)}
+body.inform .chat-btn{opacity:0;pointer-events:none}
+.chat-btn{transition:opacity .25s}
+.sl{font-size:12px}
 .mbar{display:grid;grid-template-columns:1fr 1.5fr;gap:10px;position:fixed;left:0;right:0;bottom:0;z-index:60;background:#fff;border-top:1px solid var(--line);padding:10px max(16px,env(safe-area-inset-right,0px)) calc(10px + env(safe-area-inset-bottom,0px)) max(16px,env(safe-area-inset-left,0px))}
 .mbar .btn{padding:14px 10px}
 
@@ -506,57 +561,69 @@ body{padding-bottom:78px}
       </div>
       <a class="callcard" href="tel:45402012"><span class="ic"><svg class="i"><use href="#i-phone"/></svg></span><span><small data-t="callLine"></small><b>454 02 012</b></span></a>
     </div>
-    <form class="form" id="qform" novalidate>
-      <div class="prog" aria-hidden="true"><i class="on"></i><i></i><i></i></div>
-      <div data-step="1">
-        <p class="stepn" data-t="st1"></p>
-        <h3 data-t="f1"></h3>
+    <form class="form" id="qform" novalidate aria-labelledby="qf-title" autocomplete="on">
+      <!-- LIVE SITE: submission is handled in sendRequest() in the script below. In this prototype nothing is sent. -->
+      <ol class="stepper" aria-label="Fremdrift">
+        <li data-s="1" aria-current="step"><span class="dot"><b>1</b><svg class="i"><use href="#i-check"/></svg></span><span class="sl" data-t="qfS1"></span></li>
+        <li data-s="2"><span class="dot"><b>2</b><svg class="i"><use href="#i-check"/></svg></span><span class="sl" data-t="qfS2"></span></li>
+        <li data-s="3"><span class="dot"><b>3</b><svg class="i"><use href="#i-check"/></svg></span><span class="sl" data-t="qfS3"></span></li>
+      </ol>
+      <p class="stepcount" id="stepcount" aria-live="polite"></p>
+
+      <fieldset data-step="1">
+        <legend id="qf-title" data-t="qfQ1"></legend>
+        <p class="hint" data-t="qfQ1h"></p>
         <div class="opts">
-          <div class="opt"><input type="radio" name="service" id="o1" value="Bedriftsrenhold" checked><label for="o1"><svg class="i"><use href="#i-office"/></svg><span data-t="s1"></span></label></div>
-          <div class="opt"><input type="radio" name="service" id="o2" value="Spesialrenhold"><label for="o2"><svg class="i"><use href="#i-spark"/></svg><span data-t="s2"></span></label></div>
-          <div class="opt"><input type="radio" name="service" id="o3" value="Boning og oppskuring"><label for="o3"><svg class="i"><use href="#i-floor"/></svg><span data-t="s3"></span></label></div>
+          <label class="opt"><input type="radio" name="service" value="Bedriftsrenhold" checked><span class="ob"><svg class="i"><use href="#i-office"/></svg><b data-t="s1"></b><small data-t="qfO1"></small><i class="tick"><svg class="i"><use href="#i-check"/></svg></i></span></label>
+          <label class="opt"><input type="radio" name="service" value="Spesialrenhold"><span class="ob"><svg class="i"><use href="#i-spark"/></svg><b data-t="s2"></b><small data-t="qfO2"></small><i class="tick"><svg class="i"><use href="#i-check"/></svg></i></span></label>
+          <label class="opt"><input type="radio" name="service" value="Boning og oppskuring"><span class="ob"><svg class="i"><use href="#i-floor"/></svg><b data-t="s3"></b><small data-t="qfO3"></small><i class="tick"><svg class="i"><use href="#i-check"/></svg></i></span></label>
         </div>
-      </div>
-      <div data-step="2" hidden>
-        <p class="stepn" data-t="st2"></p>
-        <h3 data-t="f2"></h3>
+      </fieldset>
+
+      <fieldset data-step="2" hidden>
+        <legend data-t="qfQ2"></legend>
+        <p class="hint" data-t="qfQ2h"></p>
         <div class="fg">
-          <div class="f"><label for="building" data-t="lb1"></label><select id="building"><option data-t="b1" value="b1"></option><option data-t="b2" value="b2"></option><option data-t="b3" value="b3"></option><option data-t="b4" value="b4"></option><option data-t="b5" value="b5"></option></select></div>
-          <div class="f"><label for="place" data-t="lb2"></label><select id="place"><option>Haugesund</option><option>Karmøy</option><option>Tysvær</option><option>Bokn</option><option>Sveio</option></select></div>
-          <div class="f full"><label for="size" data-t="lb3"></label><div class="range"><input type="range" id="size" min="50" max="3000" step="50" value="400"><output id="sizeOut" for="size">400 m²</output></div></div>
-          <div class="f full"><span class="lb" data-t="lb4"></span>
-            <div class="pills">
-              <div class="pill"><input type="radio" name="freq" id="q1" value="q1"><label for="q1" data-t="q1"></label></div>
-              <div class="pill"><input type="radio" name="freq" id="q2" value="q2" checked><label for="q2" data-t="q2"></label></div>
-              <div class="pill"><input type="radio" name="freq" id="q3" value="q3"><label for="q3" data-t="q3"></label></div>
-              <div class="pill"><input type="radio" name="freq" id="q4" value="q4"><label for="q4" data-t="q4"></label></div>
-            </div>
-          </div>
+          <div class="f"><label for="building" data-t="qfBld"></label><select id="building" name="building"><option value="b1" data-t="qfB1"></option><option value="b2" data-t="qfB2"></option><option value="b3" data-t="qfB3"></option><option value="b4" data-t="qfB4"></option><option value="b5" data-t="qfB5"></option><option value="b6" data-t="qfB6"></option></select></div>
+          <div class="f"><label for="place" data-t="qfLoc"></label><select id="place" name="location"><option value="Haugesund">Haugesund</option><option value="Karmøy">Karmøy</option><option value="Tysvær">Tysvær</option><option value="Bokn">Bokn</option><option value="Sveio">Sveio</option><option value="other" data-t="qfLocOther"></option></select></div>
+          <div class="f full" role="radiogroup" aria-labelledby="lb-size"><span class="lb" id="lb-size" data-t="qfSize"></span><div class="chips"><label class="chip"><input type="radio" name="size" value="qfZ1"><span data-t="qfZ1"></span></label><label class="chip"><input type="radio" name="size" value="qfZ2" checked><span data-t="qfZ2"></span></label><label class="chip"><input type="radio" name="size" value="qfZ3"><span data-t="qfZ3"></span></label><label class="chip"><input type="radio" name="size" value="qfZ4"><span data-t="qfZ4"></span></label><label class="chip"><input type="radio" name="size" value="qfZ5"><span data-t="qfZ5"></span></label></div></div>
+          <div class="f full" role="radiogroup" aria-labelledby="lb-freq"><span class="lb" id="lb-freq" data-t="qfFreq"></span><div class="chips"><label class="chip"><input type="radio" name="freq" value="q1"><span data-t="q1"></span></label><label class="chip"><input type="radio" name="freq" value="q2" checked><span data-t="q2"></span></label><label class="chip"><input type="radio" name="freq" value="q3"><span data-t="q3"></span></label><label class="chip"><input type="radio" name="freq" value="q4"><span data-t="q4"></span></label></div></div>
         </div>
-      </div>
-      <div data-step="3" hidden>
-        <p class="stepn" data-t="st3"></p>
-        <h3 data-t="f3"></h3>
+      </fieldset>
+
+      <fieldset data-step="3" hidden>
+        <legend data-t="qfQ3"></legend>
+        <p class="hint" data-t="qfQ3h"></p>
         <div class="fg">
-          <div class="f"><label for="company" data-t="lb5"></label><input id="company" autocomplete="organization" required></div>
-          <div class="f"><label for="name" data-t="lb6"></label><input id="name" autocomplete="name" required></div>
-          <div class="f"><label for="phone" data-t="lb7"></label><input id="phone" type="tel" autocomplete="tel" required pattern="[0-9 +]{8,}"></div>
-          <div class="f"><label for="email" data-t="lb8"></label><input id="email" type="email" autocomplete="email" required></div>
-          <div class="f full"><label for="msg" data-t="lb9"></label><textarea id="msg"></textarea></div>
+          <div class="f"><label for="company" data-t="lb5"></label><input id="company" name="company" autocomplete="organization" required aria-describedby="e-company"><small class="ferr" id="e-company" data-t="qfEco"></small></div>
+          <div class="f"><label for="name" data-t="qfName"></label><input id="name" name="name" autocomplete="name" required aria-describedby="e-name"><small class="ferr" id="e-name" data-t="qfEname"></small></div>
+          <div class="f"><label for="phone" data-t="lb7"></label><input id="phone" name="phone" type="tel" inputmode="tel" autocomplete="tel" required pattern="[+0-9 ]{8,}" aria-describedby="e-phone"><small class="ferr" id="e-phone" data-t="qfEphone"></small></div>
+          <div class="f"><label for="email" data-t="lb8"></label><input id="email" name="email" type="email" inputmode="email" autocomplete="email" required aria-describedby="e-email"><small class="ferr" id="e-email" data-t="qfEemail"></small></div>
+          <div class="f full"><label for="msg"><span data-t="qfMsg"></span> <span class="opt-tag" data-t="qfOptional"></span></label><textarea id="msg" name="message" rows="3" data-tp="qfMsgPh"></textarea></div>
+          <div class="hp" aria-hidden="true"><label for="website">Website</label><input id="website" name="website" tabindex="-1" autocomplete="off"></div>
         </div>
-      </div>
-      <div data-step="4" class="done" hidden>
+        <p class="privacy"><svg class="i"><use href="#i-shield"/></svg><span><span data-t="qfPriv"></span> <a href="https://www.rentogeffektivt.no/personvern" target="_blank" rel="noopener" data-t="qfPrivLink"></a></span></p>
+      </fieldset>
+
+      <div data-step="4" class="done" hidden tabindex="-1">
         <div class="ok"><svg class="i"><use href="#i-check"/></svg></div>
-        <h3 data-t="doneH"></h3>
-        <p data-t="doneP"></p>
-        <div class="sum" id="sum"></div>
-        <button type="button" class="btn btn-line" id="again" style="margin-top:20px" data-t="again"></button>
+        <h3 id="doneTitle"></h3>
+        <p class="done-lead" data-t="qfDoneP"></p>
+        <ol class="nexts">
+          <li><b data-t="qfN1"></b><span data-t="qfN1d"></span></li>
+          <li><b data-t="qfN2"></b><span data-t="qfN2d"></span></li>
+        </ol>
+        <div class="hours"><svg class="i"><use href="#i-clock"/></svg><span><span data-t="qfHours"></span> <a href="tel:45402012">454 02 012</a>.</span></div>
+        <details class="sumbox"><summary data-t="qfSumH"></summary><div class="sum" id="sum"></div></details>
+        <p class="proto-note" data-t="qfProto"></p>
+        <button type="button" class="btn btn-line" id="again" data-t="qfAgain"></button>
       </div>
-      <p class="err" id="err" role="alert"></p>
+
       <div class="fnav" id="fnav">
-        <button type="button" class="btn btn-line" id="back" hidden data-t="back"></button>
+        <button type="button" class="back" id="back" hidden><svg class="i"><use href="#i-arrow"/></svg><span data-t="back"></span></button>
         <button type="submit" class="btn btn-quote" id="next"></button>
       </div>
+      <p class="reassure" id="reassure" data-t="qfReassure"></p>
     </form>
   </div>
 </section>
@@ -645,7 +712,7 @@ h1a:"Renhold for bedrifter.",h1b:"Gjort skikkelig.",sub:"Kontor, spesialrenhold 
 svcEy:"Tjenester",svcH:"Det vi gjør best",svcLead:"Tre tjenester for bedrifter på Haugalandet. Dere bestemmer omfanget, vi gjør jobben grundig.",readMore:"Les mer",quoteShort:"Be om pris",s1:"Bedriftsrenhold",s1tag:"Fast avtale",s1d:"Daglig eller regelmessig renhold av kontorer, butikker og fellesarealer.",s1p1:"Dere bestemmer hvor ofte",s1p2:"Kontor, toaletter, kjøkken og gulv",s1p3:"Tilpasset lokalene deres",s1alt:"Renholder støvsuger gulvet i et moderne kontor",s2:"Spesialrenhold",s2tag:"Enkeltoppdrag",s2d:"Grundig rengjøring når det faste renholdet ikke strekker til.",s2p1:"Hovedrengjøring",s2p2:"Etter oppussing eller før overlevering",s2p3:"Høye flater, lamper og ventiler",s2alt:"Hånd i gul hanske tørker av en pult",s3:"Boning av gulv",s3tag:"Gulvbehandling",s3d:"Oppskuring og ny bone som gir vinyl- og linoleumsgulv nytt liv.",s3p1:"Fjerner gammel, slitt bone",s3p2:"Ny beskyttende bone",s3p3:"Kan gjøres kveld eller helg",s3alt:"Renholder vasker et lyst gulv",
 years:"År med renhold",years2:"På Haugalandet siden 2016",staff:"Faste medarbeidere",abEy:"Om oss",abH:"Lokalt, grundig og enkelt å samarbeide med",p1:"Lokalt i Karmsund",p1d:"Kort vei til kunder på hele Haugalandet.",p2:"God kundeservice",p2d:"Vi tilpasser oss deres ønsker og behov.",p3:"Grundig kvalitetsarbeid",p3d:"Fokus på detaljer i hvert oppdrag.",
 sample:"Eksempel",gScore:"5,0",gLabel:"Google",gRead:"Les omtalene på Google",trEy:"Hvem vi jobber for",trH:"Bygg vi rengjør",sc1:"Kontorer",sc2:"Butikker",sc3:"Skoler og offentlige bygg",sc4:"Borettslag og sameier",sc5:"Lettere industri og lager",areasPre:"Fra Karmsund dekker vi",areasAnd:"og",scCta:"Deres bygg?",scCtaS:"Få pris",gT:"Snitt av 6 omtaler",gS:"Vurderingen hentes direkte fra Google-profilen.",jobs:"Vi ansetter renholdere på Haugalandet",jobsS:"Vil du jobbe hos oss? Send en kort søknad på ett minutt.",jobsL:"Søk jobb",jH:"Jobb som renholder",jIntro:"Fortell oss litt om deg, så tar vi kontakt for en prat.",jp1:"Faste vakter",jp2:"Opplæring",jp3:"Ordnede forhold",jWhen:"Når kan du jobbe?",jw1:"Dag",jw2:"Kveld",jw3:"Helg",jMsg:"Litt om deg (valgfritt)",jSend:"Send søknad",jErr:"Fyll inn navn, telefon og en gyldig e-post.",jDoneH:"Takk for søknaden!",jDoneP:"Vi tar kontakt så snart vi kan. Prototype: ingenting sendes.",
-fHaug:"Renhold i Haugesund",fKarm:"Renhold på Karmøy",mgH:"Slik fungerer det",mg1:"Velg tjeneste",mg1d:"Ett klikk på det dere trenger.",mg2:"Beskriv lokalene",mg2d:"Type bygg, sted, størrelse og hvor ofte.",mg3:"Legg igjen kontaktinfo",mg3d:"Så vi kan svare dere.",mgNext:"Deretter tar vi kontakt med et uforpliktende pristilbud.",guideLink:"Slik fungerer skjemaet",guideBtn:"Se hvordan skjemaet fungerer",fEy:"Finn oss",fH:"Besøk oss i Karmsund",fHoursH:"Åpningstider",fBtn:"Få veibeskrivelse",fOpen:"Åpne i Google Maps",fAlt:"Kart som viser R & E Renhold i Stølsmyr 16, Karmsund",qEy:"Pristilbud",qH:"Be om pris på under ett minutt",qLead:"Tre korte steg. Helt uforpliktende.",callLine:"Vil du heller ringe?",
+fHaug:"Renhold i Haugesund",fKarm:"Renhold på Karmøy",mgH:"Slik fungerer det",mg1:"Velg tjeneste",mg1d:"Ett klikk på det dere trenger.",mg2:"Beskriv lokalene",mg2d:"Type bygg, sted, størrelse og hvor ofte.",mg3:"Legg igjen kontaktinfo",mg3d:"Så vi kan svare dere.",mgNext:"Deretter tar vi kontakt med et uforpliktende pristilbud.",guideLink:"Slik fungerer skjemaet",guideBtn:"Se hvordan skjemaet fungerer",fEy:"Finn oss",fH:"Besøk oss i Karmsund",fHoursH:"Åpningstider",fBtn:"Få veibeskrivelse",fOpen:"Åpne i Google Maps",fAlt:"Kart som viser R & E Renhold i Stølsmyr 16, Karmsund",qfS1:"Tjeneste",qfS2:"Lokaler",qfS3:"Kontakt",qfCount:"Steg {n} av 3",qfCountDone:"Ferdig",qfQ1:"Hva kan vi hjelpe dere med?",qfQ1h:"Usikker? Velg det som ligner mest. Vi finner ut av resten sammen.",qfO1:"Fast renhold av kontor og fellesarealer",qfO2:"Grundig engangsjobb, for eksempel hovedrengjøring",qfO3:"Oppskuring og ny bone på gulv",qfQ2:"Fortell litt om lokalene",qfQ2h:"Et omtrentlig svar holder. Det hjelper oss å gi et riktig tilbud.",qfBld:"Hva slags bygg?",qfB1:"Kontor",qfB2:"Butikk",qfB3:"Skole eller offentlig bygg",qfB4:"Borettslag eller sameie",qfB5:"Lager eller lettere industri",qfB6:"Annet",qfLoc:"Hvor ligger lokalene?",qfLocOther:"Et annet sted",qfSize:"Omtrent hvor stort?",qfZ1:"Under 200 m²",qfZ2:"200 til 500 m²",qfZ3:"500 til 1 000 m²",qfZ4:"Over 1 000 m²",qfZ5:"Vet ikke",qfFreq:"Hvor ofte trenger dere renhold?",qfQ3:"Hvor kan vi nå dere?",qfQ3h:"Vi bruker dette bare til å svare på forespørselen.",qfName:"Ditt navn",qfMsg:"Noe vi bør vite?",qfOptional:"(valgfritt)",qfMsgPh:"For eksempel ønsket oppstart eller spesielle behov",qfEco:"Skriv inn navnet på bedriften.",qfEname:"Skriv inn navnet ditt.",qfEphone:"Skriv inn et telefonnummer med minst 8 sifre.",qfEemail:"Skriv inn en gyldig e-postadresse, for eksempel navn@bedrift.no.",qfPriv:"Opplysningene brukes bare til å svare på forespørselen din.",qfPrivLink:"Les personvernerklæringen",qfNext:"Neste",qfSend:"Send forespørsel",qfReassure:"Uforpliktende. Tar under ett minutt.",qfDoneH:"Takk, {name}!",qfDoneP:"Forespørselen din er registrert. Slik går det videre:",qfN1:"Vi går gjennom opplysningene",qfN1d:"Vi ser på tjenesten, lokalene og hvor ofte dere trenger renhold.",qfN2:"Vi kontakter deg",qfN2d:"Du hører fra oss på telefon eller e-post med et uforpliktende pristilbud, eller for å avtale en befaring.",qfHours:"Vi er tilgjengelige mandag til fredag 08:00 til 16:00. Haster det? Ring",qfSumH:"Se hva du sendte",qfProto:"Prototype: forespørselen er ikke sendt. Skjemaet kobles til e-post eller kundesystem på den ferdige nettsiden.",qfAgain:"Send en ny forespørsel",qEy:"Pristilbud",qH:"Be om pris på under ett minutt",qLead:"Tre korte steg. Helt uforpliktende.",callLine:"Vil du heller ringe?",
 st1:"Steg 1 av 3",st2:"Steg 2 av 3",st3:"Steg 3 av 3",f1:"Hva trenger dere?",f2:"Om lokalene",f3:"Hvem kan vi kontakte?",
 lb1:"Type bygg",lb2:"Sted",lb3:"Størrelse",lb4:"Hvor ofte?",lb5:"Bedrift",lb6:"Navn",lb7:"Telefon",lb8:"E-post",lb9:"Kommentar (valgfritt)",
 b1:"Kontor",b2:"Butikk",b3:"Lager eller industri",b4:"Helse og omsorg",b5:"Annet",q1:"Daglig",q2:"Ukentlig",q3:"Annenhver uke",q4:"Engangsoppdrag",
@@ -668,7 +735,7 @@ h1a:"Commercial cleaning.",h1b:"Done properly.",sub:"Offices, specialist cleanin
 svcEy:"Services",svcH:"What we do best",svcLead:"Three services for businesses in Haugalandet. You decide the scope, we do the job thoroughly.",readMore:"Read more",quoteShort:"Get a price",s1:"Office cleaning",s1tag:"Regular agreement",s1d:"Daily or regular cleaning of offices, shops and shared areas.",s1p1:"You decide how often",s1p2:"Offices, toilets, kitchens and floors",s1p3:"Tailored to your premises",s1alt:"Cleaner vacuuming the floor in a modern office",s2:"Specialist cleaning",s2tag:"One-off job",s2d:"Thorough cleaning when regular cleaning is not enough.",s2p1:"Deep cleaning",s2p2:"After renovation or before handover",s2p3:"High surfaces, lamps and vents",s2alt:"Hand in a yellow glove wiping a desk",s3:"Floor care",s3tag:"Floor treatment",s3d:"Stripping and a new coat of polish that bring vinyl and linoleum floors back to life.",s3p1:"Removes old, worn polish",s3p2:"New protective coat",s3p3:"Can be done evenings or weekends",s3alt:"Cleaner mopping a bright floor",
 years:"Years of cleaning",years2:"In Haugalandet since 2016",staff:"Permanent staff",abEy:"About us",abH:"Local, thorough and easy to work with",p1:"Based in Karmsund",p1d:"Close to customers across Haugalandet.",p2:"Good customer service",p2d:"We adapt to your wishes and needs.",p3:"Thorough, quality work",p3d:"Attention to detail on every job.",
 sample:"Sample",gScore:"5.0",gLabel:"Google",gRead:"Read the reviews on Google",trEy:"Who we work for",trH:"Buildings we clean",sc1:"Offices",sc2:"Shops",sc3:"Schools and public buildings",sc4:"Housing associations",sc5:"Light industry and warehouses",areasPre:"From Karmsund we cover",areasAnd:"and",scCta:"Your building?",scCtaS:"Get a price",gT:"Average of 6 reviews",gS:"The rating is pulled straight from the Google profile.",jobs:"We are hiring cleaners in Haugalandet",jobsS:"Want to work with us? Send a short application in one minute.",jobsL:"Apply now",jH:"Work as a cleaner",jIntro:"Tell us a little about yourself and we will get in touch for a chat.",jp1:"Regular shifts",jp2:"Training",jp3:"Fair terms",jWhen:"When can you work?",jw1:"Days",jw2:"Evenings",jw3:"Weekends",jMsg:"About you (optional)",jSend:"Send application",jErr:"Please fill in name, phone and a valid email.",jDoneH:"Thanks for applying!",jDoneP:"We will get in touch as soon as we can. Prototype: nothing is sent.",
-fHaug:"Cleaning in Haugesund",fKarm:"Cleaning on Karmøy",mgH:"How it works",mg1:"Choose a service",mg1d:"One click on what you need.",mg2:"Describe your premises",mg2d:"Type of building, location, size and how often.",mg3:"Leave contact details",mg3d:"So we can reply to you.",mgNext:"We then get back to you with a no-obligation quote.",guideLink:"How the form works",guideBtn:"See how the form works",fEy:"Find us",fH:"Visit us in Karmsund",fHoursH:"Opening hours",fBtn:"Get directions",fOpen:"Open in Google Maps",fAlt:"Map showing R & E Renhold at Stølsmyr 16, Karmsund",qEy:"Get a quote",qH:"Request a price in under a minute",qLead:"Three short steps, with no obligation.",callLine:"Prefer to call?",
+fHaug:"Cleaning in Haugesund",fKarm:"Cleaning on Karmøy",mgH:"How it works",mg1:"Choose a service",mg1d:"One click on what you need.",mg2:"Describe your premises",mg2d:"Type of building, location, size and how often.",mg3:"Leave contact details",mg3d:"So we can reply to you.",mgNext:"We then get back to you with a no-obligation quote.",guideLink:"How the form works",guideBtn:"See how the form works",fEy:"Find us",fH:"Visit us in Karmsund",fHoursH:"Opening hours",fBtn:"Get directions",fOpen:"Open in Google Maps",fAlt:"Map showing R & E Renhold at Stølsmyr 16, Karmsund",qfS1:"Service",qfS2:"Premises",qfS3:"Contact",qfCount:"Step {n} of 3",qfCountDone:"Done",qfQ1:"What can we help you with?",qfQ1h:"Not sure? Pick the closest match. We will work out the rest together.",qfO1:"Regular cleaning of offices and shared areas",qfO2:"A thorough one-off job, such as a deep clean",qfO3:"Floor stripping and a new coat of polish",qfQ2:"Tell us a little about your premises",qfQ2h:"A rough answer is fine. It helps us give you an accurate quote.",qfBld:"What type of building?",qfB1:"Office",qfB2:"Shop",qfB3:"School or public building",qfB4:"Housing association",qfB5:"Warehouse or light industry",qfB6:"Other",qfLoc:"Where are the premises?",qfLocOther:"Somewhere else",qfSize:"Roughly how big?",qfZ1:"Under 200 m²",qfZ2:"200 to 500 m²",qfZ3:"500 to 1,000 m²",qfZ4:"Over 1,000 m²",qfZ5:"Not sure",qfFreq:"How often do you need cleaning?",qfQ3:"How can we reach you?",qfQ3h:"We only use this to reply to your request.",qfName:"Your name",qfMsg:"Anything we should know?",qfOptional:"(optional)",qfMsgPh:"For example a preferred start date or special requirements",qfEco:"Please enter your company name.",qfEname:"Please enter your name.",qfEphone:"Please enter a phone number with at least 8 digits.",qfEemail:"Please enter a valid email address, for example name@company.no.",qfPriv:"Your details are only used to reply to your request.",qfPrivLink:"Read the privacy policy",qfNext:"Next",qfSend:"Send request",qfReassure:"No obligation. Takes less than a minute.",qfDoneH:"Thank you, {name}!",qfDoneP:"Your request has been registered. Here is what happens next:",qfN1:"We review your details",qfN1d:"We look at the service, your premises and how often you need cleaning.",qfN2:"We get in touch",qfN2d:"You will hear from us by phone or email with a no-obligation quote, or to arrange a site visit.",qfHours:"We are available Monday to Friday, 08:00 to 16:00. In a hurry? Call",qfSumH:"See what you sent",qfProto:"Prototype: this request has not been sent. On the live website the form will be connected to email or a customer system.",qfAgain:"Send another request",qEy:"Get a quote",qH:"Request a price in under a minute",qLead:"Three short steps, with no obligation.",callLine:"Prefer to call?",
 st1:"Step 1 of 3",st2:"Step 2 of 3",st3:"Step 3 of 3",f1:"What do you need?",f2:"About your premises",f3:"Who should we contact?",
 lb1:"Type of building",lb2:"Location",lb3:"Size",lb4:"How often?",lb5:"Company",lb6:"Name",lb7:"Phone",lb8:"Email",lb9:"Comment (optional)",
 b1:"Office",b2:"Shop",b3:"Warehouse or industrial",b4:"Health and care",b5:"Other",q1:"Daily",q2:"Weekly",q3:"Every other week",q4:"One-off",
@@ -702,7 +769,7 @@ function apply(){
   $$('.lang button').forEach(b=>b.setAttribute('aria-pressed',b.dataset.lang===lang));
   $$('[data-href-no]').forEach(l=>l.setAttribute('href',lang==='en'?l.dataset.hrefEn:l.dataset.hrefNo));
   $$('[data-blog]').forEach(l=>l.setAttribute('href',lang==='en'?'blog/index.html':'blogg/index.html'));
-  setNext();
+  setNext();if($('#stepcount'))$('#stepcount').textContent=cur<4?t('qfCount').replace('{n}',cur):t('qfCountDone');
   if(!$('#chat').hidden||$('#msgs').children.length){$('#msgs').innerHTML='';greet()}
 }
 $$('.lang button').forEach(b=>b.onclick=()=>{lang=b.dataset.lang;try{localStorage.setItem('re-lang',lang)}catch(e){}apply()});
@@ -713,22 +780,38 @@ addEventListener('scroll',onScroll,{passive:true});
 $('#burger').onclick=()=>{const o=$('#menu').classList.toggle('open');$('#burger').setAttribute('aria-expanded',o);onScroll()};
 $$('#menu a').forEach(a=>a.onclick=()=>{$('#menu').classList.remove('open');$('#burger').setAttribute('aria-expanded','false');onScroll()});
 
+/* Phone: hide the sticky bar and chat bubble while the form is on screen */
+if('IntersectionObserver' in window){const io=new IntersectionObserver(es=>es.forEach(en=>document.body.classList.toggle('inform',en.isIntersecting&&innerWidth<=720)),{threshold:0.12});io.observe($('#qform'))}
 /* Quote form */
-const form=$('#qform'),steps=$$('#qform [data-step]'),bars=$$('.prog i');let cur=1;
-function setNext(){$('#next').innerHTML='';const s=document.createElement('span');s.textContent=t(cur===3?'send':'next');$('#next').append(s);if(cur<3)$('#next').insertAdjacentHTML('beforeend','<svg class="i"><use href="#i-arrow"/></svg>')}
-function show(n){cur=n;steps.forEach(s=>s.hidden=+s.dataset.step!==n);bars.forEach((b,i)=>b.classList.toggle('on',i<Math.min(n,3)));$('#back').hidden=n===1;$('#fnav').hidden=n===4;$('#err').textContent='';setNext()}
-const size=$('#size'),out=$('#sizeOut');size.oninput=()=>out.textContent=(+size.value).toLocaleString('nb-NO')+' m²';
+const form=$('#qform'),steps=$$('#qform [data-step]'),dots=$$('#qform .stepper li');let cur=1;
+function setNext(){const n=$('#next');n.textContent='';const sp=document.createElement('span');sp.textContent=t(cur===3?'qfSend':'qfNext');n.append(sp);n.insertAdjacentHTML('beforeend','<svg class="i"><use href="#i-arrow"/></svg>')}
+function show(n,focus){cur=n;steps.forEach(s=>s.hidden=+s.dataset.step!==n);
+  dots.forEach((d,i)=>{d.classList.toggle('done',i<n-1||n===4);if(i===n-1&&n<4)d.setAttribute('aria-current','step');else d.removeAttribute('aria-current')});
+  $('#stepcount').textContent=n<4?t('qfCount').replace('{n}',n):t('qfCountDone');
+  $('#back').hidden=n===1||n===4;$('#fnav').hidden=n===4;$('#reassure').hidden=n===4;setNext();
+  if(focus){const el=n===4?$('[data-step="4"]'):steps[n-1].querySelector('legend');if(n===4)el.focus();form.scrollIntoView({behavior:'smooth',block:'start'})}}
+/* floor care and specialist cleaning are usually one-off jobs */
+$$('#qform input[name=service]').forEach(r=>r.addEventListener('change',()=>{const v=r.value==='Bedriftsrenhold'?'q2':'q4';const f=form.querySelector(`input[name=freq][value="${v}"]`);if(f)f.checked=true}));
+function check(inp){const ok=inp.checkValidity();inp.closest('.f').classList.toggle('bad',!ok);inp.setAttribute('aria-invalid',String(!ok));return ok}
+$$('#qform [required]').forEach(i=>{i.addEventListener('blur',()=>{if(i.value)check(i)});i.addEventListener('input',()=>{if(i.closest('.f').classList.contains('bad'))check(i)})});
+function collect(){const v=id=>document.getElementById(id);const sel=id=>{const s=v(id);return s.options[s.selectedIndex].textContent};
+  return{service:form.service.value,building:sel('building'),location:sel('place'),size:t(form.size.value),frequency:t(form.freq.value),company:v('company').value.trim(),name:v('name').value.trim(),phone:v('phone').value.trim(),email:v('email').value.trim(),message:v('msg').value.trim(),language:lang}}
+/* LIVE SITE: replace this with a POST to the form backend (e.g. HubSpot Forms API or an email service).
+   Show the thank-you screen only after the server confirms, and show an error message if sending fails. */
+function sendRequest(data){return Promise.resolve({prototype:true})}
 form.onsubmit=e=>{e.preventDefault();
-  if(cur<3)return show(cur+1);
-  const req=$$('[data-step="3"] [required]');req.forEach(i=>i.classList.add('touched'));
-  const bad=req.find(i=>!i.checkValidity());if(bad){$('#err').textContent=t('err');bad.focus();return}
-  const sel=id=>{const s=$('#'+id);return s.options[s.selectedIndex].textContent};
-  const svcKey={"Bedriftsrenhold":"s1","Spesialrenhold":"s2","Boning og oppskuring":"s3"}[form.service.value];
-  const rows=[[t('sumS'),t(svcKey)],[t('sumB'),sel('building')+', '+sel('place')],[t('sumZ'),out.textContent],[t('sumF'),t(form.freq.value)],[t('sumC'),$('#name').value+', '+$('#company').value]];
-  const sum=$('#sum');sum.textContent='';rows.forEach(([k,v])=>{const d=document.createElement('div'),a=document.createElement('span'),b=document.createElement('b');a.textContent=k;b.textContent=v;d.append(a,b);sum.append(d)});
-  show(4)};
-$('#back').onclick=()=>show(cur-1);
-$('#again').onclick=()=>{form.reset();out.textContent='400 m²';$$('.touched').forEach(i=>i.classList.remove('touched'));show(1)};
+  if(cur<3)return show(cur+1,true);
+  if($('#website').value)return; /* spam trap filled in: ignore */
+  const req=$$('[data-step="3"] [required]');const bad=req.filter(i=>!check(i));if(bad.length){bad[0].focus();return}
+  const d=collect();
+  sendRequest(d).then(()=>{
+    const svcKey={"Bedriftsrenhold":"s1","Spesialrenhold":"s2","Boning og oppskuring":"s3"}[d.service];
+    const first=d.name.split(' ')[0];$('#doneTitle').textContent=t('qfDoneH').replace('{name}',first);
+    const rows=[[t('sumS'),t(svcKey)],[t('sumB'),d.building+', '+d.location],[t('sumZ'),d.size],[t('sumF'),d.frequency],[t('sumC'),d.name+', '+d.company],[t('lb7'),d.phone],[t('lb8'),d.email]];
+    const sum=$('#sum');sum.textContent='';rows.forEach(([k,v])=>{const r=document.createElement('div'),a=document.createElement('span'),b=document.createElement('b');a.textContent=k;b.textContent=v;r.append(a,b);sum.append(r)});
+    show(4,true)})};
+$('#back').onclick=()=>show(cur-1,true);
+$('#again').onclick=()=>{form.reset();$$('#qform .f.bad').forEach(f=>f.classList.remove('bad'));show(1,true)};
 function toQuote(svc){if(svc){const r=form.querySelector(`input[name=service][value="${svc}"]`);if(r)r.checked=true}show(1);$('#kontakt').scrollIntoView({behavior:'smooth'})}
 $$('[data-service]').forEach(b=>b.onclick=()=>toQuote(b.dataset.service));
 
